@@ -4,7 +4,7 @@ Calendar
 -Problem: stuttering when change the month in multiplayers  
 [v1.1]  
 -Today Highlight with Red Color  
--Disable Black Dates  
+-Disable Blank Dates  
 -Initialize from System Clock  
   
 [v0.1]  
