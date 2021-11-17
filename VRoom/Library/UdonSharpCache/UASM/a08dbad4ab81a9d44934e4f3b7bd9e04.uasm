@@ -1,0 +1,84 @@
+.data_start
+
+
+    __refl_const_intnl_udonTypeID: %SystemInt64, null
+    __refl_const_intnl_udonTypeName: %SystemString, null
+    isRotating: %SystemBoolean, null
+    __0_this_intnl_UnityEngineTransform: %UnityEngineTransform, this
+    __0_const_intnl_SystemSingle: %SystemSingle, null
+    __0_const_intnl_SystemString: %SystemString, null
+    __0_const_intnl_SystemUInt32: %SystemUInt32, null
+    __1_intnl_SystemSingle: %SystemSingle, null
+    __0_intnl_SystemSingle: %SystemSingle, null
+    __0_intnl_returnTarget_UInt32: %SystemUInt32, null
+    __0_intnl_UnityEngineVector3: %UnityEngineVector3, null
+
+.data_end
+
+        
+         #  using UnityEngine;
+        
+         #  using VRC.SDK3.Components;
+        
+         #  using VRC.SDKBase;
+        
+         #  using VRC.Udon;
+        
+         #  namespace UdonSharp.Examples.Tutorials
+        
+         #  [AddComponentMenu("Udon Sharp/Tutorials/Spinning Cubes 5 Dependent")]
+        
+         #  public class SpinningCubes_5_Dependent : UdonSharpBehaviour
+.code_start
+        
+         #  bool isRotating = false;
+        
+         #  public void DoRotate()
+    .export DoRotate
+        
+    DoRotate:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  isRotating = !isRotating;
+        PUSH, isRotating
+        PUSH, isRotating
+        EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  private void Update()
+    .export _update
+        
+    _update:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  if (isRotating)
+        PUSH, isRotating
+        JUMP_IF_FALSE, 0x000000AC
+        
+         #  transform.Rotate(Vector3.up, 60f * Time.deltaTime);
+        PUSH, __0_intnl_UnityEngineVector3
+        EXTERN, "UnityEngineVector3.__get_up__UnityEngineVector3"
+        PUSH, __0_intnl_SystemSingle
+        EXTERN, "UnityEngineTime.__get_deltaTime__SystemSingle"
+        PUSH, __0_const_intnl_SystemSingle
+        PUSH, __0_intnl_SystemSingle
+        PUSH, __1_intnl_SystemSingle
+        EXTERN, "SystemSingle.__op_Multiplication__SystemSingle_SystemSingle__SystemSingle"
+        PUSH, __0_this_intnl_UnityEngineTransform
+        PUSH, __0_intnl_UnityEngineVector3
+        PUSH, __1_intnl_SystemSingle
+        EXTERN, "UnityEngineTransform.__Rotate__UnityEngineVector3_SystemSingle__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+.code_end

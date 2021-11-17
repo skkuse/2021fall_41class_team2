@@ -1,0 +1,184 @@
+.data_start
+
+    .export voiceGain
+    .export voiceFar
+    .export voiceNear
+    .export voiceVolumetricRadius
+    .export voiceDisableLowpass
+    .export avatarMaxAudioGain
+    .export avatarMaxFarRadius
+    .export avatarMaxNearRadius
+    .export avatarMaxVolumetricRadius
+    .export avatarForceSpacialization
+    .export avatarDisableCustomCurve
+
+    __refl_const_intnl_udonTypeID: %SystemInt64, null
+    __refl_const_intnl_udonTypeName: %SystemString, null
+    avatarDisableCustomCurve: %SystemBoolean, null
+    avatarForceSpacialization: %SystemBoolean, null
+    voiceDisableLowpass: %SystemBoolean, null
+    avatarMaxVolumetricRadius: %SystemSingle, null
+    avatarMaxNearRadius: %SystemSingle, null
+    avatarMaxFarRadius: %SystemSingle, null
+    avatarMaxAudioGain: %SystemSingle, null
+    voiceVolumetricRadius: %SystemSingle, null
+    voiceNear: %SystemSingle, null
+    voiceFar: %SystemSingle, null
+    voiceGain: %SystemSingle, null
+    onPlayerJoinedPlayer: %VRCSDKBaseVRCPlayerApi, null
+    __0_mp_player_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
+    __2_const_intnl_SystemSingle: %SystemSingle, null
+    __1_const_intnl_SystemSingle: %SystemSingle, null
+    __0_const_intnl_SystemSingle: %SystemSingle, null
+    __13_const_intnl_SystemString: %SystemString, null
+    __12_const_intnl_SystemString: %SystemString, null
+    __11_const_intnl_SystemString: %SystemString, null
+    __10_const_intnl_SystemString: %SystemString, null
+    __9_const_intnl_SystemString: %SystemString, null
+    __8_const_intnl_SystemString: %SystemString, null
+    __7_const_intnl_SystemString: %SystemString, null
+    __6_const_intnl_SystemString: %SystemString, null
+    __5_const_intnl_SystemString: %SystemString, null
+    __4_const_intnl_SystemString: %SystemString, null
+    __3_const_intnl_SystemString: %SystemString, null
+    __2_const_intnl_SystemString: %SystemString, null
+    __1_const_intnl_SystemString: %SystemString, null
+    __0_const_intnl_SystemString: %SystemString, null
+    __0_const_intnl_SystemUInt32: %SystemUInt32, null
+    __3_intnl_SystemBoolean: %SystemBoolean, null
+    __2_intnl_SystemBoolean: %SystemBoolean, null
+    __1_intnl_SystemBoolean: %SystemBoolean, null
+    __0_intnl_SystemBoolean: %SystemBoolean, null
+    __0_intnl_returnTarget_UInt32: %SystemUInt32, null
+
+.data_end
+
+        
+         #  using UnityEngine;
+        
+         #  using VRC.SDK3.Components;
+        
+         #  using VRC.SDKBase;
+        
+         #  using VRC.Udon;
+        
+         #  namespace UdonSharp.Examples.Utilities
+        
+         #  [AddComponentMenu("Udon Sharp/Utilities/World Audio Settings")]
+        
+         #  [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
+        
+         #  public class WorldAudioSettings : UdonSharpBehaviour
+.code_start
+        
+         #  [Header("Player voice")]
+        
+         #  [Tooltip("The end of the range for hearing a user's voice")]
+        
+         #  [Tooltip("The near radius in meters where player audio starts to fall off, it is recommended to keep this at 0")]
+        
+         #  [Tooltip("The volumetric radius for the player voice, this should be left at 0 unless you know what you're doing")]
+        
+         #  [Tooltip("Disables the low-pass filter when players are far away")]
+        
+         #  [Header("Avatar audio")]
+        
+         #  [Tooltip("The maximum end of avatar audio range, a value of 0 will effectively mute avatar audio")]
+        
+         #  [Tooltip("The maximum for the radius where avatar audio starts to fall off")]
+        
+         #  [Tooltip("The max volumetric radius for avatar audio sources")]
+        
+         #  [Tooltip("Forces avatars to have spatialized audio")]
+        
+         #  [Tooltip("Disables custom curves on avatar audio sources")]
+        
+         #  public override void OnPlayerJoined(VRCPlayerApi player)
+    .export _onPlayerJoined
+        
+    _onPlayerJoined:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, onPlayerJoinedPlayer
+        PUSH, __0_mp_player_VRCPlayerApi
+        COPY
+        
+         #  {
+        
+         #  if (!player.isLocal)
+        PUSH, __0_mp_player_VRCPlayerApi
+        PUSH, __0_intnl_SystemBoolean
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__get_isLocal__SystemBoolean"
+        PUSH, __0_intnl_SystemBoolean
+        PUSH, __1_intnl_SystemBoolean
+        EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
+        PUSH, __1_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000194
+        
+         #  {
+        
+         #  player.SetVoiceGain(voiceGain);
+        PUSH, __0_mp_player_VRCPlayerApi
+        PUSH, voiceGain
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__SetVoiceGain__SystemSingle__SystemVoid"
+        
+         #  player.SetVoiceDistanceFar(voiceFar);
+        PUSH, __0_mp_player_VRCPlayerApi
+        PUSH, voiceFar
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__SetVoiceDistanceFar__SystemSingle__SystemVoid"
+        
+         #  player.SetVoiceDistanceNear(voiceNear);
+        PUSH, __0_mp_player_VRCPlayerApi
+        PUSH, voiceNear
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__SetVoiceDistanceNear__SystemSingle__SystemVoid"
+        
+         #  player.SetVoiceVolumetricRadius(voiceVolumetricRadius);
+        PUSH, __0_mp_player_VRCPlayerApi
+        PUSH, voiceVolumetricRadius
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__SetVoiceVolumetricRadius__SystemSingle__SystemVoid"
+        
+         #  player.SetVoiceLowpass(!voiceDisableLowpass);
+        PUSH, voiceDisableLowpass
+        PUSH, __2_intnl_SystemBoolean
+        EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
+        PUSH, __0_mp_player_VRCPlayerApi
+        PUSH, __2_intnl_SystemBoolean
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__SetVoiceLowpass__SystemBoolean__SystemVoid"
+        
+         #  player.SetAvatarAudioGain(avatarMaxAudioGain);
+        PUSH, __0_mp_player_VRCPlayerApi
+        PUSH, avatarMaxAudioGain
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__SetAvatarAudioGain__SystemSingle__SystemVoid"
+        
+         #  player.SetAvatarAudioFarRadius(avatarMaxFarRadius);
+        PUSH, __0_mp_player_VRCPlayerApi
+        PUSH, avatarMaxFarRadius
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__SetAvatarAudioFarRadius__SystemSingle__SystemVoid"
+        
+         #  player.SetAvatarAudioNearRadius(avatarMaxNearRadius);
+        PUSH, __0_mp_player_VRCPlayerApi
+        PUSH, avatarMaxNearRadius
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__SetAvatarAudioNearRadius__SystemSingle__SystemVoid"
+        
+         #  player.SetAvatarAudioVolumetricRadius(avatarMaxVolumetricRadius);
+        PUSH, __0_mp_player_VRCPlayerApi
+        PUSH, avatarMaxVolumetricRadius
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__SetAvatarAudioVolumetricRadius__SystemSingle__SystemVoid"
+        
+         #  player.SetAvatarAudioForceSpatial(avatarForceSpacialization);
+        PUSH, __0_mp_player_VRCPlayerApi
+        PUSH, avatarForceSpacialization
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__SetAvatarAudioForceSpatial__SystemBoolean__SystemVoid"
+        
+         #  player.SetAvatarAudioCustomCurve(!avatarDisableCustomCurve);
+        PUSH, avatarDisableCustomCurve
+        PUSH, __3_intnl_SystemBoolean
+        EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
+        PUSH, __0_mp_player_VRCPlayerApi
+        PUSH, __3_intnl_SystemBoolean
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__SetAvatarAudioCustomCurve__SystemBoolean__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+.code_end

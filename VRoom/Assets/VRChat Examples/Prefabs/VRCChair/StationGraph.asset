@@ -44,7 +44,7 @@ MonoBehaviour:
     nodes:
     - fullName: VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi
       uid: 7e192239-fea8-49dc-8d4e-60cba03043bf
-      position: {x: 980.65753, y: 192.63007}
+      position: {x: 980, y: 190}
       nodeUIDs: []
       flowUIDs: []
       nodeValues: []
@@ -144,7 +144,7 @@ MonoBehaviour:
   graphElementData:
   - type: 2
     uid: a20273af-8e44-4a9a-b87c-aaaea442c209
-    jsonData: '{"uid":"a20273af-8e44-4a9a-b87c-aaaea442c209","layout":{"serializedVersion":"2","x":955.0,"y":23.0,"width":552.0,"height":276.0},"containedElements":["884840fe-5e09-4c15-95dd-6cbc8cbba62b","f15f7288-a517-4d6b-a54f-028d6d4615ac","7e192239-fea8-49dc-8d4e-60cba03043bf"],"title":"This
+    jsonData: '{"uid":"a20273af-8e44-4a9a-b87c-aaaea442c209","layout":{"serializedVersion":"2","x":960.0,"y":20.0,"width":677.0,"height":278.0},"containedElements":["884840fe-5e09-4c15-95dd-6cbc8cbba62b","f15f7288-a517-4d6b-a54f-028d6d4615ac","7e192239-fea8-49dc-8d4e-60cba03043bf"],"title":"This
       is How you Sit a Player in a Station","layer":0,"elementTypeColor":{"r":0.0,"g":0.0,"b":0.0,"a":0.0}}'
   - type: 2
     uid: 2dd1fe0c-8974-405d-bafb-b8db7b7cb08d
@@ -161,7 +161,7 @@ MonoBehaviour:
     uid: 660ed7e9-fdef-48a0-be18-1e45b935b733
     jsonData: '{"visible":true,"layout":{"serializedVersion":"2","x":10.0,"y":20.0,"width":0.0,"height":0.0}}'
   viewTransform:
-    position: {x: -1172.8, y: 0.8}
-    scale: 1.3225
+    position: {x: -349.61578, y: 322.0548}
+    scale: 0.57175326
   version: 1.0.0
   showAssembly: 0

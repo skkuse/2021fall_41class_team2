@@ -1,0 +1,744 @@
+.data_start
+
+    .export receiver
+    .export unityVideoPlayer
+    .export avProPlayer
+    .export unityTextureRenderer
+    .export avProTextureRenderer
+    .export audioSources
+
+    __refl_const_intnl_udonTypeID: %SystemInt64, null
+    __refl_const_intnl_udonTypeName: %SystemString, null
+    audioSources: %UnityEngineAudioSourceArray, null
+    avProPlayer: %VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer, null
+    unityVideoPlayer: %VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer, null
+    avProTextureRenderer: %UnityEngineRenderer, null
+    unityTextureRenderer: %UnityEngineRenderer, null
+    receiver: %VRCUdonUdonBehaviour, null
+    _currentPlayer: %VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer, null
+    _currentlyMuted: %SystemBoolean, null
+    _initialized: %SystemBoolean, null
+    avproFetchMaterial: %UnityEngineMaterial, null
+    _fetchBlock: %UnityEngineMaterialPropertyBlock, null
+    _currentVolume: %SystemSingle, null
+    onVideoErrorVideoError: %VRCSDK3ComponentsVideoVideoError, null
+    __1_audioSource_AudioSource: %UnityEngineAudioSource, null
+    __0_audioSource_AudioSource: %UnityEngineAudioSource, null
+    __0_mp_muted_Boolean: %SystemBoolean, null
+    __0_mp_loop_Boolean: %SystemBoolean, null
+    __0_m_Material: %UnityEngineMaterial, null
+    __0_adjustedVolume_Single: %SystemSingle, null
+    __0_mp_volume_Single: %SystemSingle, null
+    __0_mp_time_Single: %SystemSingle, null
+    __0_mp_videoError_VideoError: %VRCSDK3ComponentsVideoVideoError, null
+    __0_mp_url_VRCUrl: %VRCSDKBaseVRCUrl, null
+    __0_const_intnl_SystemBoolean: %SystemBoolean, null
+    __1_const_intnl_SystemInt32: %SystemInt32, null
+    __0_const_intnl_SystemInt32: %SystemInt32, null
+    __2_const_intnl_SystemSingle: %SystemSingle, null
+    __1_const_intnl_SystemSingle: %SystemSingle, null
+    __0_const_intnl_SystemSingle: %SystemSingle, null
+    __9_const_intnl_SystemString: %SystemString, null
+    __8_const_intnl_SystemString: %SystemString, null
+    __7_const_intnl_SystemString: %SystemString, null
+    __6_const_intnl_SystemString: %SystemString, null
+    __5_const_intnl_SystemString: %SystemString, null
+    __4_const_intnl_SystemString: %SystemString, null
+    __3_const_intnl_SystemString: %SystemString, null
+    __2_const_intnl_SystemString: %SystemString, null
+    __1_const_intnl_SystemString: %SystemString, null
+    __0_const_intnl_SystemString: %SystemString, null
+    __0_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null
+    __0_const_intnl_SystemUInt32: %SystemUInt32, null
+    __6_intnl_SystemBoolean: %SystemBoolean, null
+    __5_intnl_SystemBoolean: %SystemBoolean, null
+    __4_intnl_SystemBoolean: %SystemBoolean, null
+    __3_intnl_SystemBoolean: %SystemBoolean, null
+    __2_intnl_SystemBoolean: %SystemBoolean, null
+    __1_intnl_SystemBoolean: %SystemBoolean, null
+    __0_intnl_SystemBoolean: %SystemBoolean, null
+    __1_intnl_returnValSymbol_Boolean: %SystemBoolean, null
+    __0_intnl_returnValSymbol_Boolean: %SystemBoolean, null
+    __3_intnl_SystemInt32: %SystemInt32, null
+    __2_intnl_SystemInt32: %SystemInt32, null
+    __1_intnl_SystemInt32: %SystemInt32, null
+    __0_intnl_SystemInt32: %SystemInt32, null
+    __6_intnl_SystemSingle: %SystemSingle, null
+    __5_intnl_SystemSingle: %SystemSingle, null
+    __4_intnl_SystemSingle: %SystemSingle, null
+    __3_intnl_SystemSingle: %SystemSingle, null
+    __2_intnl_SystemSingle: %SystemSingle, null
+    __1_intnl_SystemSingle: %SystemSingle, null
+    __0_intnl_SystemSingle: %SystemSingle, null
+    __2_intnl_returnValSymbol_Single: %SystemSingle, null
+    __1_intnl_returnValSymbol_Single: %SystemSingle, null
+    __0_intnl_returnValSymbol_Single: %SystemSingle, null
+    __0_intnl_returnValSymbol_Texture: %UnityEngineTexture, null
+    __0_intnl_returnTarget_UInt32: %SystemUInt32, null
+
+.data_end
+
+        
+         #  using UdonSharp;
+        
+         #  using UnityEngine;
+        
+         #  using VRC.SDKBase;
+        
+         #  using VRC.Udon;
+        
+         #  using VRC.SDK3.Video.Components;
+        
+         #  using VRC.SDK3.Video.Components.AVPro;
+        
+         #  using VRC.SDK3.Video.Components.Base;
+        
+         #  namespace UdonSharp.Video
+        
+         #  [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
+        
+         #  [AddComponentMenu("Udon Sharp/Video/Internal/Video Player Manager")]
+        
+         #  public class VideoPlayerManager : UdonSharpBehaviour
+.code_start
+        
+         #  public USharpVideoPlayer receiver;
+        
+         #  public VRCUnityVideoPlayer unityVideoPlayer;
+        
+         #  public VRCAVProVideoPlayer avProPlayer;
+        
+         #  public Renderer unityTextureRenderer;
+        
+         #  public Renderer avProTextureRenderer;
+        
+         #  public AudioSource[] audioSources;
+        
+         #  BaseVRCVideoPlayer _currentPlayer;
+        
+         #  MaterialPropertyBlock _fetchBlock;
+        
+         #  Material avproFetchMaterial;
+        
+         #  bool _initialized = false;
+        
+         #  public void Start()
+    .export _start
+        
+    _start:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  if (_initialized)
+        PUSH, _initialized
+        JUMP_IF_FALSE, 0x0000002C
+        
+         #  return;
+        PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+         #  _currentPlayer = unityVideoPlayer;
+        PUSH, unityVideoPlayer
+        PUSH, _currentPlayer
+        COPY
+        
+         #  Material m = unityTextureRenderer.material;
+        PUSH, unityTextureRenderer
+        PUSH, __0_m_Material
+        EXTERN, "UnityEngineRenderer.__get_material__UnityEngineMaterial"
+        
+         #  m = avProTextureRenderer.material;
+        PUSH, avProTextureRenderer
+        PUSH, __0_m_Material
+        EXTERN, "UnityEngineRenderer.__get_material__UnityEngineMaterial"
+        
+         #  _fetchBlock = new MaterialPropertyBlock();
+        PUSH, _fetchBlock
+        EXTERN, "UnityEngineMaterialPropertyBlock.__ctor____UnityEngineMaterialPropertyBlock"
+        
+         #  avproFetchMaterial = avProTextureRenderer.material;
+        PUSH, avProTextureRenderer
+        PUSH, avproFetchMaterial
+        EXTERN, "UnityEngineRenderer.__get_material__UnityEngineMaterial"
+        
+         #  _initialized = true;
+        PUSH, __0_const_intnl_SystemBoolean
+        PUSH, _initialized
+        COPY
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public override void OnVideoEnd()
+    .export _onVideoEnd
+        
+    _onVideoEnd:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  receiver.OnVideoEnd();
+        PUSH, receiver
+        PUSH, __1_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public override void OnVideoError(VRC.SDK3.Components.Video.VideoError videoError)
+    .export _onVideoError
+        
+    _onVideoError:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, onVideoErrorVideoError
+        PUSH, __0_mp_videoError_VideoError
+        COPY
+        
+         #  {
+        
+         #  receiver._OnVideoErrorCallback(videoError);
+        PUSH, receiver
+        PUSH, __2_const_intnl_SystemString
+        PUSH, __0_mp_videoError_VideoError
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
+        PUSH, receiver
+        PUSH, __3_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public override void OnVideoLoop()
+    .export _onVideoLoop
+        
+    _onVideoLoop:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  receiver.OnVideoLoop();
+        PUSH, receiver
+        PUSH, __4_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public override void OnVideoPause()
+    .export OnVideoPause
+        
+    OnVideoPause:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  receiver.OnVideoPause();
+        PUSH, receiver
+        PUSH, __5_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public override void OnVideoPlay()
+    .export OnVideoPlay
+        
+    OnVideoPlay:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  receiver.OnVideoPlay();
+        PUSH, receiver
+        PUSH, __6_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public override void OnVideoReady()
+    .export _onVideoReady
+        
+    _onVideoReady:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  receiver.OnVideoReady();
+        PUSH, receiver
+        PUSH, __7_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public override void OnVideoStart()
+    .export _onVideoStart
+        
+    _onVideoStart:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  receiver.OnVideoStart();
+        PUSH, receiver
+        PUSH, __8_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void Play() => _currentPlayer.Play();
+    .export Play
+        
+    Play:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, _currentPlayer
+        EXTERN, "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__Play__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void Pause() => _currentPlayer.Pause();
+    .export Pause
+        
+    Pause:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, _currentPlayer
+        EXTERN, "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__Pause__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void Stop() => _currentPlayer.Stop();
+    .export Stop
+        
+    Stop:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, _currentPlayer
+        EXTERN, "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__Stop__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public float GetTime() => _currentPlayer.GetTime();
+    .export GetTime
+        
+    GetTime:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, _currentPlayer
+        PUSH, __0_intnl_SystemSingle
+        EXTERN, "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__GetTime__SystemSingle"
+        PUSH, __0_intnl_SystemSingle
+        PUSH, __0_intnl_returnValSymbol_Single
+        COPY
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public float GetDuration() => _currentPlayer.GetDuration();
+    .export GetDuration
+        
+    GetDuration:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, _currentPlayer
+        PUSH, __1_intnl_SystemSingle
+        EXTERN, "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__GetDuration__SystemSingle"
+        PUSH, __1_intnl_SystemSingle
+        PUSH, __1_intnl_returnValSymbol_Single
+        COPY
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public bool IsPlaying() => _currentPlayer.IsPlaying;
+    .export IsPlaying
+        
+    IsPlaying:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, _currentPlayer
+        PUSH, __0_intnl_SystemBoolean
+        EXTERN, "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__get_IsPlaying__SystemBoolean"
+        PUSH, __0_intnl_SystemBoolean
+        PUSH, __0_intnl_returnValSymbol_Boolean
+        COPY
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void LoadURL(VRCUrl url) => _currentPlayer.LoadURL(url);
+    .export LoadURL
+        
+    LoadURL:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, _currentPlayer
+        PUSH, __0_mp_url_VRCUrl
+        EXTERN, "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__LoadURL__VRCSDKBaseVRCUrl__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void SetTime(float time) => _currentPlayer.SetTime(time);
+    .export SetTime
+        
+    SetTime:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, _currentPlayer
+        PUSH, __0_mp_time_Single
+        EXTERN, "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__SetTime__SystemSingle__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void SetLooping(bool loop)
+    .export SetLooping
+        
+    SetLooping:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  unityVideoPlayer.Loop = loop;
+        PUSH, unityVideoPlayer
+        PUSH, __0_mp_loop_Boolean
+        EXTERN, "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__set_Loop__SystemBoolean__SystemVoid"
+        
+         #  avProPlayer.Loop = loop;
+        PUSH, avProPlayer
+        PUSH, __0_mp_loop_Boolean
+        EXTERN, "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__set_Loop__SystemBoolean__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void SetToStreamPlayerMode()
+    .export SetToStreamPlayerMode
+        
+    SetToStreamPlayerMode:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  if (_currentPlayer == avProPlayer)
+        PUSH, _currentPlayer
+        PUSH, avProPlayer
+        PUSH, __1_intnl_SystemBoolean
+        EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
+        PUSH, __1_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000004BC
+        
+         #  return;
+        PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+         #  _currentPlayer.Stop();
+        PUSH, _currentPlayer
+        EXTERN, "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__Stop__SystemVoid"
+        
+         #  _currentPlayer = avProPlayer;
+        PUSH, avProPlayer
+        PUSH, _currentPlayer
+        COPY
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void SetToVideoPlayerMode()
+    .export SetToVideoPlayerMode
+        
+    SetToVideoPlayerMode:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  if (_currentPlayer == unityVideoPlayer)
+        PUSH, _currentPlayer
+        PUSH, unityVideoPlayer
+        PUSH, __2_intnl_SystemBoolean
+        EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
+        PUSH, __2_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000540
+        
+         #  return;
+        PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+         #  _currentPlayer.Stop();
+        PUSH, _currentPlayer
+        EXTERN, "VRCSDK3VideoComponentsBaseBaseVRCVideoPlayer.__Stop__SystemVoid"
+        
+         #  _currentPlayer = unityVideoPlayer;
+        PUSH, unityVideoPlayer
+        PUSH, _currentPlayer
+        COPY
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public Texture GetVideoTexture()
+    .export GetVideoTexture
+        
+    GetVideoTexture:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  if (_currentPlayer == unityVideoPlayer)
+        PUSH, _currentPlayer
+        PUSH, unityVideoPlayer
+        PUSH, __3_intnl_SystemBoolean
+        EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
+        PUSH, __3_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000604
+        
+         #  {
+        
+         #  unityTextureRenderer.GetPropertyBlock(_fetchBlock);
+        PUSH, unityTextureRenderer
+        PUSH, _fetchBlock
+        EXTERN, "UnityEngineRenderer.__GetPropertyBlock__UnityEngineMaterialPropertyBlock__SystemVoid"
+        
+         #  return _fetchBlock.GetTexture("_MainTex");
+        PUSH, _fetchBlock
+        PUSH, __9_const_intnl_SystemString
+        PUSH, __0_intnl_returnValSymbol_Texture
+        EXTERN, "UnityEngineMaterialPropertyBlock.__GetTexture__SystemString__UnityEngineTexture"
+        PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        JUMP, 0x00000638
+        
+         #  else
+        
+         #  {
+        
+         #  return avproFetchMaterial.GetTexture("_MainTex");
+        PUSH, avproFetchMaterial
+        PUSH, __9_const_intnl_SystemString
+        PUSH, __0_intnl_returnValSymbol_Texture
+        EXTERN, "UnityEngineMaterial.__GetTexture__SystemString__UnityEngineTexture"
+        PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  float _currentVolume = 1f;
+        
+         #  bool _currentlyMuted = false;
+        
+         #  public float GetVolume() => _currentVolume;
+    .export GetVolume
+        
+    GetVolume:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, _currentVolume
+        PUSH, __2_intnl_returnValSymbol_Single
+        COPY
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public bool IsMuted() => _currentlyMuted;
+    .export IsMuted
+        
+    IsMuted:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, _currentlyMuted
+        PUSH, __1_intnl_returnValSymbol_Boolean
+        COPY
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void SetVolume(float volume)
+    .export SetVolume
+        
+    SetVolume:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  if (!_currentlyMuted)
+        PUSH, _currentlyMuted
+        PUSH, __4_intnl_SystemBoolean
+        EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
+        PUSH, __4_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000828
+        
+         #  {
+        
+         #  float adjustedVolume = Mathf.Clamp01(3.1623e-3f * Mathf.Exp(volume * 5.757f) - 3.1623e-3f);
+        PUSH, __0_mp_volume_Single
+        PUSH, __1_const_intnl_SystemSingle
+        PUSH, __2_intnl_SystemSingle
+        EXTERN, "SystemSingle.__op_Multiplication__SystemSingle_SystemSingle__SystemSingle"
+        PUSH, __2_intnl_SystemSingle
+        PUSH, __3_intnl_SystemSingle
+        EXTERN, "UnityEngineMathf.__Exp__SystemSingle__SystemSingle"
+        PUSH, __0_const_intnl_SystemSingle
+        PUSH, __3_intnl_SystemSingle
+        PUSH, __4_intnl_SystemSingle
+        EXTERN, "SystemSingle.__op_Multiplication__SystemSingle_SystemSingle__SystemSingle"
+        PUSH, __4_intnl_SystemSingle
+        PUSH, __0_const_intnl_SystemSingle
+        PUSH, __5_intnl_SystemSingle
+        EXTERN, "SystemSingle.__op_Subtraction__SystemSingle_SystemSingle__SystemSingle"
+        PUSH, __5_intnl_SystemSingle
+        PUSH, __0_adjustedVolume_Single
+        EXTERN, "UnityEngineMathf.__Clamp01__SystemSingle__SystemSingle"
+        
+         #  foreach (AudioSource audioSource in audioSources)
+        PUSH, __0_const_intnl_SystemInt32
+        PUSH, __0_intnl_SystemInt32
+        COPY
+        PUSH, audioSources
+        PUSH, __1_intnl_SystemInt32
+        EXTERN, "UnityEngineAudioSourceArray.__get_Length__SystemInt32"
+        PUSH, __0_intnl_SystemInt32
+        PUSH, __1_intnl_SystemInt32
+        PUSH, __5_intnl_SystemBoolean
+        EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
+        PUSH, __5_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000828
+        PUSH, audioSources
+        PUSH, __0_intnl_SystemInt32
+        PUSH, __0_audioSource_AudioSource
+        EXTERN, "SystemObjectArray.__Get__SystemInt32__SystemObject"
+        
+         #  audioSource.volume = adjustedVolume;
+        PUSH, __0_audioSource_AudioSource
+        PUSH, __0_adjustedVolume_Single
+        EXTERN, "UnityEngineAudioSource.__set_volume__SystemSingle__SystemVoid"
+        PUSH, __0_intnl_SystemInt32
+        PUSH, __1_const_intnl_SystemInt32
+        PUSH, __0_intnl_SystemInt32
+        EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
+        JUMP, 0x00000798
+        
+         #  _currentVolume = volume;
+        PUSH, __0_mp_volume_Single
+        PUSH, _currentVolume
+        COPY
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void SetMuted(bool muted)
+    .export SetMuted
+        
+    SetMuted:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  _currentlyMuted = muted;
+        PUSH, __0_mp_muted_Boolean
+        PUSH, _currentlyMuted
+        COPY
+        
+         #  if (muted)
+        PUSH, __0_mp_muted_Boolean
+        JUMP_IF_FALSE, 0x00000940
+        
+         #  {
+        
+         #  foreach (AudioSource audioSource in audioSources)
+        PUSH, __0_const_intnl_SystemInt32
+        PUSH, __2_intnl_SystemInt32
+        COPY
+        PUSH, audioSources
+        PUSH, __3_intnl_SystemInt32
+        EXTERN, "UnityEngineAudioSourceArray.__get_Length__SystemInt32"
+        PUSH, __2_intnl_SystemInt32
+        PUSH, __3_intnl_SystemInt32
+        PUSH, __6_intnl_SystemBoolean
+        EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
+        PUSH, __6_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000938
+        PUSH, audioSources
+        PUSH, __2_intnl_SystemInt32
+        PUSH, __1_audioSource_AudioSource
+        EXTERN, "SystemObjectArray.__Get__SystemInt32__SystemObject"
+        
+         #  audioSource.volume = 0f;
+        PUSH, __1_audioSource_AudioSource
+        PUSH, __2_const_intnl_SystemSingle
+        EXTERN, "UnityEngineAudioSource.__set_volume__SystemSingle__SystemVoid"
+        PUSH, __2_intnl_SystemInt32
+        PUSH, __1_const_intnl_SystemInt32
+        PUSH, __2_intnl_SystemInt32
+        EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
+        JUMP, 0x000008A8
+        JUMP, 0x00000978
+        
+         #  else
+        
+         #  {
+        
+         #  SetVolume(_currentVolume);
+        PUSH, _currentVolume
+        PUSH, __0_mp_volume_Single
+        COPY
+        PUSH, _currentVolume
+        PUSH, __6_intnl_SystemSingle
+        COPY #  Copy-on-write symbol value dirtied
+        PUSH, __0_const_intnl_exitJumpLoc_UInt32
+        JUMP, 0x000006B4
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+.code_end

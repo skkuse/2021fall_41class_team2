@@ -1,0 +1,172 @@
+.data_start
+
+    .export videoPlayerControls
+    .export sliderTransform
+
+    __refl_const_intnl_udonTypeID: %SystemInt64, null
+    __refl_const_intnl_udonTypeName: %SystemString, null
+    sliderTransform: %UnityEngineRectTransform, null
+    videoPlayerControls: %VRCUdonUdonBehaviour, null
+    _animator: %UnityEngineAnimator, null
+    _sliderText: %UnityEngineUIText, null
+    __0_this_intnl_UdonSharpVideoSyncModeController: %VRCUdonUdonBehaviour, this
+    __1_const_intnl_SystemInt32: %SystemInt32, null
+    __0_const_intnl_SystemInt32: %SystemInt32, null
+    __5_const_intnl_SystemString: %SystemString, null
+    __4_const_intnl_SystemString: %SystemString, null
+    __3_const_intnl_SystemString: %SystemString, null
+    __2_const_intnl_SystemString: %SystemString, null
+    __1_const_intnl_SystemString: %SystemString, null
+    __0_const_intnl_SystemString: %SystemString, null
+    __1_const_intnl_SystemType: %SystemType, null
+    __0_const_intnl_SystemType: %SystemType, null
+    __0_const_intnl_SystemUInt32: %SystemUInt32, null
+    __1_intnl_UnityEngineTransform: %UnityEngineTransform, null
+    __0_intnl_UnityEngineTransform: %UnityEngineTransform, null
+    __0_intnl_returnTarget_UInt32: %SystemUInt32, null
+
+.data_end
+
+        
+         #  using UdonSharp;
+        
+         #  using UnityEngine;
+        
+         #  using UnityEngine.UI;
+        
+         #  using VRC.SDKBase;
+        
+         #  using VRC.Udon;
+        
+         #  namespace UdonSharp.Video
+        
+         #  [AddComponentMenu("Udon Sharp/Video/UI/Sync Mode Controller")]
+        
+         #  [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
+        
+         #  public class SyncModeController : UdonSharpBehaviour
+.code_start
+        
+         #  public VideoControlHandler videoPlayerControls;
+        
+         #  public RectTransform sliderTransform;
+        
+         #  Animator _animator;
+        
+         #  Text _sliderText;
+        
+         #  private void Start()
+    .export _start
+        
+    _start:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  _animator = GetComponent<Animator>();
+        PUSH, __0_this_intnl_UdonSharpVideoSyncModeController
+        PUSH, __0_intnl_UnityEngineTransform
+        EXTERN, "UnityEngineComponent.__get_transform__UnityEngineTransform" # GetComponent strongbox mismatch fix
+        PUSH, __0_intnl_UnityEngineTransform
+        PUSH, __0_const_intnl_SystemType
+        PUSH, _animator
+        EXTERN, "UnityEngineAnimator.__GetComponent__T"
+        
+         #  _sliderText = sliderTransform.GetComponentInChildren<Text>();
+        PUSH, sliderTransform
+        PUSH, __1_intnl_UnityEngineTransform
+        EXTERN, "UnityEngineComponent.__get_transform__UnityEngineTransform" # GetComponent strongbox mismatch fix
+        PUSH, __1_intnl_UnityEngineTransform
+        PUSH, __1_const_intnl_SystemType
+        PUSH, _sliderText
+        EXTERN, "UnityEngineUIText.__GetComponentInChildren__T"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void SetVideoVisual()
+    .export SetVideoVisual
+        
+    SetVideoVisual:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  _animator.SetInteger("Target", 0);
+        PUSH, _animator
+        PUSH, __1_const_intnl_SystemString
+        PUSH, __0_const_intnl_SystemInt32
+        EXTERN, "UnityEngineAnimator.__SetInteger__SystemString_SystemInt32__SystemVoid"
+        
+         #  _sliderText.text = "Video";
+        PUSH, _sliderText
+        PUSH, __2_const_intnl_SystemString
+        EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void SetStreamVisual()
+    .export SetStreamVisual
+        
+    SetStreamVisual:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  _animator.SetInteger("Target", 1);
+        PUSH, _animator
+        PUSH, __1_const_intnl_SystemString
+        PUSH, __1_const_intnl_SystemInt32
+        EXTERN, "UnityEngineAnimator.__SetInteger__SystemString_SystemInt32__SystemVoid"
+        
+         #  _sliderText.text = "Stream";
+        PUSH, _sliderText
+        PUSH, __3_const_intnl_SystemString
+        EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void ClickVideoToggle()
+    .export ClickVideoToggle
+        
+    ClickVideoToggle:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  videoPlayerControls.OnVideoPlayerModeButtonPressed();
+        PUSH, videoPlayerControls
+        PUSH, __4_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public void ClickStreamToggle()
+    .export ClickStreamToggle
+        
+    ClickStreamToggle:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  videoPlayerControls.OnStreamPlayerModeButtonPressed();
+        PUSH, videoPlayerControls
+        PUSH, __5_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+.code_end

@@ -1,0 +1,52 @@
+.data_start
+
+    .export videoPlayer
+
+    __refl_const_intnl_udonTypeID: %SystemInt64, null
+    __refl_const_intnl_udonTypeName: %SystemString, null
+    videoPlayer: %VRCUdonUdonBehaviour, null
+    __1_const_intnl_SystemString: %SystemString, null
+    __0_const_intnl_SystemString: %SystemString, null
+    __0_const_intnl_SystemUInt32: %SystemUInt32, null
+    __0_intnl_returnTarget_UInt32: %SystemUInt32, null
+
+.data_end
+
+        
+         #  using UdonSharp;
+        
+         #  using UnityEngine;
+        
+         #  using VRC.SDKBase;
+        
+         #  using VRC.Udon;
+        
+         #  namespace UdonSharp.Video.Examples
+        
+         #  [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
+        
+         #  [AddComponentMenu("Udon Sharp/Video/Examples/Resync Button")]
+        
+         #  public class ResyncButton : UdonSharpBehaviour
+.code_start
+        
+         #  public USharpVideoPlayer videoPlayer;
+        
+         #  public void OnResyncPressed()
+    .export OnResyncPressed
+        
+    OnResyncPressed:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  videoPlayer.ForceSyncVideo();
+        PUSH, videoPlayer
+        PUSH, __1_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+.code_end

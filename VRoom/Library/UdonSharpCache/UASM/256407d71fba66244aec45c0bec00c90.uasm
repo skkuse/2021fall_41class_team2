@@ -1,0 +1,30 @@
+.data_start
+
+    .export speed
+
+    __refl_const_intnl_udonTypeID: %SystemInt64, null
+    __refl_const_intnl_udonTypeName: %SystemString, null
+    speed: %SystemSingle, null
+    __0_const_intnl_SystemString: %SystemString, null
+    __0_intnl_returnTarget_UInt32: %SystemUInt32, null
+
+.data_end
+
+        
+         #  using UnityEngine;
+        
+         #  using VRC.SDK3.Components;
+        
+         #  using VRC.SDKBase;
+        
+         #  using VRC.Udon;
+        
+         #  namespace UdonSharp.Examples.Tutorials
+        
+         #  [AddComponentMenu("Udon Sharp/Tutorials/Spinning Cubes 4 Signal")]
+        
+         #  public class SpinningCubes_4_Signal : UdonSharpBehaviour
+.code_start
+        
+         #  public float speed = 60f;
+.code_end
