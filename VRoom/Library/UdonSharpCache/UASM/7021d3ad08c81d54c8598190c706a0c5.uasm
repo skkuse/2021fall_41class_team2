@@ -62,6 +62,7 @@
     onPlayerLeftPlayer: %VRCSDKBaseVRCPlayerApi, null
     onOwnershipRequestNewOwner: %VRCSDKBaseVRCPlayerApi, null
     onOwnershipRequestRequester: %VRCSDKBaseVRCPlayerApi, null
+    __0_this_intnl_UnityEngineGameObject: %UnityEngineGameObject, this
     __0_this_intnl_UdonSharpVideoVideoControlHandler: %VRCUdonUdonBehaviour, this
     __0_videoMode_Boolean: %SystemBoolean, null
     __1_mp_muted_Boolean: %SystemBoolean, null
@@ -84,6 +85,7 @@
     __0_mp_time_TimeSpan: %SystemTimeSpan, null
     __0_manager_VideoPlayerManager: %VRCUdonUdonBehaviour, null
     __0_mp_newPlayer_USharpVideoPlayer: %VRCUdonUdonBehaviour, null
+    __0_owner_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
     __0_mp_player_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
     __0_mp_requestedOwner_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
     __0_mp_requestingPlayer_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
@@ -167,6 +169,9 @@
     __1_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null
     __0_const_intnl_exitJumpLoc_UInt32: %SystemUInt32, null
     __0_const_intnl_SystemUInt32: %SystemUInt32, null
+    __49_intnl_SystemBoolean: %SystemBoolean, null
+    __48_intnl_SystemBoolean: %SystemBoolean, null
+    __47_intnl_SystemBoolean: %SystemBoolean, null
     __46_intnl_SystemBoolean: %SystemBoolean, null
     __45_intnl_SystemBoolean: %SystemBoolean, null
     __44_intnl_SystemBoolean: %SystemBoolean, null
@@ -218,6 +223,7 @@
     __2_intnl_SystemDouble: %SystemDouble, null
     __1_intnl_SystemDouble: %SystemDouble, null
     __0_intnl_SystemDouble: %SystemDouble, null
+    __4_intnl_UnityEngineGameObject: %UnityEngineGameObject, null
     __3_intnl_UnityEngineGameObject: %UnityEngineGameObject, null
     __2_intnl_UnityEngineGameObject: %UnityEngineGameObject, null
     __1_intnl_UnityEngineGameObject: %UnityEngineGameObject, null
@@ -240,18 +246,22 @@
     __2_intnl_SystemSingle: %SystemSingle, null
     __1_intnl_SystemSingle: %SystemSingle, null
     __0_intnl_SystemSingle: %SystemSingle, null
+    __9_intnl_SystemString: %SystemString, null
+    __8_intnl_SystemString: %SystemString, null
     __7_intnl_SystemString: %SystemString, null
     __6_intnl_SystemString: %SystemString, null
     __5_intnl_SystemString: %SystemString, null
     __4_intnl_SystemString: %SystemString, null
     __3_intnl_SystemString: %SystemString, null
     __2_intnl_SystemString: %SystemString, null
+    __0_intnl_interpolatedStr_String: %SystemString, null
     __1_intnl_SystemString: %SystemString, null
     __0_intnl_SystemString: %SystemString, null
-    __0_intnl_interpolatedStr_String: %SystemString, null
     __0_intnl_returnValSymbol_String: %SystemString, null
     __0_intnl_UdonSharpVideoVideoPlayerManager: %VRCUdonUdonBehaviour, null
     __0_intnl_returnTarget_UInt32: %SystemUInt32, null
+    __3_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
+    __2_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
     __1_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
     __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
     __1_intnl_VRCSDKBaseVRCUrl: %VRCSDKBaseVRCUrl, null
@@ -356,7 +366,7 @@
         
          #  UpdateVideoOwner();
         PUSH, __1_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00000264
+        JUMP, 0x00000314
         
          #  if (volumeController) volumeController.SetControlHandler(this);
         PUSH, volumeController
@@ -439,7 +449,7 @@
         
          #  RunUIUpdate();
         PUSH, __2_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00000F68
+        JUMP, 0x000010A0
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -476,7 +486,7 @@
         
          #  UpdateVideoOwner();
         PUSH, __4_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00000264
+        JUMP, 0x00000314
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -488,6 +498,38 @@
         PUSH, __0_const_intnl_SystemUInt32
         
          #  {
+        
+         #  if (masterField)
+        PUSH, masterField
+        PUSH, __1_intnl_SystemBoolean
+        EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
+        PUSH, __1_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000002F8
+        
+         #  {
+        
+         #  VRCPlayerApi owner = Networking.GetOwner(gameObject);
+        PUSH, __0_this_intnl_UnityEngineGameObject
+        PUSH, __0_owner_VRCPlayerApi
+        EXTERN, "VRCSDKBaseNetworking.__GetOwner__UnityEngineGameObject__VRCSDKBaseVRCPlayerApi"
+        
+         #  if (Utilities.IsValid(owner))
+        PUSH, __0_owner_VRCPlayerApi
+        PUSH, __2_intnl_SystemBoolean
+        EXTERN, "VRCSDKBaseUtilities.__IsValid__SystemObject__SystemBoolean"
+        PUSH, __2_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000002F8
+        
+         #  masterField.text = Networking.GetOwner(gameObject).displayName;
+        PUSH, __0_this_intnl_UnityEngineGameObject
+        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi
+        EXTERN, "VRCSDKBaseNetworking.__GetOwner__UnityEngineGameObject__VRCSDKBaseVRCPlayerApi"
+        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi
+        PUSH, __0_intnl_SystemString
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString"
+        PUSH, masterField
+        PUSH, __0_intnl_SystemString
+        EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -500,6 +542,27 @@
         
          #  {
         
+         #  if (ownerField)
+        PUSH, ownerField
+        PUSH, __3_intnl_SystemBoolean
+        EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
+        PUSH, __3_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000039C
+        
+         #  ownerField.text = Networking.GetOwner(targetVideoPlayer.gameObject).displayName;
+        PUSH, targetVideoPlayer
+        PUSH, __0_intnl_UnityEngineGameObject
+        EXTERN, "UnityEngineComponent.__get_gameObject__UnityEngineGameObject"
+        PUSH, __0_intnl_UnityEngineGameObject
+        PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi
+        EXTERN, "VRCSDKBaseNetworking.__GetOwner__UnityEngineGameObject__VRCSDKBaseVRCPlayerApi"
+        PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi
+        PUSH, __1_intnl_SystemString
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString"
+        PUSH, ownerField
+        PUSH, __1_intnl_SystemString
+        EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
+        
          #  SetLocked(targetVideoPlayer.IsLocked());
         PUSH, targetVideoPlayer
         PUSH, __16_const_intnl_SystemString
@@ -509,13 +572,13 @@
         PUSH, __0_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __0_intnl_SystemObject
-        PUSH, __1_intnl_SystemBoolean
+        PUSH, __4_intnl_SystemBoolean
         EXTERN, "SystemConvert.__ToBoolean__SystemObject__SystemBoolean"
-        PUSH, __1_intnl_SystemBoolean
+        PUSH, __4_intnl_SystemBoolean
         PUSH, __0_mp_locked_Boolean
         COPY
         PUSH, __5_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000004E0
+        JUMP, 0x00000618
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -535,10 +598,10 @@
          #  if (newPlayer == targetVideoPlayer)
         PUSH, __0_mp_newPlayer_USharpVideoPlayer
         PUSH, targetVideoPlayer
-        PUSH, __2_intnl_SystemBoolean
+        PUSH, __5_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
-        PUSH, __2_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000338
+        PUSH, __5_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000470
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -570,14 +633,14 @@
         
          #  UpdateVideoOwner();
         PUSH, __6_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00000264
+        JUMP, 0x00000314
         
          #  SetStatusText("");
         PUSH, __18_const_intnl_SystemString
         PUSH, __0_mp_newStatus_String
         COPY
         PUSH, __7_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00000420
+        JUMP, 0x00000558
         
          #  _draggingSlider = false;
         PUSH, __0_const_intnl_SystemBoolean
@@ -606,20 +669,20 @@
         
          #  if (statusTextField) statusTextField.text = _currentStatusText;
         PUSH, statusTextField
-        PUSH, __3_intnl_SystemBoolean
+        PUSH, __6_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __3_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000474
+        PUSH, __6_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000005AC
         PUSH, statusTextField
         PUSH, _currentStatusText
         EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
         
          #  if (statusTextDropShadow) statusTextDropShadow.text = _currentStatusText;
         PUSH, statusTextDropShadow
-        PUSH, __4_intnl_SystemBoolean
+        PUSH, __7_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __4_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000004B4
+        PUSH, __7_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000005EC
         PUSH, statusTextDropShadow
         PUSH, _currentStatusText
         EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
@@ -643,45 +706,45 @@
         
          #  if (locked)
         PUSH, __0_mp_locked_Boolean
-        JUMP_IF_FALSE, 0x00000844
+        JUMP_IF_FALSE, 0x0000097C
         
          #  {
         
          #  if (masterLockedIcon) masterLockedIcon.SetActive(true);
         PUSH, masterLockedIcon
-        PUSH, __5_intnl_SystemBoolean
+        PUSH, __8_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __5_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000530
+        PUSH, __8_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000668
         PUSH, masterLockedIcon
         PUSH, __1_const_intnl_SystemBoolean
         EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
         
          #  if (masterUnlockedIcon) masterUnlockedIcon.SetActive(false);
         PUSH, masterUnlockedIcon
-        PUSH, __6_intnl_SystemBoolean
+        PUSH, __9_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __6_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000570
+        PUSH, __9_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000006A8
         PUSH, masterUnlockedIcon
         PUSH, __0_const_intnl_SystemBoolean
         EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
         
          #  if (Networking.IsOwner(targetVideoPlayer.gameObject) || targetVideoPlayer.CanControlVideoPlayer())
         PUSH, targetVideoPlayer
-        PUSH, __0_intnl_UnityEngineGameObject
+        PUSH, __1_intnl_UnityEngineGameObject
         EXTERN, "UnityEngineComponent.__get_gameObject__UnityEngineGameObject"
-        PUSH, __0_intnl_UnityEngineGameObject
-        PUSH, __8_intnl_SystemBoolean
+        PUSH, __1_intnl_UnityEngineGameObject
+        PUSH, __11_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
-        PUSH, __8_intnl_SystemBoolean
-        PUSH, __7_intnl_SystemBoolean
+        PUSH, __11_intnl_SystemBoolean
+        PUSH, __10_intnl_SystemBoolean
         COPY
-        PUSH, __7_intnl_SystemBoolean
-        PUSH, __9_intnl_SystemBoolean
+        PUSH, __10_intnl_SystemBoolean
+        PUSH, __12_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __9_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000660
+        PUSH, __12_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000798
         PUSH, targetVideoPlayer
         PUSH, __19_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
@@ -690,40 +753,40 @@
         PUSH, __1_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __1_intnl_SystemObject
-        PUSH, __10_intnl_SystemBoolean
+        PUSH, __13_intnl_SystemBoolean
         EXTERN, "SystemConvert.__ToBoolean__SystemObject__SystemBoolean"
-        PUSH, __7_intnl_SystemBoolean
         PUSH, __10_intnl_SystemBoolean
-        PUSH, __11_intnl_SystemBoolean
+        PUSH, __13_intnl_SystemBoolean
+        PUSH, __14_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean"
-        PUSH, __11_intnl_SystemBoolean
-        PUSH, __7_intnl_SystemBoolean
+        PUSH, __14_intnl_SystemBoolean
+        PUSH, __10_intnl_SystemBoolean
         COPY
-        PUSH, __7_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000006F8
+        PUSH, __10_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000830
         
          #  {
         
          #  if (lockGraphic) lockGraphic.color = whiteGraphicColor;
         PUSH, lockGraphic
-        PUSH, __12_intnl_SystemBoolean
+        PUSH, __15_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __12_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000006B0
+        PUSH, __15_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000007E8
         PUSH, lockGraphic
         PUSH, whiteGraphicColor
         EXTERN, "UnityEngineUIGraphic.__set_color__UnityEngineColor__SystemVoid"
         
          #  if (urlFieldPlaceholderText) urlFieldPlaceholderText.text = "Enter Video URL...";
         PUSH, urlFieldPlaceholderText
-        PUSH, __13_intnl_SystemBoolean
+        PUSH, __16_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __13_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000006F0
+        PUSH, __16_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000828
         PUSH, urlFieldPlaceholderText
         PUSH, __21_const_intnl_SystemString
         EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
-        JUMP, 0x0000083C
+        JUMP, 0x00000974
         
          #  else
         
@@ -731,50 +794,50 @@
         
          #  if (lockGraphic) lockGraphic.color = redGraphicColor;
         PUSH, lockGraphic
-        PUSH, __12_intnl_SystemBoolean
+        PUSH, __15_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __12_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000738
+        PUSH, __15_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000870
         PUSH, lockGraphic
         PUSH, redGraphicColor
         EXTERN, "UnityEngineUIGraphic.__set_color__UnityEngineColor__SystemVoid"
         
          #  if (urlFieldPlaceholderText) urlFieldPlaceholderText.text = $"Only the master {Networking.GetOwner(targetVideoPlayer.gameObject).displayName} may add URLs";
         PUSH, urlFieldPlaceholderText
-        PUSH, __13_intnl_SystemBoolean
+        PUSH, __16_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __13_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x0000083C
+        PUSH, __16_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000974
         PUSH, __22_const_intnl_SystemString
         PUSH, __0_intnl_interpolatedStr_String
         COPY
         PUSH, targetVideoPlayer
-        PUSH, __1_intnl_UnityEngineGameObject
+        PUSH, __2_intnl_UnityEngineGameObject
         EXTERN, "UnityEngineComponent.__get_gameObject__UnityEngineGameObject"
-        PUSH, __1_intnl_UnityEngineGameObject
-        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi
+        PUSH, __2_intnl_UnityEngineGameObject
+        PUSH, __2_intnl_VRCSDKBaseVRCPlayerApi
         EXTERN, "VRCSDKBaseNetworking.__GetOwner__UnityEngineGameObject__VRCSDKBaseVRCPlayerApi"
-        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi
-        PUSH, __0_intnl_SystemString
+        PUSH, __2_intnl_VRCSDKBaseVRCPlayerApi
+        PUSH, __2_intnl_SystemString
         EXTERN, "VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString"
         PUSH, __0_intnl_interpolatedStr_String
-        PUSH, __0_intnl_SystemString
-        PUSH, __1_intnl_SystemString
+        PUSH, __2_intnl_SystemString
+        PUSH, __3_intnl_SystemString
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
-        PUSH, __1_intnl_SystemString
+        PUSH, __3_intnl_SystemString
         PUSH, __0_intnl_interpolatedStr_String
         COPY
         PUSH, __0_intnl_interpolatedStr_String
         PUSH, __23_const_intnl_SystemString
-        PUSH, __2_intnl_SystemString
+        PUSH, __4_intnl_SystemString
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
-        PUSH, __2_intnl_SystemString
+        PUSH, __4_intnl_SystemString
         PUSH, __0_intnl_interpolatedStr_String
         COPY
         PUSH, urlFieldPlaceholderText
         PUSH, __0_intnl_interpolatedStr_String
         EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
-        JUMP, 0x00000944
+        JUMP, 0x00000A7C
         
          #  else
         
@@ -782,40 +845,40 @@
         
          #  if (masterLockedIcon) masterLockedIcon.SetActive(false);
         PUSH, masterLockedIcon
-        PUSH, __5_intnl_SystemBoolean
+        PUSH, __8_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __5_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000884
+        PUSH, __8_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000009BC
         PUSH, masterLockedIcon
         PUSH, __0_const_intnl_SystemBoolean
         EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
         
          #  if (masterUnlockedIcon) masterUnlockedIcon.SetActive(true);
         PUSH, masterUnlockedIcon
-        PUSH, __6_intnl_SystemBoolean
+        PUSH, __9_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __6_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000008C4
+        PUSH, __9_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000009FC
         PUSH, masterUnlockedIcon
         PUSH, __1_const_intnl_SystemBoolean
         EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
         
          #  if (lockGraphic) lockGraphic.color = whiteGraphicColor;
         PUSH, lockGraphic
-        PUSH, __7_intnl_SystemBoolean
+        PUSH, __10_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __7_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000904
+        PUSH, __10_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000A3C
         PUSH, lockGraphic
         PUSH, whiteGraphicColor
         EXTERN, "UnityEngineUIGraphic.__set_color__UnityEngineColor__SystemVoid"
         
          #  if (urlFieldPlaceholderText) urlFieldPlaceholderText.text = "Enter Video URL... (anyone)";
         PUSH, urlFieldPlaceholderText
-        PUSH, __8_intnl_SystemBoolean
+        PUSH, __11_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __8_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000944
+        PUSH, __11_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000A7C
         PUSH, urlFieldPlaceholderText
         PUSH, __24_const_intnl_SystemString
         EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
@@ -842,56 +905,56 @@
         PUSH, __2_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __2_intnl_SystemObject
-        PUSH, __14_intnl_SystemBoolean
+        PUSH, __17_intnl_SystemBoolean
         EXTERN, "SystemConvert.__ToBoolean__SystemObject__SystemBoolean"
-        PUSH, __14_intnl_SystemBoolean
+        PUSH, __17_intnl_SystemBoolean
         PUSH, __0_videoMode_Boolean
         COPY
         
          #  if (pauseIcon) pauseIcon.SetActive(videoMode);
         PUSH, pauseIcon
-        PUSH, __15_intnl_SystemBoolean
+        PUSH, __18_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __15_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000A04
+        PUSH, __18_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000B3C
         PUSH, pauseIcon
         PUSH, __0_videoMode_Boolean
         EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
         
          #  if (stopIcon) stopIcon.SetActive(!videoMode);
         PUSH, stopIcon
-        PUSH, __16_intnl_SystemBoolean
+        PUSH, __19_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __16_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000A5C
+        PUSH, __19_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000B94
         PUSH, __0_videoMode_Boolean
-        PUSH, __17_intnl_SystemBoolean
+        PUSH, __20_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
         PUSH, stopIcon
-        PUSH, __17_intnl_SystemBoolean
+        PUSH, __20_intnl_SystemBoolean
         EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
         
          #  if (playObject) playObject.SetActive(paused);
         PUSH, playObject
-        PUSH, __18_intnl_SystemBoolean
+        PUSH, __21_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __18_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000A9C
+        PUSH, __21_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000BD4
         PUSH, playObject
         PUSH, __0_mp_paused_Boolean
         EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
         
          #  if (pauseStopObject) pauseStopObject.SetActive(!paused);
         PUSH, pauseStopObject
-        PUSH, __19_intnl_SystemBoolean
+        PUSH, __22_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __19_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000AF4
+        PUSH, __22_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000C2C
         PUSH, __0_mp_paused_Boolean
-        PUSH, __20_intnl_SystemBoolean
+        PUSH, __23_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
         PUSH, pauseStopObject
-        PUSH, __20_intnl_SystemBoolean
+        PUSH, __23_intnl_SystemBoolean
         EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
@@ -909,30 +972,30 @@
         
          #  if (looping)
         PUSH, __0_mp_looping_Boolean
-        JUMP_IF_FALSE, 0x00000BA8
+        JUMP_IF_FALSE, 0x00000CE0
         
          #  {
         
          #  if (loopButtonBackground) loopButtonBackground.color = buttonActivatedColor;
         PUSH, loopButtonBackground
-        PUSH, __21_intnl_SystemBoolean
+        PUSH, __24_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __21_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000B60
+        PUSH, __24_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000C98
         PUSH, loopButtonBackground
         PUSH, buttonActivatedColor
         EXTERN, "UnityEngineUIGraphic.__set_color__UnityEngineColor__SystemVoid"
         
          #  if (loopButtonIcon) loopButtonIcon.color = iconInvertedColor;
         PUSH, loopButtonIcon
-        PUSH, __22_intnl_SystemBoolean
+        PUSH, __25_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __22_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000BA0
+        PUSH, __25_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000CD8
         PUSH, loopButtonIcon
         PUSH, iconInvertedColor
         EXTERN, "UnityEngineUIGraphic.__set_color__UnityEngineColor__SystemVoid"
-        JUMP, 0x00000C28
+        JUMP, 0x00000D60
         
          #  else
         
@@ -940,20 +1003,20 @@
         
          #  if (loopButtonBackground) loopButtonBackground.color = buttonBackgroundColor;
         PUSH, loopButtonBackground
-        PUSH, __21_intnl_SystemBoolean
+        PUSH, __24_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __21_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000BE8
+        PUSH, __24_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000D20
         PUSH, loopButtonBackground
         PUSH, buttonBackgroundColor
         EXTERN, "UnityEngineUIGraphic.__set_color__UnityEngineColor__SystemVoid"
         
          #  if (loopButtonIcon) loopButtonIcon.color = whiteGraphicColor;
         PUSH, loopButtonIcon
-        PUSH, __22_intnl_SystemBoolean
+        PUSH, __25_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __22_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000C28
+        PUSH, __25_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000D60
         PUSH, loopButtonIcon
         PUSH, whiteGraphicColor
         EXTERN, "UnityEngineUIGraphic.__set_color__UnityEngineColor__SystemVoid"
@@ -973,10 +1036,10 @@
         
          #  if (volumeController) volumeController.SetVolume(volume);
         PUSH, volumeController
-        PUSH, __23_intnl_SystemBoolean
+        PUSH, __26_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __23_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000CA4
+        PUSH, __26_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000DDC
         PUSH, volumeController
         PUSH, __27_const_intnl_SystemString
         PUSH, __0_mp_volume_Single
@@ -1000,10 +1063,10 @@
         
          #  if (volumeController) volumeController.SetMuted(muted);
         PUSH, volumeController
-        PUSH, __24_intnl_SystemBoolean
+        PUSH, __27_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __24_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000D20
+        PUSH, __27_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000E58
         PUSH, volumeController
         PUSH, __29_const_intnl_SystemString
         PUSH, __0_mp_muted_Boolean
@@ -1071,34 +1134,34 @@
         
          #  if (currentURLField)
         PUSH, currentURLField
-        PUSH, __25_intnl_SystemBoolean
+        PUSH, __28_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __25_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000E94
+        PUSH, __28_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000FCC
         
          #  {
         
          #  if (previousURLField)
         PUSH, previousURLField
-        PUSH, __26_intnl_SystemBoolean
+        PUSH, __29_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __26_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000E64
+        PUSH, __29_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000F9C
         
          #  previousURLField.text = currentURLField.text;
         PUSH, currentURLField
-        PUSH, __3_intnl_SystemString
+        PUSH, __5_intnl_SystemString
         EXTERN, "UnityEngineUIInputField.__get_text__SystemString"
         PUSH, previousURLField
-        PUSH, __3_intnl_SystemString
+        PUSH, __5_intnl_SystemString
         EXTERN, "UnityEngineUIInputField.__set_text__SystemString__SystemVoid"
         
          #  currentURLField.text = url.Get();
         PUSH, __0_mp_url_VRCUrl
-        PUSH, __4_intnl_SystemString
+        PUSH, __6_intnl_SystemString
         EXTERN, "VRCSDKBaseVRCUrl.__Get__SystemString"
         PUSH, currentURLField
-        PUSH, __4_intnl_SystemString
+        PUSH, __6_intnl_SystemString
         EXTERN, "UnityEngineUIInputField.__set_text__SystemString__SystemVoid"
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
@@ -1116,10 +1179,10 @@
         
          #  if (syncController)
         PUSH, syncController
-        PUSH, __27_intnl_SystemBoolean
+        PUSH, __30_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __27_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000EF0
+        PUSH, __30_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00001028
         
          #  syncController.SetVideoVisual();
         PUSH, syncController
@@ -1141,10 +1204,10 @@
         
          #  if (syncController)
         PUSH, syncController
-        PUSH, __28_intnl_SystemBoolean
+        PUSH, __31_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __28_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00000F4C
+        PUSH, __31_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00001084
         
          #  syncController.SetStreamVisual();
         PUSH, syncController
@@ -1173,10 +1236,10 @@
         PUSH, __3_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __3_intnl_SystemObject
-        PUSH, __29_intnl_SystemBoolean
+        PUSH, __32_intnl_SystemBoolean
         EXTERN, "SystemConvert.__ToBoolean__SystemObject__SystemBoolean"
-        PUSH, __29_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00001608
+        PUSH, __32_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00001740
         
          #  {
         
@@ -1212,7 +1275,7 @@
         
          #  if (_draggingSlider)
         PUSH, _draggingSlider
-        JUMP_IF_FALSE, 0x000011E8
+        JUMP_IF_FALSE, 0x00001320
         
          #  {
         
@@ -1244,31 +1307,31 @@
         PUSH, __0_mp_time_TimeSpan
         EXTERN, "SystemTimeSpan.__FromSeconds__SystemDouble__SystemTimeSpan"
         PUSH, __8_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x0000167C
+        JUMP, 0x000017B4
         PUSH, __0_intnl_returnValSymbol_String
         PUSH, __0_currentTimeStr_String
         COPY
         
          #  if (statusTextField) statusTextField.text = currentTimeStr;
         PUSH, statusTextField
-        PUSH, __30_intnl_SystemBoolean
+        PUSH, __33_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __30_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000011A0
+        PUSH, __33_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000012D8
         PUSH, statusTextField
         PUSH, __0_currentTimeStr_String
         EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
         
          #  if (statusTextDropShadow) statusTextDropShadow.text = currentTimeStr;
         PUSH, statusTextDropShadow
-        PUSH, __31_intnl_SystemBoolean
+        PUSH, __34_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __31_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000011E0
+        PUSH, __34_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00001318
         PUSH, statusTextDropShadow
         PUSH, __0_currentTimeStr_String
         EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
-        JUMP, 0x00001600
+        JUMP, 0x00001738
         
          #  else
         
@@ -1291,28 +1354,28 @@
         
          #  if (progressSlider)
         PUSH, progressSlider
-        PUSH, __30_intnl_SystemBoolean
+        PUSH, __33_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __30_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x0000135C
+        PUSH, __33_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00001494
         
          #  {
         
          #  if (duration > 0f)
         PUSH, __0_duration_Single
         PUSH, __0_const_intnl_SystemSingle
-        PUSH, __31_intnl_SystemBoolean
+        PUSH, __34_intnl_SystemBoolean
         EXTERN, "SystemSingle.__op_GreaterThan__SystemSingle_SystemSingle__SystemBoolean"
-        PUSH, __31_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x0000132C
+        PUSH, __34_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00001464
         
          #  {
         
          #  progressSlider.gameObject.SetActive(true);
         PUSH, progressSlider
-        PUSH, __2_intnl_UnityEngineGameObject
+        PUSH, __3_intnl_UnityEngineGameObject
         EXTERN, "UnityEngineUISlider.__get_gameObject__UnityEngineGameObject"
-        PUSH, __2_intnl_UnityEngineGameObject
+        PUSH, __3_intnl_UnityEngineGameObject
         PUSH, __1_const_intnl_SystemBoolean
         EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
         
@@ -1327,7 +1390,7 @@
         PUSH, progressSlider
         PUSH, __3_intnl_SystemSingle
         EXTERN, "UnityEngineUISlider.__set_value__SystemSingle__SystemVoid"
-        JUMP, 0x0000135C
+        JUMP, 0x00001494
         
          #  else
         
@@ -1335,9 +1398,9 @@
         
          #  progressSlider.gameObject.SetActive(false);
         PUSH, progressSlider
-        PUSH, __2_intnl_UnityEngineGameObject
+        PUSH, __3_intnl_UnityEngineGameObject
         EXTERN, "UnityEngineUISlider.__get_gameObject__UnityEngineGameObject"
-        PUSH, __2_intnl_UnityEngineGameObject
+        PUSH, __3_intnl_UnityEngineGameObject
         PUSH, __0_const_intnl_SystemBoolean
         EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
         
@@ -1349,10 +1412,10 @@
          #  if (currentTimeInt != _lastTime)
         PUSH, __0_currentTimeInt_Int32
         PUSH, _lastTime
-        PUSH, __31_intnl_SystemBoolean
+        PUSH, __34_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __31_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00001600
+        PUSH, __34_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00001738
         
          #  {
         
@@ -1363,32 +1426,32 @@
         
          #  if (!float.IsInfinity(duration) & duration != float.MaxValue)
         PUSH, __0_duration_Single
-        PUSH, __32_intnl_SystemBoolean
+        PUSH, __35_intnl_SystemBoolean
         EXTERN, "SystemSingle.__IsInfinity__SystemSingle__SystemBoolean"
-        PUSH, __32_intnl_SystemBoolean
-        PUSH, __33_intnl_SystemBoolean
+        PUSH, __35_intnl_SystemBoolean
+        PUSH, __36_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
         PUSH, __2_intnl_SystemSingle
         EXTERN, "SystemSingle.__get_MaxValue__SystemSingle"
         PUSH, __0_duration_Single
         PUSH, __2_intnl_SystemSingle
-        PUSH, __34_intnl_SystemBoolean
+        PUSH, __37_intnl_SystemBoolean
         EXTERN, "SystemSingle.__op_Inequality__SystemSingle_SystemSingle__SystemBoolean"
-        PUSH, __33_intnl_SystemBoolean
-        PUSH, __34_intnl_SystemBoolean
-        PUSH, __35_intnl_SystemBoolean
+        PUSH, __36_intnl_SystemBoolean
+        PUSH, __37_intnl_SystemBoolean
+        PUSH, __38_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_LogicalAnd__SystemBoolean_SystemBoolean__SystemBoolean"
-        PUSH, __35_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00001600
+        PUSH, __38_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00001738
         
          #  {
         
          #  if (string.IsNullOrEmpty(_currentStatusText))
         PUSH, _currentStatusText
-        PUSH, __36_intnl_SystemBoolean
+        PUSH, __39_intnl_SystemBoolean
         EXTERN, "SystemString.__IsNullOrEmpty__SystemString__SystemBoolean"
-        PUSH, __36_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00001600
+        PUSH, __39_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00001738
         
          #  {
         
@@ -1413,7 +1476,7 @@
         PUSH, __0_mp_time_TimeSpan
         COPY
         PUSH, __9_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x0000167C
+        JUMP, 0x000017B4
         PUSH, __0_intnl_returnValSymbol_String
         PUSH, __0_totalTimeStr_String
         COPY
@@ -1423,7 +1486,7 @@
         PUSH, __0_mp_time_TimeSpan
         COPY
         PUSH, __10_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x0000167C
+        JUMP, 0x000017B4
         PUSH, __0_intnl_returnValSymbol_String
         PUSH, __0_currentTimeStr_String
         COPY
@@ -1431,33 +1494,33 @@
          #  string statusStr = currentTimeStr + "/" + totalTimeStr;
         PUSH, __0_currentTimeStr_String
         PUSH, __41_const_intnl_SystemString
-        PUSH, __5_intnl_SystemString
+        PUSH, __7_intnl_SystemString
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
-        PUSH, __5_intnl_SystemString
+        PUSH, __7_intnl_SystemString
         PUSH, __0_totalTimeStr_String
         PUSH, __0_statusStr_String
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
         
          #  if (statusTextField) statusTextField.text = statusStr;
         PUSH, statusTextField
-        PUSH, __37_intnl_SystemBoolean
+        PUSH, __40_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __37_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000015C0
+        PUSH, __40_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000016F8
         PUSH, statusTextField
         PUSH, __0_statusStr_String
         EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
         
          #  if (statusTextDropShadow) statusTextDropShadow.text = statusStr;
         PUSH, statusTextDropShadow
-        PUSH, __38_intnl_SystemBoolean
+        PUSH, __41_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __38_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00001600
+        PUSH, __41_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00001738
         PUSH, statusTextDropShadow
         PUSH, __0_statusStr_String
         EXTERN, "UnityEngineUIText.__set_text__SystemString__SystemVoid"
-        JUMP, 0x00001660
+        JUMP, 0x00001798
         
          #  else
         
@@ -1465,14 +1528,14 @@
         
          #  if (progressSlider) progressSlider.gameObject.SetActive(false);
         PUSH, progressSlider
-        PUSH, __30_intnl_SystemBoolean
+        PUSH, __33_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __30_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00001660
+        PUSH, __33_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00001798
         PUSH, progressSlider
-        PUSH, __2_intnl_UnityEngineGameObject
+        PUSH, __3_intnl_UnityEngineGameObject
         EXTERN, "UnityEngineUISlider.__get_gameObject__UnityEngineGameObject"
-        PUSH, __2_intnl_UnityEngineGameObject
+        PUSH, __3_intnl_UnityEngineGameObject
         PUSH, __0_const_intnl_SystemBoolean
         EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
@@ -1502,14 +1565,14 @@
         EXTERN, "SystemConvert.__ToInt32__SystemSingle__SystemInt32"
         PUSH, __0_intnl_SystemInt32
         PUSH, __42_const_intnl_SystemString
-        PUSH, __6_intnl_SystemString
+        PUSH, __8_intnl_SystemString
         EXTERN, "SystemInt32.__ToString__SystemString__SystemString"
         PUSH, __0_mp_time_TimeSpan
         PUSH, __43_const_intnl_SystemString
-        PUSH, __7_intnl_SystemString
+        PUSH, __9_intnl_SystemString
         EXTERN, "SystemTimeSpan.__ToString__SystemString__SystemString"
-        PUSH, __6_intnl_SystemString
-        PUSH, __7_intnl_SystemString
+        PUSH, __8_intnl_SystemString
+        PUSH, __9_intnl_SystemString
         PUSH, __0_intnl_returnValSymbol_String
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -1570,14 +1633,14 @@
         PUSH, __7_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __7_intnl_SystemObject
-        PUSH, __39_intnl_SystemBoolean
+        PUSH, __42_intnl_SystemBoolean
         EXTERN, "SystemConvert.__ToBoolean__SystemObject__SystemBoolean"
-        PUSH, __39_intnl_SystemBoolean
-        PUSH, __40_intnl_SystemBoolean
+        PUSH, __42_intnl_SystemBoolean
+        PUSH, __43_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
         PUSH, targetVideoPlayer
         PUSH, __48_const_intnl_SystemString
-        PUSH, __40_intnl_SystemBoolean
+        PUSH, __43_intnl_SystemBoolean
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, targetVideoPlayer
         PUSH, __49_const_intnl_SystemString
@@ -1597,11 +1660,11 @@
          #  {
         
          #  if (targetVideoPlayer.IsPrivilegedUser(Networking.LocalPlayer))
-        PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi
+        PUSH, __3_intnl_VRCSDKBaseVRCPlayerApi
         EXTERN, "VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi"
         PUSH, targetVideoPlayer
         PUSH, __50_const_intnl_SystemString
-        PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi
+        PUSH, __3_intnl_VRCSDKBaseVRCPlayerApi
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, targetVideoPlayer
         PUSH, __51_const_intnl_SystemString
@@ -1611,10 +1674,10 @@
         PUSH, __8_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __8_intnl_SystemObject
-        PUSH, __41_intnl_SystemBoolean
+        PUSH, __44_intnl_SystemBoolean
         EXTERN, "SystemConvert.__ToBoolean__SystemObject__SystemBoolean"
-        PUSH, __41_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00001A04
+        PUSH, __44_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00001B3C
         
          #  {
         
@@ -1632,14 +1695,14 @@
         PUSH, __9_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __9_intnl_SystemObject
-        PUSH, __42_intnl_SystemBoolean
+        PUSH, __45_intnl_SystemBoolean
         EXTERN, "SystemConvert.__ToBoolean__SystemObject__SystemBoolean"
-        PUSH, __42_intnl_SystemBoolean
-        PUSH, __43_intnl_SystemBoolean
+        PUSH, __45_intnl_SystemBoolean
+        PUSH, __46_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
         PUSH, targetVideoPlayer
         PUSH, __54_const_intnl_SystemString
-        PUSH, __43_intnl_SystemBoolean
+        PUSH, __46_intnl_SystemBoolean
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, targetVideoPlayer
         PUSH, __55_const_intnl_SystemString
@@ -1690,14 +1753,14 @@
         PUSH, __10_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __10_intnl_SystemObject
-        PUSH, __44_intnl_SystemBoolean
+        PUSH, __47_intnl_SystemBoolean
         EXTERN, "SystemConvert.__ToBoolean__SystemObject__SystemBoolean"
-        PUSH, __44_intnl_SystemBoolean
-        PUSH, __45_intnl_SystemBoolean
+        PUSH, __47_intnl_SystemBoolean
+        PUSH, __48_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
         PUSH, targetVideoPlayer
         PUSH, __59_const_intnl_SystemString
-        PUSH, __45_intnl_SystemBoolean
+        PUSH, __48_intnl_SystemBoolean
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, targetVideoPlayer
         PUSH, __60_const_intnl_SystemString
@@ -1769,13 +1832,13 @@
         
          #  if (Networking.IsOwner(targetVideoPlayer.gameObject))
         PUSH, targetVideoPlayer
-        PUSH, __3_intnl_UnityEngineGameObject
+        PUSH, __4_intnl_UnityEngineGameObject
         EXTERN, "UnityEngineComponent.__get_gameObject__UnityEngineGameObject"
-        PUSH, __3_intnl_UnityEngineGameObject
-        PUSH, __46_intnl_SystemBoolean
+        PUSH, __4_intnl_UnityEngineGameObject
+        PUSH, __49_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
-        PUSH, __46_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00001C00
+        PUSH, __49_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00001D38
         
          #  _draggingSlider = true;
         PUSH, __1_const_intnl_SystemBoolean

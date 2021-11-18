@@ -201,6 +201,7 @@
     __2_const_intnl_SystemSingle: %SystemSingle, null
     __1_const_intnl_SystemSingle: %SystemSingle, null
     __0_const_intnl_SystemSingle: %SystemSingle, null
+    __111_const_intnl_SystemString: %SystemString, null
     __110_const_intnl_SystemString: %SystemString, null
     __109_const_intnl_SystemString: %SystemString, null
     __108_const_intnl_SystemString: %SystemString, null
@@ -464,8 +465,6 @@
     __2_const_intnl_VRCSDK3ComponentsVideoVideoError: %VRCSDK3ComponentsVideoVideoError, null
     __1_const_intnl_VRCSDK3ComponentsVideoVideoError: %VRCSDK3ComponentsVideoVideoError, null
     __0_const_intnl_VRCSDK3ComponentsVideoVideoError: %VRCSDK3ComponentsVideoVideoError, null
-    __0_const_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
-    __203_intnl_SystemBoolean: %SystemBoolean, null
     __202_intnl_SystemBoolean: %SystemBoolean, null
     __201_intnl_SystemBoolean: %SystemBoolean, null
     __200_intnl_SystemBoolean: %SystemBoolean, null
@@ -821,14 +820,17 @@
     __0_intnl_SystemSingle: %SystemSingle, null
     __1_intnl_returnValSymbol_Single: %SystemSingle, null
     __0_intnl_returnValSymbol_Single: %SystemSingle, null
+    __39_intnl_SystemString: %SystemString, null
+    __38_intnl_SystemString: %SystemString, null
+    __37_intnl_SystemString: %SystemString, null
     __36_intnl_SystemString: %SystemString, null
     __35_intnl_SystemString: %SystemString, null
     __34_intnl_SystemString: %SystemString, null
     __33_intnl_SystemString: %SystemString, null
+    __7_intnl_interpolatedStr_String: %SystemString, null
     __32_intnl_SystemString: %SystemString, null
     __31_intnl_SystemString: %SystemString, null
     __30_intnl_SystemString: %SystemString, null
-    __7_intnl_interpolatedStr_String: %SystemString, null
     __29_intnl_SystemString: %SystemString, null
     __28_intnl_SystemString: %SystemString, null
     __27_intnl_SystemString: %SystemString, null
@@ -892,6 +894,7 @@
     __0_intnl_UdonSharpVideoVideoPlayerManager: %VRCUdonUdonBehaviour, null
     __0_intnl_returnValSymbol_VideoPlayerManager: %VRCUdonUdonBehaviour, null
     __0_intnl_returnTarget_UInt32: %SystemUInt32, null
+    __1_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
     __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
     __4_intnl_VRCSDKBaseVRCUrl: %VRCSDKBaseVRCUrl, null
     __3_intnl_VRCSDKBaseVRCUrl: %VRCSDKBaseVRCUrl, null
@@ -1041,7 +1044,7 @@
         
          #  _videoPlayerManager = GetVideoManager();
         PUSH, __0_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004ADC
+        JUMP, 0x00004B1C
         PUSH, __0_intnl_returnValSymbol_VideoPlayerManager
         PUSH, _videoPlayerManager
         COPY
@@ -1109,7 +1112,7 @@
         PUSH, __0_intnl_SystemInt32
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __1_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000045B8
+        JUMP, 0x000045F8
         
          #  _nextPlaylistIndex = 0; // SetPlayerMode sets this to -1, but we want to be able to keep it intact so reset to 0
         PUSH, __0_const_intnl_SystemInt32
@@ -1135,11 +1138,11 @@
         PUSH, __3_intnl_SystemBoolean
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __2_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x0000654C
+        JUMP, 0x0000658C
         
          #  PlayNextVideoFromPlaylist();
         PUSH, __3_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003CA0
+        JUMP, 0x00003CE0
         
          #  SetVolume(defaultVolume);
         PUSH, defaultVolume
@@ -1149,11 +1152,11 @@
         PUSH, __0_intnl_SystemSingle
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __4_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003200
+        JUMP, 0x00003298
         
          #  QueueSerialize();
         PUSH, __5_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003C20
+        JUMP, 0x00003C60
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -1179,7 +1182,7 @@
         
          #  if (IsUsingAVProPlayer())
         PUSH, __7_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004870
+        JUMP, 0x000048B0
         PUSH, __11_intnl_returnValSymbol_Boolean
         JUMP_IF_FALSE, 0x000004BC
         
@@ -1346,7 +1349,7 @@
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __10_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         JUMP, 0x000007C4
         
          #  else
@@ -1367,7 +1370,7 @@
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __12_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         
          #  LogMessage($"Loaded into world with complete video, duration: {_videoPlayerManager.GetDuration()}, start net time: {_networkTimeVideoStart}");
         PUSH, __18_const_intnl_SystemString
@@ -1417,7 +1420,7 @@
         PUSH, __5_intnl_SystemString
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __13_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005A10
+        JUMP, 0x00005A50
         JUMP, 0x000007F8
         
          #  else // Live streams should start asap
@@ -1464,7 +1467,7 @@
         PUSH, __0_mp_updatePauseTime_Boolean
         COPY
         PUSH, __14_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00002CF4
+        JUMP, 0x00002D8C
         
          #  _networkTimeVideoStart = Networking.GetServerTimeInMilliseconds() - (int)(_videoTargetStartTime * 1000f);
         PUSH, __1_intnl_SystemInt32
@@ -1503,7 +1506,7 @@
         
          #  QueueSerialize();
         PUSH, __15_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003C20
+        JUMP, 0x00003C60
         
          #  LogMessage($"Started video: {_syncedURL}");
         PUSH, __22_const_intnl_SystemString
@@ -1526,7 +1529,7 @@
         PUSH, __8_intnl_SystemString
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __16_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005A10
+        JUMP, 0x00005A50
         JUMP, 0x00000B54
         
          #  else if (!_ownerPlaying) // Watchers pause and wait for sync from owner
@@ -1564,7 +1567,7 @@
         PUSH, __14_intnl_SystemBoolean
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __17_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00002CF4
+        JUMP, 0x00002D8C
         
          #  SyncVideo();
         PUSH, __18_const_intnl_exitJumpLoc_UInt32
@@ -1591,14 +1594,14 @@
         PUSH, __8_intnl_SystemString
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __19_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005A10
+        JUMP, 0x00005A50
         
          #  SetStatusText("");
         PUSH, __17_const_intnl_SystemString
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __20_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         
          #  _videoTargetStartTime = 0f;
         PUSH, __0_const_intnl_SystemSingle
@@ -1613,18 +1616,18 @@
         PUSH, __14_intnl_SystemBoolean
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __21_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00006440
+        JUMP, 0x00006480
         
          #  UpdateRenderTexture();
         PUSH, __22_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000072B8
+        JUMP, 0x000072F8
         
          #  SendCallback("OnUSharpVideoPlay");
         PUSH, __24_const_intnl_SystemString
         PUSH, __0_mp_callbackName_String
         COPY
         PUSH, __23_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00007B64
+        JUMP, 0x00007BA4
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -1644,7 +1647,7 @@
         
          #  return IsUsingAVProPlayer() &&
         PUSH, __24_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004870
+        JUMP, 0x000048B0
         PUSH, __11_intnl_returnValSymbol_Boolean
         PUSH, __16_intnl_SystemBoolean
         COPY
@@ -1840,33 +1843,33 @@
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __27_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         
          #  SetUIPaused(false);
         PUSH, __1_const_intnl_SystemBoolean
         PUSH, __2_mp_paused_Boolean
         COPY
         PUSH, __28_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00006440
+        JUMP, 0x00006480
         
          #  PlayNextVideoFromPlaylist();
         PUSH, __29_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003CA0
+        JUMP, 0x00003CE0
         
          #  QueueSerialize();
         PUSH, __30_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003C20
+        JUMP, 0x00003C60
         
          #  SendCallback("OnUSharpVideoEnd");
         PUSH, __29_const_intnl_SystemString
         PUSH, __0_mp_callbackName_String
         COPY
         PUSH, __31_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00007B64
+        JUMP, 0x00007BA4
         
          #  UpdateRenderTexture();
         PUSH, __32_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000072B8
+        JUMP, 0x000072F8
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -1919,14 +1922,14 @@
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __34_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         
          #  LogWarning("Rate limited, retrying...");
         PUSH, __30_const_intnl_SystemString
         PUSH, __1_mp_message_String
         COPY
         PUSH, __35_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005A64
+        JUMP, 0x00005AA4
         
          #  _currentLoadingTime = RATE_LIMIT_RETRY_TIMEOUT;
         PUSH, RATE_LIMIT_RETRY_TIMEOUT
@@ -1954,7 +1957,7 @@
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __36_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         
          #  LogError("Video player error when trying to load " + _syncedURL);
         PUSH, _syncedURL
@@ -1965,7 +1968,7 @@
         PUSH, __2_mp_message_String
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
         PUSH, __37_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005AB8
+        JUMP, 0x00005AF8
         
          #  _loadingVideo = true; // Apparently OnVideoReady gets fired erroneously??
         PUSH, __0_const_intnl_SystemBoolean
@@ -2034,7 +2037,7 @@
         PUSH, __14_intnl_SystemString
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __39_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005AB8
+        JUMP, 0x00005AF8
         
          #  switch (videoError)
         PUSH, __1_mp_videoError_VideoError
@@ -2058,7 +2061,7 @@
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __40_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         
          #  break;
         JUMP, 0x00001570
@@ -2068,7 +2071,7 @@
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __41_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         
          #  break;
         JUMP, 0x00001570
@@ -2078,7 +2081,7 @@
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __42_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         
          #  break;
         JUMP, 0x00001570
@@ -2091,14 +2094,14 @@
         
          #  PlayNextVideoFromPlaylist();
         PUSH, __43_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003CA0
+        JUMP, 0x00003CE0
         
          #  SendCallback("OnUSharpVideoError");
         PUSH, __39_const_intnl_SystemString
         PUSH, __0_mp_callbackName_String
         COPY
         PUSH, __44_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00007B64
+        JUMP, 0x00007BA4
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -2144,7 +2147,7 @@
         
          #  QueueSerialize();
         PUSH, __45_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003C20
+        JUMP, 0x00003C60
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -2177,7 +2180,7 @@
         
          #  if (IsInVideoMode())
         PUSH, __47_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004794
+        JUMP, 0x000047D4
         PUSH, __8_intnl_returnValSymbol_Boolean
         JUMP_IF_FALSE, 0x00001788
         
@@ -2293,7 +2296,7 @@
         PUSH, __17_intnl_SystemString
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __49_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005A10
+        JUMP, 0x00005A50
         
          #  _waitForSync = false;
         PUSH, __1_const_intnl_SystemBoolean
@@ -2306,7 +2309,7 @@
         
          #  UpdateRenderTexture(); // Needed because AVPro can swap textures whenever
         PUSH, __51_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000072B8
+        JUMP, 0x000072F8
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -2346,7 +2349,7 @@
         PUSH, __45_intnl_SystemBoolean
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __52_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00002CF4
+        JUMP, 0x00002D8C
         
          #  SetLoopingInternal(_loopVideo);
         PUSH, _loopVideo
@@ -2356,7 +2359,7 @@
         PUSH, __46_intnl_SystemBoolean
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __53_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00002FE0
+        JUMP, 0x00003078
         
          #  if (_localPlayerMode != currentPlayerMode)
         PUSH, _localPlayerMode
@@ -2374,7 +2377,7 @@
         PUSH, __5_intnl_SystemInt32
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __54_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000045B8
+        JUMP, 0x000045F8
         
          #  if (_isMasterOnly != _lastMasterLocked)
         PUSH, _isMasterOnly
@@ -2392,7 +2395,7 @@
         PUSH, __49_intnl_SystemBoolean
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __55_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000043D0
+        JUMP, 0x00004410
         
          #  if (_currentVideoIdx != _syncedVideoIdx)
         PUSH, _currentVideoIdx
@@ -2438,7 +2441,7 @@
         PUSH, __0_mp_message_String
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
         PUSH, __57_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005A10
+        JUMP, 0x00005A50
         JUMP, 0x00001CA8
         
          #  else if (_networkTimeVideoStart != _localNetworkTimeStart) // Detect seeks
@@ -2470,7 +2473,7 @@
         PUSH, __52_intnl_SystemBoolean
         JUMP_IF_FALSE, 0x00001D28
         PUSH, __59_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004794
+        JUMP, 0x000047D4
         PUSH, __52_intnl_SystemBoolean
         PUSH, __8_intnl_returnValSymbol_Boolean
         PUSH, __54_intnl_SystemBoolean
@@ -2485,7 +2488,7 @@
         
          #  float duration = GetVideoManager().GetDuration();
         PUSH, __60_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004ADC
+        JUMP, 0x00004B1C
         PUSH, __0_intnl_returnValSymbol_VideoPlayerManager
         PUSH, __13_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
@@ -2535,7 +2538,7 @@
         PUSH, __0_mp_callbackName_String
         COPY
         PUSH, __61_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00007B64
+        JUMP, 0x00007BA4
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -2555,14 +2558,14 @@
         
          #  SendUIOwnerUpdate();
         PUSH, __62_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x0000693C
+        JUMP, 0x0000697C
         
          #  SendCallback("OnUSharpVideoOwnershipChange");
         PUSH, __44_const_intnl_SystemString
         PUSH, __0_mp_callbackName_String
         COPY
         PUSH, __63_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00007B64
+        JUMP, 0x00007BA4
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -2625,7 +2628,7 @@
         PUSH, __2_mp_paused_Boolean
         COPY
         PUSH, __64_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00006440
+        JUMP, 0x00006480
         
          #  ResetVideoLoad();
         PUSH, __65_const_intnl_exitJumpLoc_UInt32
@@ -2633,14 +2636,14 @@
         
          #  QueueSerialize();
         PUSH, __66_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003C20
+        JUMP, 0x00003C60
         
          #  SendCallback("OnUSharpVideoStop");
         PUSH, __45_const_intnl_SystemString
         PUSH, __0_mp_callbackName_String
         COPY
         PUSH, __67_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00007B64
+        JUMP, 0x00007BA4
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -2696,7 +2699,7 @@
         
          #  if (!CanControlVideoPlayer())
         PUSH, __69_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003900
+        JUMP, 0x00003998
         PUSH, __5_intnl_returnValSymbol_Boolean
         PUSH, __58_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
@@ -2718,7 +2721,7 @@
         PUSH, __1_mp_url_String
         COPY
         PUSH, __70_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005308
+        JUMP, 0x00005348
         PUSH, __12_intnl_returnValSymbol_Boolean
         PUSH, __59_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
@@ -2737,7 +2740,7 @@
         
          #  TakeOwnership();
         PUSH, __71_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003B80
+        JUMP, 0x00003BC0
         
          #  if (stopPlaylist)
         PUSH, __0_mp_stopPlaylist_Boolean
@@ -2811,21 +2814,21 @@
         PUSH, __0_mp_url_String
         COPY
         PUSH, __74_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004DC4
+        JUMP, 0x00004E04
         PUSH, __1_intnl_returnValSymbol_Single
         PUSH, _videoTargetStartTime
         COPY
         
          #  QueueSerialize();
         PUSH, __75_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003C20
+        JUMP, 0x00003C60
         
          #  SendCallback("OnUSharpVideoLoadStart");
         PUSH, __46_const_intnl_SystemString
         PUSH, __0_mp_callbackName_String
         COPY
         PUSH, __76_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00007B64
+        JUMP, 0x00007BA4
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -2923,14 +2926,14 @@
         PUSH, __0_mp_message_String
         COPY
         PUSH, __78_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005A10
+        JUMP, 0x00005A50
         
          #  SetStatusText("Retrying load...");
         PUSH, __48_const_intnl_SystemString
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __79_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         
          #  _videoPlayerManager.LoadURL(_syncedURL);
         PUSH, _videoPlayerManager
@@ -2999,7 +3002,7 @@
         
          #  if (IsInVideoMode())
         PUSH, __81_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004794
+        JUMP, 0x000047D4
         PUSH, __8_intnl_returnValSymbol_Boolean
         JUMP_IF_FALSE, 0x000028F4
         
@@ -3097,7 +3100,7 @@
         PUSH, __21_intnl_SystemString
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __82_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005A10
+        JUMP, 0x00005A50
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -3114,7 +3117,7 @@
         
          #  if (IsInVideoMode())
         PUSH, __83_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004794
+        JUMP, 0x000047D4
         PUSH, __8_intnl_returnValSymbol_Boolean
         JUMP_IF_FALSE, 0x00002B80
         
@@ -3204,7 +3207,7 @@
         PUSH, __24_intnl_SystemString
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __84_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005A10
+        JUMP, 0x00005A50
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -3217,7 +3220,7 @@
         
          #  {
         
-         #  LogMessage($"Started video load for URL: {url}");
+         #  LogMessage($"Started video load for URL: {url}, requested by {Networking.GetOwner(gameObject).displayName}");
         PUSH, __53_const_intnl_SystemString
         PUSH, __6_intnl_interpolatedStr_String
         COPY
@@ -3232,20 +3235,40 @@
         PUSH, __6_intnl_interpolatedStr_String
         COPY
         PUSH, __6_intnl_interpolatedStr_String
+        PUSH, __54_const_intnl_SystemString
+        PUSH, __27_intnl_SystemString
+        EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
+        PUSH, __27_intnl_SystemString
+        PUSH, __6_intnl_interpolatedStr_String
+        COPY
+        PUSH, __0_this_intnl_UnityEngineGameObject
+        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi
+        EXTERN, "VRCSDKBaseNetworking.__GetOwner__UnityEngineGameObject__VRCSDKBaseVRCPlayerApi"
+        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi
+        PUSH, __28_intnl_SystemString
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__get_displayName__SystemString"
+        PUSH, __6_intnl_interpolatedStr_String
+        PUSH, __28_intnl_SystemString
+        PUSH, __29_intnl_SystemString
+        EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
+        PUSH, __29_intnl_SystemString
+        PUSH, __6_intnl_interpolatedStr_String
+        COPY
+        PUSH, __6_intnl_interpolatedStr_String
         PUSH, __0_mp_message_String
         COPY
         PUSH, __6_intnl_interpolatedStr_String
-        PUSH, __27_intnl_SystemString
+        PUSH, __30_intnl_SystemString
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __85_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005A10
+        JUMP, 0x00005A50
         
          #  SetStatusText("Loading video...");
-        PUSH, __54_const_intnl_SystemString
+        PUSH, __55_const_intnl_SystemString
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __86_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         
          #  ResetVideoLoad();
         PUSH, __87_const_intnl_exitJumpLoc_UInt32
@@ -3270,7 +3293,7 @@
         PUSH, __3_mp_url_VRCUrl
         COPY
         PUSH, __88_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00006658
+        JUMP, 0x00006698
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -3288,7 +3311,7 @@
         PUSH, __64_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
         PUSH, __64_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00002D30
+        JUMP_IF_FALSE, 0x00002DC8
         
          #  _ownerPaused = paused;
         PUSH, __0_mp_paused_Boolean
@@ -3301,7 +3324,7 @@
         PUSH, __65_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_Inequality__SystemBoolean_SystemBoolean__SystemBoolean"
         PUSH, __65_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00002EF4
+        JUMP_IF_FALSE, 0x00002F8C
         
          #  {
         
@@ -3312,21 +3335,21 @@
         
          #  if (IsInVideoMode())
         PUSH, __89_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004794
+        JUMP, 0x000047D4
         PUSH, __8_intnl_returnValSymbol_Boolean
-        JUMP_IF_FALSE, 0x00002E08
+        JUMP_IF_FALSE, 0x00002EA0
         
          #  {
         
          #  if (_ownerPaused)
         PUSH, _ownerPaused
-        JUMP_IF_FALSE, 0x00002DC4
+        JUMP_IF_FALSE, 0x00002E5C
         
          #  _videoPlayerManager.Pause();
         PUSH, _videoPlayerManager
         PUSH, __23_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
-        JUMP, 0x00002E00
+        JUMP, 0x00002E98
         
          #  else
         
@@ -3339,13 +3362,13 @@
         
          #  if (updatePauseTime)
         PUSH, __0_mp_updatePauseTime_Boolean
-        JUMP_IF_FALSE, 0x00002E00
+        JUMP_IF_FALSE, 0x00002E98
         
          #  _videoTargetStartTime = _lastCurrentTime;
         PUSH, _lastCurrentTime
         PUSH, _videoTargetStartTime
         COPY
-        JUMP, 0x00002E70
+        JUMP, 0x00002F08
         
          #  else
         
@@ -3353,13 +3376,13 @@
         
          #  if (_ownerPaused)
         PUSH, _ownerPaused
-        JUMP_IF_FALSE, 0x00002E38
+        JUMP_IF_FALSE, 0x00002ED0
         
          #  _videoPlayerManager.Stop();
         PUSH, _videoPlayerManager
         PUSH, __33_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
-        JUMP, 0x00002E70
+        JUMP, 0x00002F08
         
          #  else
         
@@ -3378,32 +3401,32 @@
         PUSH, __2_mp_paused_Boolean
         COPY
         PUSH, __91_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00006440
+        JUMP, 0x00006480
         
          #  if (_locallyPaused)
         PUSH, _locallyPaused
-        JUMP_IF_FALSE, 0x00002ED0
+        JUMP_IF_FALSE, 0x00002F68
         
          #  SendCallback("OnUSharpVideoPause");
-        PUSH, __55_const_intnl_SystemString
+        PUSH, __56_const_intnl_SystemString
         PUSH, __0_mp_callbackName_String
         COPY
         PUSH, __92_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00007B64
-        JUMP, 0x00002EF4
+        JUMP, 0x00007BA4
+        JUMP, 0x00002F8C
         
          #  else
         
          #  SendCallback("OnUSharpVideoUnpause");
-        PUSH, __56_const_intnl_SystemString
+        PUSH, __57_const_intnl_SystemString
         PUSH, __0_mp_callbackName_String
         COPY
         PUSH, __93_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00007B64
+        JUMP, 0x00007BA4
         
          #  QueueRateLimitedSerialize();
         PUSH, __94_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003794
+        JUMP, 0x0000382C
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -3425,7 +3448,7 @@
         PUSH, __66_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
         PUSH, __66_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00002F80
+        JUMP_IF_FALSE, 0x00003018
         
          #  SetPausedInternal(paused, true);
         PUSH, __1_mp_paused_Boolean
@@ -3435,7 +3458,7 @@
         PUSH, __0_mp_updatePauseTime_Boolean
         COPY
         PUSH, __95_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00002CF4
+        JUMP, 0x00002D8C
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -3475,7 +3498,7 @@
         PUSH, __67_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_Equality__SystemBoolean_SystemBoolean__SystemBoolean"
         PUSH, __67_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003024
+        JUMP_IF_FALSE, 0x000030BC
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -3492,11 +3515,11 @@
         
          #  _videoPlayerManager.SetLooping(loop);
         PUSH, _videoPlayerManager
-        PUSH, __57_const_intnl_SystemString
+        PUSH, __58_const_intnl_SystemString
         PUSH, __0_mp_loop_Boolean
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, _videoPlayerManager
-        PUSH, __58_const_intnl_SystemString
+        PUSH, __59_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         
          #  SetUILooping(loop);
@@ -3504,11 +3527,11 @@
         PUSH, __0_mp_looping_Boolean
         COPY
         PUSH, __96_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00006A28
+        JUMP, 0x00006A68
         
          #  QueueRateLimitedSerialize();
         PUSH, __97_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003794
+        JUMP, 0x0000382C
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -3530,14 +3553,14 @@
         PUSH, __68_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
         PUSH, __68_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003120
+        JUMP_IF_FALSE, 0x000031B8
         
          #  SetLoopingInternal(loop);
         PUSH, __1_mp_loop_Boolean
         PUSH, __0_mp_loop_Boolean
         COPY
         PUSH, __98_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00002FE0
+        JUMP, 0x00003078
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -3573,10 +3596,10 @@
         
          #  public float GetVolume() => _videoPlayerManager.GetVolume();
         PUSH, _videoPlayerManager
-        PUSH, __59_const_intnl_SystemString
+        PUSH, __60_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, _videoPlayerManager
-        PUSH, __60_const_intnl_SystemString
+        PUSH, __61_const_intnl_SystemString
         PUSH, __7_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __7_intnl_SystemObject
@@ -3611,10 +3634,10 @@
         
          #  if (volume == _videoPlayerManager.GetVolume())
         PUSH, _videoPlayerManager
-        PUSH, __59_const_intnl_SystemString
+        PUSH, __60_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, _videoPlayerManager
-        PUSH, __60_const_intnl_SystemString
+        PUSH, __61_const_intnl_SystemString
         PUSH, __8_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __8_intnl_SystemObject
@@ -3625,7 +3648,7 @@
         PUSH, __69_intnl_SystemBoolean
         EXTERN, "SystemSingle.__op_Equality__SystemSingle_SystemSingle__SystemBoolean"
         PUSH, __69_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000032C0
+        JUMP_IF_FALSE, 0x00003358
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -3634,11 +3657,11 @@
         
          #  _videoPlayerManager.SetVolume(volume);
         PUSH, _videoPlayerManager
-        PUSH, __61_const_intnl_SystemString
+        PUSH, __62_const_intnl_SystemString
         PUSH, __0_mp_volume_Single
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, _videoPlayerManager
-        PUSH, __62_const_intnl_SystemString
+        PUSH, __63_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         
          #  SetUIVolume(volume);
@@ -3646,7 +3669,7 @@
         PUSH, __1_mp_volume_Single
         COPY
         PUSH, __99_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00006B34
+        JUMP, 0x00006B74
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -3661,10 +3684,10 @@
         
          #  public bool IsMuted() => _videoPlayerManager.IsMuted();
         PUSH, _videoPlayerManager
-        PUSH, __63_const_intnl_SystemString
+        PUSH, __64_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, _videoPlayerManager
-        PUSH, __64_const_intnl_SystemString
+        PUSH, __65_const_intnl_SystemString
         PUSH, __9_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __9_intnl_SystemObject
@@ -3691,11 +3714,11 @@
         
          #  _videoPlayerManager.SetMuted(muted);
         PUSH, _videoPlayerManager
-        PUSH, __65_const_intnl_SystemString
+        PUSH, __66_const_intnl_SystemString
         PUSH, __0_mp_muted_Boolean
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, _videoPlayerManager
-        PUSH, __66_const_intnl_SystemString
+        PUSH, __67_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         
          #  SetUIMuted(muted);
@@ -3703,7 +3726,7 @@
         PUSH, __1_mp_muted_Boolean
         COPY
         PUSH, __100_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00006C40
+        JUMP, 0x00006C80
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -3735,7 +3758,7 @@
         PUSH, __73_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
         PUSH, __73_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000034E8
+        JUMP_IF_FALSE, 0x00003580
         PUSH, __0_this_intnl_UnityEngineGameObject
         PUSH, __74_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
@@ -3750,7 +3773,7 @@
         PUSH, __71_intnl_SystemBoolean
         COPY
         PUSH, __71_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x0000350C
+        JUMP_IF_FALSE, 0x000035A4
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -3812,14 +3835,14 @@
         PUSH, __77_intnl_SystemBoolean
         COPY
         PUSH, __77_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003720
+        JUMP_IF_FALSE, 0x000037B8
         PUSH, __101_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004ADC
-        PUSH, __0_intnl_returnValSymbol_VideoPlayerManager
-        PUSH, __67_const_intnl_SystemString
-        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
+        JUMP, 0x00004B1C
         PUSH, __0_intnl_returnValSymbol_VideoPlayerManager
         PUSH, __68_const_intnl_SystemString
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
+        PUSH, __0_intnl_returnValSymbol_VideoPlayerManager
+        PUSH, __69_const_intnl_SystemString
         PUSH, __11_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __11_intnl_SystemObject
@@ -3836,11 +3859,11 @@
         PUSH, __77_intnl_SystemBoolean
         COPY
         PUSH, __77_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003758
+        JUMP_IF_FALSE, 0x000037F0
         
          #  GetVideoManager().Play();
         PUSH, __102_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004ADC
+        JUMP, 0x00004B1C
         PUSH, __0_intnl_returnValSymbol_VideoPlayerManager
         PUSH, __15_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
@@ -3851,7 +3874,7 @@
         
          #  QueueRateLimitedSerialize();
         PUSH, __104_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003794
+        JUMP, 0x0000382C
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -3866,13 +3889,13 @@
         
          #  if (_delayedSyncAllowed)
         PUSH, _delayedSyncAllowed
-        JUMP_IF_FALSE, 0x000037F0
+        JUMP_IF_FALSE, 0x00003888
         
          #  {
         
          #  QueueSerialize();
         PUSH, __105_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003C20
+        JUMP, 0x00003C60
         
          #  _delayedSyncAllowed = false;
         PUSH, __1_const_intnl_SystemBoolean
@@ -3881,7 +3904,7 @@
         
          #  SendCustomEventDelayedSeconds(nameof(_UnlockDelayedSync), 0.5f);
         PUSH, __0_this_intnl_UdonSharpVideoUSharpVideoPlayer
-        PUSH, __69_const_intnl_SystemString
+        PUSH, __70_const_intnl_SystemString
         PUSH, __4_const_intnl_SystemSingle
         PUSH, __0_const_intnl_VRCUdonCommonEnumsEventTiming
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEventDelayedSeconds__SystemString_SystemSingle_VRCUdonCommonEnumsEventTiming__SystemVoid"
@@ -3894,7 +3917,7 @@
         
          #  SendCustomEventDelayedSeconds(nameof(_SendFinalSync), 0.8f);
         PUSH, __0_this_intnl_UdonSharpVideoUSharpVideoPlayer
-        PUSH, __70_const_intnl_SystemString
+        PUSH, __71_const_intnl_SystemString
         PUSH, __5_const_intnl_SystemSingle
         PUSH, __0_const_intnl_VRCUdonCommonEnumsEventTiming
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEventDelayedSeconds__SystemString_SystemSingle_VRCUdonCommonEnumsEventTiming__SystemVoid"
@@ -3940,11 +3963,11 @@
         PUSH, __82_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean"
         PUSH, __82_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000038E4
+        JUMP_IF_FALSE, 0x0000397C
         
          #  QueueSerialize();
         PUSH, __106_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003C20
+        JUMP, 0x00003C60
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -3970,11 +3993,11 @@
         PUSH, __85_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
         PUSH, __85_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000039A8
+        JUMP_IF_FALSE, 0x00003A40
         PUSH, __1_mp_player_VRCPlayerApi
         EXTERN, "VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi"
         PUSH, __107_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000039EC
+        JUMP, 0x00003A84
         PUSH, __83_intnl_SystemBoolean
         PUSH, __6_intnl_returnValSymbol_Boolean
         PUSH, __86_intnl_SystemBoolean
@@ -4004,57 +4027,41 @@
         
          #  {
         
-         #  if (player == null)
-        PUSH, __1_mp_player_VRCPlayerApi
-        PUSH, __0_const_intnl_VRCSDKBaseVRCPlayerApi
-        PUSH, __87_intnl_SystemBoolean
-        EXTERN, "SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean"
-        PUSH, __87_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003A44
-        
-         #  return true;
-        PUSH, __0_const_intnl_SystemBoolean
-        PUSH, __6_intnl_returnValSymbol_Boolean
-        COPY
-        PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
-        COPY
-        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
-        
          #  return player.isMaster || (allowInstanceCreatorControl && player.isInstanceOwner);
         PUSH, __1_mp_player_VRCPlayerApi
-        PUSH, __89_intnl_SystemBoolean
+        PUSH, __88_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseVRCPlayerApi.__get_isMaster__SystemBoolean"
+        PUSH, __88_intnl_SystemBoolean
+        PUSH, __87_intnl_SystemBoolean
+        COPY
+        PUSH, __87_intnl_SystemBoolean
         PUSH, __89_intnl_SystemBoolean
-        PUSH, __88_intnl_SystemBoolean
-        COPY
-        PUSH, __88_intnl_SystemBoolean
-        PUSH, __90_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __90_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003B3C
+        PUSH, __89_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00003B7C
         PUSH, allowInstanceCreatorControl
-        PUSH, __91_intnl_SystemBoolean
+        PUSH, __90_intnl_SystemBoolean
         COPY
-        PUSH, __91_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003B08
+        PUSH, __90_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00003B48
         PUSH, __1_mp_player_VRCPlayerApi
-        PUSH, __92_intnl_SystemBoolean
+        PUSH, __91_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseVRCPlayerApi.__get_isInstanceOwner__SystemBoolean"
+        PUSH, __90_intnl_SystemBoolean
         PUSH, __91_intnl_SystemBoolean
         PUSH, __92_intnl_SystemBoolean
-        PUSH, __93_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean"
+        PUSH, __92_intnl_SystemBoolean
+        PUSH, __90_intnl_SystemBoolean
+        COPY
+        PUSH, __87_intnl_SystemBoolean
+        PUSH, __90_intnl_SystemBoolean
         PUSH, __93_intnl_SystemBoolean
-        PUSH, __91_intnl_SystemBoolean
-        COPY
-        PUSH, __88_intnl_SystemBoolean
-        PUSH, __91_intnl_SystemBoolean
-        PUSH, __94_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean"
-        PUSH, __94_intnl_SystemBoolean
-        PUSH, __88_intnl_SystemBoolean
+        PUSH, __93_intnl_SystemBoolean
+        PUSH, __87_intnl_SystemBoolean
         COPY
-        PUSH, __88_intnl_SystemBoolean
+        PUSH, __87_intnl_SystemBoolean
         PUSH, __6_intnl_returnValSymbol_Boolean
         COPY
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -4076,10 +4083,10 @@
         
          #  if (Networking.IsOwner(gameObject))
         PUSH, __0_this_intnl_UnityEngineGameObject
-        PUSH, __95_intnl_SystemBoolean
+        PUSH, __94_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
-        PUSH, __95_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003BBC
+        PUSH, __94_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00003BFC
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -4088,14 +4095,14 @@
         
          #  if (CanControlVideoPlayer())
         PUSH, __108_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003900
+        JUMP, 0x00003998
         PUSH, __5_intnl_returnValSymbol_Boolean
-        JUMP_IF_FALSE, 0x00003C04
+        JUMP_IF_FALSE, 0x00003C44
         
          #  Networking.SetOwner(Networking.LocalPlayer, gameObject);
-        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi
+        PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi
         EXTERN, "VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi"
-        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi
+        PUSH, __1_intnl_VRCSDKBaseVRCPlayerApi
         PUSH, __0_this_intnl_UnityEngineGameObject
         EXTERN, "VRCSDKBaseNetworking.__SetOwner__VRCSDKBaseVRCPlayerApi_UnityEngineGameObject__SystemVoid"
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
@@ -4114,13 +4121,13 @@
         
          #  if (!Networking.IsOwner(gameObject))
         PUSH, __0_this_intnl_UnityEngineGameObject
-        PUSH, __96_intnl_SystemBoolean
+        PUSH, __95_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
+        PUSH, __95_intnl_SystemBoolean
         PUSH, __96_intnl_SystemBoolean
-        PUSH, __97_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __97_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003C74
+        PUSH, __96_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00003CB4
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -4152,53 +4159,53 @@
         EXTERN, "SystemInt32.__op_UnaryMinus__SystemInt32__SystemInt32"
         PUSH, _nextPlaylistIndex
         PUSH, __15_intnl_SystemInt32
-        PUSH, __100_intnl_SystemBoolean
+        PUSH, __99_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __100_intnl_SystemBoolean
         PUSH, __99_intnl_SystemBoolean
+        PUSH, __98_intnl_SystemBoolean
         COPY
-        PUSH, __99_intnl_SystemBoolean
-        PUSH, __101_intnl_SystemBoolean
+        PUSH, __98_intnl_SystemBoolean
+        PUSH, __100_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __101_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003D80
+        PUSH, __100_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00003DC0
         PUSH, playlist
         PUSH, __16_intnl_SystemInt32
         EXTERN, "VRCSDKBaseVRCUrlArray.__get_Length__SystemInt32"
         PUSH, __16_intnl_SystemInt32
         PUSH, __0_const_intnl_SystemInt32
-        PUSH, __102_intnl_SystemBoolean
+        PUSH, __101_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __99_intnl_SystemBoolean
+        PUSH, __98_intnl_SystemBoolean
+        PUSH, __101_intnl_SystemBoolean
         PUSH, __102_intnl_SystemBoolean
-        PUSH, __103_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean"
+        PUSH, __102_intnl_SystemBoolean
+        PUSH, __98_intnl_SystemBoolean
+        COPY
+        PUSH, __98_intnl_SystemBoolean
+        PUSH, __97_intnl_SystemBoolean
+        COPY
+        PUSH, __97_intnl_SystemBoolean
         PUSH, __103_intnl_SystemBoolean
-        PUSH, __99_intnl_SystemBoolean
-        COPY
-        PUSH, __99_intnl_SystemBoolean
-        PUSH, __98_intnl_SystemBoolean
-        COPY
-        PUSH, __98_intnl_SystemBoolean
-        PUSH, __104_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __104_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003E20
+        PUSH, __103_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00003E60
         PUSH, __0_this_intnl_UnityEngineGameObject
-        PUSH, __105_intnl_SystemBoolean
+        PUSH, __104_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
+        PUSH, __104_intnl_SystemBoolean
+        PUSH, __105_intnl_SystemBoolean
+        EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
+        PUSH, __97_intnl_SystemBoolean
         PUSH, __105_intnl_SystemBoolean
         PUSH, __106_intnl_SystemBoolean
-        EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __98_intnl_SystemBoolean
-        PUSH, __106_intnl_SystemBoolean
-        PUSH, __107_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean"
-        PUSH, __107_intnl_SystemBoolean
-        PUSH, __98_intnl_SystemBoolean
+        PUSH, __106_intnl_SystemBoolean
+        PUSH, __97_intnl_SystemBoolean
         COPY
-        PUSH, __98_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003E44
+        PUSH, __97_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00003E84
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -4207,35 +4214,35 @@
         
          #  if (loopPlaylist && _playlistErrorCount > PLAYLIST_ERROR_RETRY_COUNT)
         PUSH, loopPlaylist
-        PUSH, __108_intnl_SystemBoolean
+        PUSH, __107_intnl_SystemBoolean
         COPY
-        PUSH, __108_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003ED4
+        PUSH, __107_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00003F14
         PUSH, _playlistErrorCount
         PUSH, __35_intnl_SystemSingle
         EXTERN, "SystemConvert.__ToSingle__SystemInt32__SystemSingle"
         PUSH, __35_intnl_SystemSingle
         PUSH, PLAYLIST_ERROR_RETRY_COUNT
-        PUSH, __109_intnl_SystemBoolean
+        PUSH, __108_intnl_SystemBoolean
         EXTERN, "SystemSingle.__op_GreaterThan__SystemSingle_SystemSingle__SystemBoolean"
+        PUSH, __107_intnl_SystemBoolean
         PUSH, __108_intnl_SystemBoolean
         PUSH, __109_intnl_SystemBoolean
-        PUSH, __110_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean"
-        PUSH, __110_intnl_SystemBoolean
-        PUSH, __108_intnl_SystemBoolean
+        PUSH, __109_intnl_SystemBoolean
+        PUSH, __107_intnl_SystemBoolean
         COPY
-        PUSH, __108_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003F34
+        PUSH, __107_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00003F74
         
          #  {
         
          #  LogError("Maximum number of retries for playlist video looping hit. Stopping playlist playback.");
-        PUSH, __71_const_intnl_SystemString
+        PUSH, __72_const_intnl_SystemString
         PUSH, __2_mp_message_String
         COPY
         PUSH, __109_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005AB8
+        JUMP, 0x00005AF8
         
          #  _nextPlaylistIndex = -1;
         PUSH, __2_const_intnl_SystemInt32
@@ -4249,22 +4256,22 @@
         
          #  if (shufflePlaylist && !_shuffled)
         PUSH, shufflePlaylist
-        PUSH, __111_intnl_SystemBoolean
+        PUSH, __110_intnl_SystemBoolean
         COPY
-        PUSH, __111_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00003FA4
+        PUSH, __110_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00003FE4
         PUSH, _shuffled
-        PUSH, __112_intnl_SystemBoolean
+        PUSH, __111_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
+        PUSH, __110_intnl_SystemBoolean
         PUSH, __111_intnl_SystemBoolean
         PUSH, __112_intnl_SystemBoolean
-        PUSH, __113_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean"
-        PUSH, __113_intnl_SystemBoolean
-        PUSH, __111_intnl_SystemBoolean
+        PUSH, __112_intnl_SystemBoolean
+        PUSH, __110_intnl_SystemBoolean
         COPY
-        PUSH, __111_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x0000413C
+        PUSH, __110_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000417C
         
          #  {
         
@@ -4287,10 +4294,10 @@
         COPY
         PUSH, __0_i_Int32
         PUSH, __0_n_Int32
-        PUSH, __114_intnl_SystemBoolean
+        PUSH, __113_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __114_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004128
+        PUSH, __113_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004168
         
          #  {
         
@@ -4329,7 +4336,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __0_i_Int32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00004010
+        JUMP, 0x00004050
         
          #  _shuffled = true;
         PUSH, __0_const_intnl_SystemBoolean
@@ -4351,16 +4358,16 @@
         EXTERN, "VRCSDKBaseVRCUrlArray.__get_Length__SystemInt32"
         PUSH, __0_currentIdx_Int32
         PUSH, __17_intnl_SystemInt32
-        PUSH, __114_intnl_SystemBoolean
+        PUSH, __113_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_GreaterThanOrEqual__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __114_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004224
+        PUSH, __113_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004264
         
          #  {
         
          #  if (loopPlaylist)
         PUSH, loopPlaylist
-        JUMP_IF_FALSE, 0x000041F8
+        JUMP_IF_FALSE, 0x00004238
         
          #  {
         
@@ -4373,7 +4380,7 @@
         PUSH, __0_const_intnl_SystemInt32
         PUSH, __0_currentIdx_Int32
         COPY
-        JUMP, 0x00004224
+        JUMP, 0x00004264
         
          #  else
         
@@ -4414,10 +4421,10 @@
          #  public int GetPlaylistIndex() => _nextPlaylistIndex > 0 ? _nextPlaylistIndex - 1 : -1;
         PUSH, _nextPlaylistIndex
         PUSH, __0_const_intnl_SystemInt32
-        PUSH, __115_intnl_SystemBoolean
+        PUSH, __114_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_GreaterThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __115_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000042F0
+        PUSH, __114_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004330
         PUSH, _nextPlaylistIndex
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __19_intnl_SystemInt32
@@ -4425,7 +4432,7 @@
         PUSH, __19_intnl_SystemInt32
         PUSH, __20_intnl_SystemInt32
         COPY
-        JUMP, 0x00004308
+        JUMP, 0x00004348
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __20_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_UnaryMinus__SystemInt32__SystemInt32"
@@ -4470,17 +4477,17 @@
         
          #  if (Networking.IsOwner(gameObject))
         PUSH, __0_this_intnl_UnityEngineGameObject
-        PUSH, __116_intnl_SystemBoolean
+        PUSH, __115_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
-        PUSH, __116_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000043B4
+        PUSH, __115_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000043F4
         
          #  SetLockedInternal(locked);
         PUSH, __0_mp_locked_Boolean
         PUSH, __1_mp_locked_Boolean
         COPY
         PUSH, __111_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000043D0
+        JUMP, 0x00004410
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -4508,18 +4515,18 @@
         PUSH, __2_mp_locked_Boolean
         COPY
         PUSH, __112_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x0000654C
+        JUMP, 0x0000658C
         
          #  QueueSerialize();
         PUSH, __113_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003C20
+        JUMP, 0x00003C60
         
          #  SendCallback("OnUSharpVideoLockChange");
-        PUSH, __72_const_intnl_SystemString
+        PUSH, __73_const_intnl_SystemString
         PUSH, __0_mp_callbackName_String
         COPY
         PUSH, __114_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00007B64
+        JUMP, 0x00007BA4
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -4557,15 +4564,15 @@
         
          #  if (CanControlVideoPlayer())
         PUSH, __115_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003900
+        JUMP, 0x00003998
         PUSH, __5_intnl_returnValSymbol_Boolean
-        JUMP_IF_FALSE, 0x00004518
+        JUMP_IF_FALSE, 0x00004558
         
          #  {
         
          #  TakeOwnership();
         PUSH, __116_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003B80
+        JUMP, 0x00003BC0
         
          #  SetPlayerMode(PLAYER_MODE_UNITY);
         PUSH, PLAYER_MODE_UNITY
@@ -4575,7 +4582,7 @@
         PUSH, __21_intnl_SystemInt32
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __117_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000045B8
+        JUMP, 0x000045F8
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -4592,15 +4599,15 @@
         
          #  if (CanControlVideoPlayer())
         PUSH, __118_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003900
+        JUMP, 0x00003998
         PUSH, __5_intnl_returnValSymbol_Boolean
-        JUMP_IF_FALSE, 0x0000459C
+        JUMP_IF_FALSE, 0x000045DC
         
          #  {
         
          #  TakeOwnership();
         PUSH, __119_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003B80
+        JUMP, 0x00003BC0
         
          #  SetPlayerMode(PLAYER_MODE_AVPRO);
         PUSH, PLAYER_MODE_AVPRO
@@ -4610,7 +4617,7 @@
         PUSH, __22_intnl_SystemInt32
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __120_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000045B8
+        JUMP, 0x000045F8
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -4626,10 +4633,10 @@
          #  if (_localPlayerMode == newPlayerMode)
         PUSH, _localPlayerMode
         PUSH, __0_mp_newPlayerMode_Int32
-        PUSH, __117_intnl_SystemBoolean
+        PUSH, __116_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __117_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000045FC
+        PUSH, __116_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000463C
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -4642,10 +4649,10 @@
         
          #  if (Networking.IsOwner(gameObject))
         PUSH, __0_this_intnl_UnityEngineGameObject
-        PUSH, __118_intnl_SystemBoolean
+        PUSH, __117_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
-        PUSH, __118_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004644
+        PUSH, __117_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004684
         
          #  _syncedURL = VRCUrl.Empty;
         PUSH, _syncedURL
@@ -4680,21 +4687,21 @@
         
          #  if (IsUsingUnityPlayer())
         PUSH, __123_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004820
+        JUMP, 0x00004860
         PUSH, __10_intnl_returnValSymbol_Boolean
-        JUMP_IF_FALSE, 0x0000470C
+        JUMP_IF_FALSE, 0x0000474C
         
          #  {
         
          #  _videoPlayerManager.SetToVideoPlayerMode();
         PUSH, _videoPlayerManager
-        PUSH, __73_const_intnl_SystemString
+        PUSH, __74_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         
          #  SetUIToVideoMode();
         PUSH, __124_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00006764
-        JUMP, 0x00004734
+        JUMP, 0x000067A4
+        JUMP, 0x00004774
         
          #  else
         
@@ -4702,27 +4709,27 @@
         
          #  _videoPlayerManager.SetToStreamPlayerMode();
         PUSH, _videoPlayerManager
-        PUSH, __74_const_intnl_SystemString
+        PUSH, __75_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         
          #  SetUIToStreamMode();
         PUSH, __125_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00006850
+        JUMP, 0x00006890
         
          #  QueueSerialize();
         PUSH, __126_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00003C20
+        JUMP, 0x00003C60
         
          #  UpdateRenderTexture();
         PUSH, __127_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000072B8
+        JUMP, 0x000072F8
         
          #  SendCallback("OnUSharpVideoModeChange");
-        PUSH, __75_const_intnl_SystemString
+        PUSH, __76_const_intnl_SystemString
         PUSH, __0_mp_callbackName_String
         COPY
         PUSH, __128_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00007B64
+        JUMP, 0x00007BA4
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -4825,40 +4832,40 @@
         
          #  if ((_ownerPlaying || Networking.IsOwner(gameObject)) && !_loadingVideo)
         PUSH, _ownerPlaying
-        PUSH, __120_intnl_SystemBoolean
+        PUSH, __119_intnl_SystemBoolean
         COPY
+        PUSH, __119_intnl_SystemBoolean
         PUSH, __120_intnl_SystemBoolean
-        PUSH, __121_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __121_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004948
+        PUSH, __120_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004988
         PUSH, __0_this_intnl_UnityEngineGameObject
-        PUSH, __122_intnl_SystemBoolean
+        PUSH, __121_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
-        PUSH, __120_intnl_SystemBoolean
+        PUSH, __119_intnl_SystemBoolean
+        PUSH, __121_intnl_SystemBoolean
         PUSH, __122_intnl_SystemBoolean
-        PUSH, __123_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean"
-        PUSH, __123_intnl_SystemBoolean
-        PUSH, __120_intnl_SystemBoolean
-        COPY
-        PUSH, __120_intnl_SystemBoolean
+        PUSH, __122_intnl_SystemBoolean
         PUSH, __119_intnl_SystemBoolean
         COPY
         PUSH, __119_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000049B8
+        PUSH, __118_intnl_SystemBoolean
+        COPY
+        PUSH, __118_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000049F8
         PUSH, _loadingVideo
-        PUSH, __124_intnl_SystemBoolean
+        PUSH, __123_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __119_intnl_SystemBoolean
+        PUSH, __118_intnl_SystemBoolean
+        PUSH, __123_intnl_SystemBoolean
         PUSH, __124_intnl_SystemBoolean
-        PUSH, __125_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean"
-        PUSH, __125_intnl_SystemBoolean
-        PUSH, __119_intnl_SystemBoolean
+        PUSH, __124_intnl_SystemBoolean
+        PUSH, __118_intnl_SystemBoolean
         COPY
-        PUSH, __119_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004AC0
+        PUSH, __118_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004B00
         
          #  {
         
@@ -4874,14 +4881,14 @@
         
          #  if (Networking.IsOwner(gameObject))
         PUSH, __0_this_intnl_UnityEngineGameObject
-        PUSH, __126_intnl_SystemBoolean
+        PUSH, __125_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
-        PUSH, __126_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004A9C
+        PUSH, __125_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004ADC
         
          #  _videoTargetStartTime = GetVideoManager().GetTime();
         PUSH, __130_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004ADC
+        JUMP, 0x00004B1C
         PUSH, __0_intnl_returnValSymbol_VideoPlayerManager
         PUSH, __40_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
@@ -4897,11 +4904,11 @@
         COPY
         
          #  SendCallback("OnUSharpVideoReload");
-        PUSH, __76_const_intnl_SystemString
+        PUSH, __77_const_intnl_SystemString
         PUSH, __0_mp_callbackName_String
         COPY
         PUSH, __131_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00007B64
+        JUMP, 0x00007BA4
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -4918,10 +4925,10 @@
         
          #  if (_videoPlayerManager)
         PUSH, _videoPlayerManager
-        PUSH, __127_intnl_SystemBoolean
+        PUSH, __126_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Implicit__UnityEngineObject__SystemBoolean"
-        PUSH, __127_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004B2C
+        PUSH, __126_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004B6C
         
          #  return _videoPlayerManager;
         PUSH, _videoPlayerManager
@@ -4948,10 +4955,10 @@
         COPY
         PUSH, __24_intnl_SystemInt32
         PUSH, __23_intnl_SystemInt32
-        PUSH, __128_intnl_SystemBoolean
+        PUSH, __127_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __128_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004D18
+        PUSH, __127_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004D58
         PUSH, __0_intnl_UnityEngineComponentArray
         PUSH, __24_intnl_SystemInt32
         PUSH, __0_intnl_UnityEngineComponent
@@ -4960,35 +4967,35 @@
         PUSH, __1_intnl_UdonSharpVideoVideoPlayerManager
         COPY
         PUSH, __1_intnl_UdonSharpVideoVideoPlayerManager
-        PUSH, __77_const_intnl_SystemString
+        PUSH, __78_const_intnl_SystemString
         PUSH, __13_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __13_intnl_SystemObject
         PUSH, __0_const_intnl_SystemObject
-        PUSH, __129_intnl_SystemBoolean
+        PUSH, __128_intnl_SystemBoolean
         EXTERN, "SystemObject.__op_Inequality__SystemObject_SystemObject__SystemBoolean"
-        PUSH, __129_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004C7C
+        PUSH, __128_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004CBC
         PUSH, __13_intnl_SystemObject
         PUSH, __1_intnl_SystemInt64
         EXTERN, "SystemConvert.__ToInt64__SystemObject__SystemInt64"
         PUSH, __1_intnl_SystemInt64
         PUSH, __0_intnl_SystemInt64
         COPY
-        JUMP, 0x00004C90
+        JUMP, 0x00004CD0
         PUSH, __1_const_intnl_SystemInt64
         PUSH, __0_intnl_SystemInt64
         COPY
         PUSH, __0_intnl_SystemInt64
         PUSH, __0_const_intnl_SystemInt64
-        PUSH, __130_intnl_SystemBoolean
+        PUSH, __129_intnl_SystemBoolean
         EXTERN, "SystemInt64.__op_Equality__SystemInt64_SystemInt64__SystemBoolean"
-        PUSH, __130_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004CDC
+        PUSH, __129_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004D1C
         PUSH, __1_intnl_UdonSharpVideoVideoPlayerManager
         PUSH, __0_intnl_UdonSharpVideoVideoPlayerManager
         COPY
-        JUMP, 0x00004D18
+        JUMP, 0x00004D58
         PUSH, __24_intnl_SystemInt32
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __25_intnl_SystemInt32
@@ -4996,7 +5003,7 @@
         PUSH, __25_intnl_SystemInt32
         PUSH, __24_intnl_SystemInt32
         COPY
-        JUMP, 0x00004B94
+        JUMP, 0x00004BD4
         PUSH, __0_intnl_UdonSharpVideoVideoPlayerManager
         PUSH, _videoPlayerManager
         COPY
@@ -5004,17 +5011,17 @@
          #  if (_videoPlayerManager == null)
         PUSH, _videoPlayerManager
         PUSH, __0_const_intnl_UdonSharpVideoVideoPlayerManager
-        PUSH, __128_intnl_SystemBoolean
+        PUSH, __127_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
-        PUSH, __128_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004D80
+        PUSH, __127_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004DC0
         
          #  LogError("Video Player Manager not found, make sure you have a manager setup properly");
-        PUSH, __78_const_intnl_SystemString
+        PUSH, __79_const_intnl_SystemString
         PUSH, __2_mp_message_String
         COPY
         PUSH, __132_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005AB8
+        JUMP, 0x00005AF8
         
          #  return _videoPlayerManager;
         PUSH, _videoPlayerManager
@@ -5037,38 +5044,38 @@
         
          #  if (url.Contains("youtube.com/watch") ||
         PUSH, __0_mp_url_String
-        PUSH, __79_const_intnl_SystemString
-        PUSH, __132_intnl_SystemBoolean
+        PUSH, __80_const_intnl_SystemString
+        PUSH, __131_intnl_SystemBoolean
         EXTERN, "SystemString.__Contains__SystemString__SystemBoolean"
-        PUSH, __132_intnl_SystemBoolean
         PUSH, __131_intnl_SystemBoolean
+        PUSH, __130_intnl_SystemBoolean
         COPY
-        PUSH, __131_intnl_SystemBoolean
-        PUSH, __133_intnl_SystemBoolean
+        PUSH, __130_intnl_SystemBoolean
+        PUSH, __132_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __133_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004E74
+        PUSH, __132_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004EB4
         
          #  url.Contains("youtu.be/"))
         PUSH, __0_mp_url_String
-        PUSH, __80_const_intnl_SystemString
-        PUSH, __134_intnl_SystemBoolean
+        PUSH, __81_const_intnl_SystemString
+        PUSH, __133_intnl_SystemBoolean
         EXTERN, "SystemString.__Contains__SystemString__SystemBoolean"
-        PUSH, __131_intnl_SystemBoolean
+        PUSH, __130_intnl_SystemBoolean
+        PUSH, __133_intnl_SystemBoolean
         PUSH, __134_intnl_SystemBoolean
-        PUSH, __135_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean"
-        PUSH, __135_intnl_SystemBoolean
-        PUSH, __131_intnl_SystemBoolean
+        PUSH, __134_intnl_SystemBoolean
+        PUSH, __130_intnl_SystemBoolean
         COPY
-        PUSH, __131_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000052C4
+        PUSH, __130_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00005304
         
          #  {
         
          #  int tIndex = url.IndexOf("?t=", System.StringComparison.Ordinal);
         PUSH, __0_mp_url_String
-        PUSH, __81_const_intnl_SystemString
+        PUSH, __82_const_intnl_SystemString
         PUSH, __1_const_intnl_SystemStringComparison
         PUSH, __0_tIndex_Int32
         EXTERN, "SystemString.__IndexOf__SystemString_SystemStringComparison__SystemInt32"
@@ -5079,12 +5086,12 @@
         EXTERN, "SystemInt32.__op_UnaryMinus__SystemInt32__SystemInt32"
         PUSH, __0_tIndex_Int32
         PUSH, __26_intnl_SystemInt32
-        PUSH, __136_intnl_SystemBoolean
+        PUSH, __135_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __136_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004F1C
+        PUSH, __135_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004F5C
         PUSH, __0_mp_url_String
-        PUSH, __82_const_intnl_SystemString
+        PUSH, __83_const_intnl_SystemString
         PUSH, __1_const_intnl_SystemStringComparison
         PUSH, __0_tIndex_Int32
         EXTERN, "SystemString.__IndexOf__SystemString_SystemStringComparison__SystemInt32"
@@ -5095,12 +5102,12 @@
         EXTERN, "SystemInt32.__op_UnaryMinus__SystemInt32__SystemInt32"
         PUSH, __0_tIndex_Int32
         PUSH, __27_intnl_SystemInt32
-        PUSH, __137_intnl_SystemBoolean
+        PUSH, __136_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __137_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004F8C
+        PUSH, __136_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00004FCC
         PUSH, __0_mp_url_String
-        PUSH, __83_const_intnl_SystemString
+        PUSH, __84_const_intnl_SystemString
         PUSH, __1_const_intnl_SystemStringComparison
         PUSH, __0_tIndex_Int32
         EXTERN, "SystemString.__IndexOf__SystemString_SystemStringComparison__SystemInt32"
@@ -5111,12 +5118,12 @@
         EXTERN, "SystemInt32.__op_UnaryMinus__SystemInt32__SystemInt32"
         PUSH, __0_tIndex_Int32
         PUSH, __28_intnl_SystemInt32
-        PUSH, __138_intnl_SystemBoolean
+        PUSH, __137_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __138_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00004FFC
+        PUSH, __137_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000503C
         PUSH, __0_mp_url_String
-        PUSH, __84_const_intnl_SystemString
+        PUSH, __85_const_intnl_SystemString
         PUSH, __1_const_intnl_SystemStringComparison
         PUSH, __0_tIndex_Int32
         EXTERN, "SystemString.__IndexOf__SystemString_SystemStringComparison__SystemInt32"
@@ -5127,10 +5134,10 @@
         EXTERN, "SystemInt32.__op_UnaryMinus__SystemInt32__SystemInt32"
         PUSH, __0_tIndex_Int32
         PUSH, __29_intnl_SystemInt32
-        PUSH, __139_intnl_SystemBoolean
+        PUSH, __138_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_Equality__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __139_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x0000506C
+        PUSH, __138_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000050AC
         
          #  return 0f;
         PUSH, __0_const_intnl_SystemSingle
@@ -5167,10 +5174,10 @@
         EXTERN, "SystemCharArray.__get_Length__SystemInt32"
         PUSH, __0_numIdx_Int32
         PUSH, __31_intnl_SystemInt32
-        PUSH, __140_intnl_SystemBoolean
+        PUSH, __139_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __140_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00005204
+        PUSH, __139_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00005244
         
          #  {
         
@@ -5182,26 +5189,26 @@
         
          #  if (!char.IsNumber(currentChar))
         PUSH, __0_currentChar_Char
-        PUSH, __141_intnl_SystemBoolean
+        PUSH, __140_intnl_SystemBoolean
         EXTERN, "SystemChar.__IsNumber__SystemChar__SystemBoolean"
+        PUSH, __140_intnl_SystemBoolean
         PUSH, __141_intnl_SystemBoolean
-        PUSH, __142_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __142_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00005190
+        PUSH, __141_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000051D0
         
          #  break;
-        JUMP, 0x00005204
+        JUMP, 0x00005244
         
          #  intStr += currentChar;
         PUSH, __0_currentChar_Char
-        PUSH, __28_intnl_SystemString
+        PUSH, __31_intnl_SystemString
         EXTERN, "SystemChar.__ToString__SystemString"
         PUSH, __0_intStr_String
-        PUSH, __28_intnl_SystemString
-        PUSH, __29_intnl_SystemString
+        PUSH, __31_intnl_SystemString
+        PUSH, __32_intnl_SystemString
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
-        PUSH, __29_intnl_SystemString
+        PUSH, __32_intnl_SystemString
         PUSH, __0_intStr_String
         COPY
         
@@ -5210,14 +5217,14 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __0_numIdx_Int32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x000050E0
+        JUMP, 0x00005120
         
          #  if (string.IsNullOrWhiteSpace(intStr))
         PUSH, __0_intStr_String
-        PUSH, __141_intnl_SystemBoolean
+        PUSH, __140_intnl_SystemBoolean
         EXTERN, "SystemString.__IsNullOrWhiteSpace__SystemString__SystemBoolean"
-        PUSH, __141_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00005254
+        PUSH, __140_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00005294
         
          #  return 0f;
         PUSH, __0_const_intnl_SystemSingle
@@ -5235,10 +5242,10 @@
          #  if (int.TryParse(intStr, out secondsCount))
         PUSH, __0_intStr_String
         PUSH, __0_secondsCount_Int32
-        PUSH, __142_intnl_SystemBoolean
+        PUSH, __141_intnl_SystemBoolean
         EXTERN, "SystemInt32.__TryParse__SystemString_SystemInt32Ref__SystemBoolean"
-        PUSH, __142_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000052C4
+        PUSH, __141_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00005304
         
          #  return secondsCount;
         PUSH, __0_secondsCount_Int32
@@ -5269,38 +5276,38 @@
         
          #  if (url.Contains("youtube.com/watch") ||
         PUSH, __1_mp_url_String
-        PUSH, __79_const_intnl_SystemString
-        PUSH, __144_intnl_SystemBoolean
+        PUSH, __80_const_intnl_SystemString
+        PUSH, __143_intnl_SystemBoolean
         EXTERN, "SystemString.__Contains__SystemString__SystemBoolean"
-        PUSH, __144_intnl_SystemBoolean
         PUSH, __143_intnl_SystemBoolean
+        PUSH, __142_intnl_SystemBoolean
         COPY
-        PUSH, __143_intnl_SystemBoolean
-        PUSH, __145_intnl_SystemBoolean
+        PUSH, __142_intnl_SystemBoolean
+        PUSH, __144_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __145_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000053B8
+        PUSH, __144_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000053F8
         
          #  url.Contains("youtu.be/"))
         PUSH, __1_mp_url_String
-        PUSH, __80_const_intnl_SystemString
-        PUSH, __146_intnl_SystemBoolean
+        PUSH, __81_const_intnl_SystemString
+        PUSH, __145_intnl_SystemBoolean
         EXTERN, "SystemString.__Contains__SystemString__SystemBoolean"
-        PUSH, __143_intnl_SystemBoolean
+        PUSH, __142_intnl_SystemBoolean
+        PUSH, __145_intnl_SystemBoolean
         PUSH, __146_intnl_SystemBoolean
-        PUSH, __147_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean"
-        PUSH, __147_intnl_SystemBoolean
-        PUSH, __143_intnl_SystemBoolean
+        PUSH, __146_intnl_SystemBoolean
+        PUSH, __142_intnl_SystemBoolean
         COPY
-        PUSH, __143_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000054EC
+        PUSH, __142_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000552C
         
          #  {
         
          #  if (url.IndexOf("&list=", System.StringComparison.OrdinalIgnoreCase) != -1)
         PUSH, __1_mp_url_String
-        PUSH, __85_const_intnl_SystemString
+        PUSH, __86_const_intnl_SystemString
         PUSH, __0_const_intnl_SystemStringComparison
         PUSH, __32_intnl_SystemInt32
         EXTERN, "SystemString.__IndexOf__SystemString_SystemStringComparison__SystemInt32"
@@ -5309,44 +5316,44 @@
         EXTERN, "SystemInt32.__op_UnaryMinus__SystemInt32__SystemInt32"
         PUSH, __32_intnl_SystemInt32
         PUSH, __33_intnl_SystemInt32
-        PUSH, __148_intnl_SystemBoolean
+        PUSH, __147_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_Inequality__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __148_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000054EC
+        PUSH, __147_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000552C
         
          #  LogWarning($"URL '{url}' input with playlist link, this can slow down YouTubeDL link resolves significantly see: https://vrchat.canny.io/feature-requests/p/add-no-playlist-to-ytdl-arguments-for-url-resolution");
-        PUSH, __86_const_intnl_SystemString
+        PUSH, __87_const_intnl_SystemString
         PUSH, __7_intnl_interpolatedStr_String
         COPY
         PUSH, __7_intnl_interpolatedStr_String
         PUSH, __1_mp_url_String
-        PUSH, __30_intnl_SystemString
+        PUSH, __33_intnl_SystemString
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
-        PUSH, __30_intnl_SystemString
+        PUSH, __33_intnl_SystemString
         PUSH, __7_intnl_interpolatedStr_String
         COPY
         PUSH, __7_intnl_interpolatedStr_String
-        PUSH, __87_const_intnl_SystemString
-        PUSH, __31_intnl_SystemString
+        PUSH, __88_const_intnl_SystemString
+        PUSH, __34_intnl_SystemString
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
-        PUSH, __31_intnl_SystemString
+        PUSH, __34_intnl_SystemString
         PUSH, __7_intnl_interpolatedStr_String
         COPY
         PUSH, __7_intnl_interpolatedStr_String
         PUSH, __1_mp_message_String
         COPY
         PUSH, __7_intnl_interpolatedStr_String
-        PUSH, __32_intnl_SystemString
+        PUSH, __35_intnl_SystemString
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __133_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005A64
+        JUMP, 0x00005AA4
         
          #  if (string.IsNullOrWhiteSpace(url)) // Don't do anything if the player entered an empty URL by accident
         PUSH, __1_mp_url_String
-        PUSH, __148_intnl_SystemBoolean
+        PUSH, __147_intnl_SystemBoolean
         EXTERN, "SystemString.__IsNullOrWhiteSpace__SystemString__SystemBoolean"
-        PUSH, __148_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x0000553C
+        PUSH, __147_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000557C
         
          #  return false;
         PUSH, __1_const_intnl_SystemBoolean
@@ -5358,7 +5365,7 @@
         
          #  int idx = url.IndexOf("://", System.StringComparison.Ordinal);
         PUSH, __1_mp_url_String
-        PUSH, __88_const_intnl_SystemString
+        PUSH, __89_const_intnl_SystemString
         PUSH, __1_const_intnl_SystemStringComparison
         PUSH, __0_idx_Int32
         EXTERN, "SystemString.__IndexOf__SystemString_SystemStringComparison__SystemInt32"
@@ -5366,69 +5373,69 @@
          #  if (idx < 1 || idx > 8) // I'm not sure exactly what rule VRC uses so just check for the :// in an expected spot since it seems like VRC checks that it has a protocol at least.
         PUSH, __0_idx_Int32
         PUSH, __2_const_intnl_SystemInt32
-        PUSH, __150_intnl_SystemBoolean
+        PUSH, __149_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __150_intnl_SystemBoolean
         PUSH, __149_intnl_SystemBoolean
+        PUSH, __148_intnl_SystemBoolean
         COPY
-        PUSH, __149_intnl_SystemBoolean
-        PUSH, __151_intnl_SystemBoolean
+        PUSH, __148_intnl_SystemBoolean
+        PUSH, __150_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __151_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00005614
+        PUSH, __150_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00005654
         PUSH, __0_idx_Int32
         PUSH, __4_const_intnl_SystemInt32
-        PUSH, __152_intnl_SystemBoolean
+        PUSH, __151_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_GreaterThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __149_intnl_SystemBoolean
+        PUSH, __148_intnl_SystemBoolean
+        PUSH, __151_intnl_SystemBoolean
         PUSH, __152_intnl_SystemBoolean
-        PUSH, __153_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_ConditionalOr__SystemBoolean_SystemBoolean__SystemBoolean"
-        PUSH, __153_intnl_SystemBoolean
-        PUSH, __149_intnl_SystemBoolean
+        PUSH, __152_intnl_SystemBoolean
+        PUSH, __148_intnl_SystemBoolean
         COPY
-        PUSH, __149_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x0000574C
+        PUSH, __148_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000578C
         
          #  {
         
          #  LogError($"Invalid URL '{url}' provided");
-        PUSH, __89_const_intnl_SystemString
+        PUSH, __90_const_intnl_SystemString
         PUSH, __7_intnl_interpolatedStr_String
         COPY
         PUSH, __7_intnl_interpolatedStr_String
         PUSH, __1_mp_url_String
-        PUSH, __30_intnl_SystemString
+        PUSH, __33_intnl_SystemString
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
-        PUSH, __30_intnl_SystemString
+        PUSH, __33_intnl_SystemString
         PUSH, __7_intnl_interpolatedStr_String
         COPY
         PUSH, __7_intnl_interpolatedStr_String
-        PUSH, __90_const_intnl_SystemString
-        PUSH, __31_intnl_SystemString
+        PUSH, __91_const_intnl_SystemString
+        PUSH, __34_intnl_SystemString
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
-        PUSH, __31_intnl_SystemString
+        PUSH, __34_intnl_SystemString
         PUSH, __7_intnl_interpolatedStr_String
         COPY
         PUSH, __7_intnl_interpolatedStr_String
         PUSH, __2_mp_message_String
         COPY
         PUSH, __7_intnl_interpolatedStr_String
-        PUSH, __32_intnl_SystemString
+        PUSH, __35_intnl_SystemString
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __134_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005AB8
+        JUMP, 0x00005AF8
         
          #  SetStatusText("Invalid URL");
         PUSH, __36_const_intnl_SystemString
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __135_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         
          #  SendCustomEventDelayedSeconds(nameof(_LateClearStatusInternal), 2f);
         PUSH, __0_this_intnl_UdonSharpVideoUSharpVideoPlayer
-        PUSH, __91_const_intnl_SystemString
+        PUSH, __92_const_intnl_SystemString
         PUSH, __6_const_intnl_SystemSingle
         PUSH, __0_const_intnl_VRCUdonCommonEnumsEventTiming
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEventDelayedSeconds__SystemString_SystemSingle_VRCUdonCommonEnumsEventTiming__SystemVoid"
@@ -5447,50 +5454,50 @@
         EXTERN, "SystemString.__get_Length__SystemInt32"
         PUSH, __32_intnl_SystemInt32
         PUSH, __5_const_intnl_SystemInt32
-        PUSH, __154_intnl_SystemBoolean
+        PUSH, __153_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_GreaterThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __154_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000058BC
+        PUSH, __153_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000058FC
         
          #  {
         
          #  LogError($"Video URL is too long! url: '{url}'");
-        PUSH, __92_const_intnl_SystemString
+        PUSH, __93_const_intnl_SystemString
         PUSH, __7_intnl_interpolatedStr_String
         COPY
         PUSH, __7_intnl_interpolatedStr_String
         PUSH, __1_mp_url_String
-        PUSH, __30_intnl_SystemString
+        PUSH, __33_intnl_SystemString
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
-        PUSH, __30_intnl_SystemString
+        PUSH, __33_intnl_SystemString
         PUSH, __7_intnl_interpolatedStr_String
         COPY
         PUSH, __7_intnl_interpolatedStr_String
-        PUSH, __93_const_intnl_SystemString
-        PUSH, __31_intnl_SystemString
+        PUSH, __94_const_intnl_SystemString
+        PUSH, __34_intnl_SystemString
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
-        PUSH, __31_intnl_SystemString
+        PUSH, __34_intnl_SystemString
         PUSH, __7_intnl_interpolatedStr_String
         COPY
         PUSH, __7_intnl_interpolatedStr_String
         PUSH, __2_mp_message_String
         COPY
         PUSH, __7_intnl_interpolatedStr_String
-        PUSH, __32_intnl_SystemString
+        PUSH, __35_intnl_SystemString
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __136_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00005AB8
+        JUMP, 0x00005AF8
         
          #  SetStatusText("Invalid URL");
         PUSH, __36_const_intnl_SystemString
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __137_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         
          #  SendCustomEventDelayedSeconds(nameof(_LateClearStatusInternal), 2f);
         PUSH, __0_this_intnl_UdonSharpVideoUSharpVideoPlayer
-        PUSH, __91_const_intnl_SystemString
+        PUSH, __92_const_intnl_SystemString
         PUSH, __6_const_intnl_SystemSingle
         PUSH, __0_const_intnl_VRCUdonCommonEnumsEventTiming
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEventDelayedSeconds__SystemString_SystemSingle_VRCUdonCommonEnumsEventTiming__SystemVoid"
@@ -5526,32 +5533,32 @@
         
          #  if (_videoPlayerManager.IsPlaying() && !_loadingVideo)
         PUSH, _videoPlayerManager
-        PUSH, __67_const_intnl_SystemString
+        PUSH, __68_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, _videoPlayerManager
-        PUSH, __68_const_intnl_SystemString
+        PUSH, __69_const_intnl_SystemString
         PUSH, __14_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __14_intnl_SystemObject
-        PUSH, __156_intnl_SystemBoolean
+        PUSH, __155_intnl_SystemBoolean
         EXTERN, "SystemConvert.__ToBoolean__SystemObject__SystemBoolean"
-        PUSH, __156_intnl_SystemBoolean
         PUSH, __155_intnl_SystemBoolean
+        PUSH, __154_intnl_SystemBoolean
         COPY
-        PUSH, __155_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000059C0
+        PUSH, __154_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00005A00
         PUSH, _loadingVideo
-        PUSH, __157_intnl_SystemBoolean
+        PUSH, __156_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __155_intnl_SystemBoolean
+        PUSH, __154_intnl_SystemBoolean
+        PUSH, __156_intnl_SystemBoolean
         PUSH, __157_intnl_SystemBoolean
-        PUSH, __158_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_ConditionalAnd__SystemBoolean_SystemBoolean__SystemBoolean"
-        PUSH, __158_intnl_SystemBoolean
-        PUSH, __155_intnl_SystemBoolean
+        PUSH, __157_intnl_SystemBoolean
+        PUSH, __154_intnl_SystemBoolean
         COPY
-        PUSH, __155_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000059F4
+        PUSH, __154_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00005A34
         
          #  {
         
@@ -5560,7 +5567,7 @@
         PUSH, __0_mp_statusText_String
         COPY
         PUSH, __138_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x000062DC
+        JUMP, 0x0000631C
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -5574,11 +5581,11 @@
          #  {
         
          #  Debug.Log("[<color=#9C6994>USharpVideo</color>] " + message, this);
-        PUSH, __94_const_intnl_SystemString
+        PUSH, __95_const_intnl_SystemString
         PUSH, __0_mp_message_String
-        PUSH, __33_intnl_SystemString
+        PUSH, __36_intnl_SystemString
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
-        PUSH, __33_intnl_SystemString
+        PUSH, __36_intnl_SystemString
         PUSH, __0_this_intnl_UdonSharpVideoUSharpVideoPlayer
         EXTERN, "UnityEngineDebug.__Log__SystemObject_UnityEngineObject__SystemVoid"
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
@@ -5594,11 +5601,11 @@
          #  {
         
          #  Debug.LogWarning("[<color=#FF00FF>USharpVideo</color>] " + message, this);
-        PUSH, __95_const_intnl_SystemString
+        PUSH, __96_const_intnl_SystemString
         PUSH, __1_mp_message_String
-        PUSH, __34_intnl_SystemString
+        PUSH, __37_intnl_SystemString
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
-        PUSH, __34_intnl_SystemString
+        PUSH, __37_intnl_SystemString
         PUSH, __0_this_intnl_UdonSharpVideoUSharpVideoPlayer
         EXTERN, "UnityEngineDebug.__LogWarning__SystemObject_UnityEngineObject__SystemVoid"
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
@@ -5614,11 +5621,11 @@
          #  {
         
          #  Debug.LogError("[<color=#FF00FF>USharpVideo</color>] " + message, this);
-        PUSH, __95_const_intnl_SystemString
+        PUSH, __96_const_intnl_SystemString
         PUSH, __2_mp_message_String
-        PUSH, __35_intnl_SystemString
+        PUSH, __38_intnl_SystemString
         EXTERN, "SystemString.__op_Addition__SystemString_SystemString__SystemString"
-        PUSH, __35_intnl_SystemString
+        PUSH, __38_intnl_SystemString
         PUSH, __0_this_intnl_UdonSharpVideoUSharpVideoPlayer
         EXTERN, "UnityEngineDebug.__LogError__SystemObject_UnityEngineObject__SystemVoid"
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
@@ -5638,10 +5645,10 @@
          #  if (_registeredControlHandlers == null)
         PUSH, _registeredControlHandlers
         PUSH, __0_const_intnl_UnityEngineComponentArray
-        PUSH, __159_intnl_SystemBoolean
+        PUSH, __158_intnl_SystemBoolean
         EXTERN, "SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean"
-        PUSH, __159_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00005B54
+        PUSH, __158_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00005B94
         
          #  _registeredControlHandlers = new VideoControlHandler[0];
         PUSH, __0_const_intnl_SystemInt32
@@ -5657,10 +5664,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __34_intnl_SystemInt32
         PUSH, __35_intnl_SystemInt32
-        PUSH, __160_intnl_SystemBoolean
+        PUSH, __159_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __160_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00005C50
+        PUSH, __159_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00005C90
         PUSH, _registeredControlHandlers
         PUSH, __34_intnl_SystemInt32
         PUSH, __0_intnl_UdonSharpVideoVideoControlHandler
@@ -5674,10 +5681,10 @@
          #  if (newControlHandler == controlHandler)
         PUSH, __0_mp_newControlHandler_VideoControlHandler
         PUSH, __0_controlHandler_VideoControlHandler
-        PUSH, __161_intnl_SystemBoolean
+        PUSH, __160_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
-        PUSH, __161_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00005C28
+        PUSH, __160_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00005C68
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -5687,7 +5694,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __34_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00005B80
+        JUMP, 0x00005BC0
         
          #  VideoControlHandler[] newControlHandlers = new VideoControlHandler[_registeredControlHandlers.Length + 1];
         PUSH, _registeredControlHandlers
@@ -5727,95 +5734,95 @@
         
          #  newControlHandler.SetLocked(_isMasterOnly);
         PUSH, __0_mp_newControlHandler_VideoControlHandler
-        PUSH, __96_const_intnl_SystemString
+        PUSH, __97_const_intnl_SystemString
         PUSH, _isMasterOnly
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, _isMasterOnly
-        PUSH, __160_intnl_SystemBoolean
+        PUSH, __159_intnl_SystemBoolean
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __0_mp_newControlHandler_VideoControlHandler
-        PUSH, __97_const_intnl_SystemString
+        PUSH, __98_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         
          #  newControlHandler.SetLooping(_localLoopVideo);
         PUSH, __0_mp_newControlHandler_VideoControlHandler
-        PUSH, __98_const_intnl_SystemString
+        PUSH, __99_const_intnl_SystemString
         PUSH, _localLoopVideo
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, _localLoopVideo
-        PUSH, __161_intnl_SystemBoolean
+        PUSH, __160_intnl_SystemBoolean
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __0_mp_newControlHandler_VideoControlHandler
-        PUSH, __58_const_intnl_SystemString
+        PUSH, __59_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         
          #  newControlHandler.SetPaused(_locallyPaused);
         PUSH, __0_mp_newControlHandler_VideoControlHandler
-        PUSH, __99_const_intnl_SystemString
+        PUSH, __100_const_intnl_SystemString
         PUSH, _locallyPaused
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, _locallyPaused
-        PUSH, __162_intnl_SystemBoolean
+        PUSH, __161_intnl_SystemBoolean
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __0_mp_newControlHandler_VideoControlHandler
-        PUSH, __100_const_intnl_SystemString
+        PUSH, __101_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         
          #  newControlHandler.SetStatusText(_lastStatusText);
         PUSH, __0_mp_newControlHandler_VideoControlHandler
-        PUSH, __101_const_intnl_SystemString
+        PUSH, __102_const_intnl_SystemString
         PUSH, _lastStatusText
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, _lastStatusText
-        PUSH, __36_intnl_SystemString
+        PUSH, __39_intnl_SystemString
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __0_mp_newControlHandler_VideoControlHandler
-        PUSH, __102_const_intnl_SystemString
+        PUSH, __103_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         
          #  VideoPlayerManager manager = GetVideoManager();
         PUSH, __139_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004ADC
+        JUMP, 0x00004B1C
         PUSH, __0_intnl_returnValSymbol_VideoPlayerManager
         PUSH, __0_manager_VideoPlayerManager
         COPY
         
          #  newControlHandler.SetVolume(manager.GetVolume());
         PUSH, __0_manager_VideoPlayerManager
-        PUSH, __59_const_intnl_SystemString
+        PUSH, __60_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __0_manager_VideoPlayerManager
-        PUSH, __60_const_intnl_SystemString
+        PUSH, __61_const_intnl_SystemString
         PUSH, __15_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __15_intnl_SystemObject
         PUSH, __37_intnl_SystemSingle
         EXTERN, "SystemConvert.__ToSingle__SystemObject__SystemSingle"
         PUSH, __0_mp_newControlHandler_VideoControlHandler
-        PUSH, __61_const_intnl_SystemString
+        PUSH, __62_const_intnl_SystemString
         PUSH, __37_intnl_SystemSingle
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, __0_mp_newControlHandler_VideoControlHandler
-        PUSH, __62_const_intnl_SystemString
+        PUSH, __63_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         
          #  newControlHandler.SetMuted(manager.IsMuted());
         PUSH, __0_manager_VideoPlayerManager
-        PUSH, __63_const_intnl_SystemString
+        PUSH, __64_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __0_manager_VideoPlayerManager
-        PUSH, __64_const_intnl_SystemString
+        PUSH, __65_const_intnl_SystemString
         PUSH, __16_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __16_intnl_SystemObject
-        PUSH, __163_intnl_SystemBoolean
+        PUSH, __162_intnl_SystemBoolean
         EXTERN, "SystemConvert.__ToBoolean__SystemObject__SystemBoolean"
         PUSH, __0_mp_newControlHandler_VideoControlHandler
-        PUSH, __65_const_intnl_SystemString
-        PUSH, __163_intnl_SystemBoolean
+        PUSH, __66_const_intnl_SystemString
+        PUSH, __162_intnl_SystemBoolean
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, __0_mp_newControlHandler_VideoControlHandler
-        PUSH, __66_const_intnl_SystemString
+        PUSH, __67_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
@@ -5834,10 +5841,10 @@
          #  if (_registeredControlHandlers == null)
         PUSH, _registeredControlHandlers
         PUSH, __0_const_intnl_UnityEngineComponentArray
-        PUSH, __164_intnl_SystemBoolean
+        PUSH, __163_intnl_SystemBoolean
         EXTERN, "SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean"
-        PUSH, __164_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00005FF4
+        PUSH, __163_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006034
         
          #  _registeredControlHandlers = new VideoControlHandler[0];
         PUSH, __0_const_intnl_SystemInt32
@@ -5855,10 +5862,10 @@
         COPY
         PUSH, __1_i_Int32
         PUSH, __0_controlHandlerCount_Int32
-        PUSH, __165_intnl_SystemBoolean
+        PUSH, __164_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __165_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000062C0
+        PUSH, __164_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006300
         
          #  {
         
@@ -5874,10 +5881,10 @@
          #  if (controlHandler == handler)
         PUSH, __0_mp_controlHandler_VideoControlHandler
         PUSH, __0_handler_VideoControlHandler
-        PUSH, __166_intnl_SystemBoolean
+        PUSH, __165_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
-        PUSH, __166_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006298
+        PUSH, __165_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000062D8
         
          #  {
         
@@ -5896,10 +5903,10 @@
         COPY
         PUSH, __0_j_Int32
         PUSH, __1_i_Int32
-        PUSH, __167_intnl_SystemBoolean
+        PUSH, __166_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __167_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006198
+        PUSH, __166_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000061D8
         
          #  newControlHandlers[j] = _registeredControlHandlers[j];
         PUSH, _registeredControlHandlers
@@ -5914,7 +5921,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __0_j_Int32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00006100
+        JUMP, 0x00006140
         
          #  for (int j = i + 1; j < controlHandlerCount; ++j)
         PUSH, __1_i_Int32
@@ -5923,10 +5930,10 @@
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
         PUSH, __0_j_Int32
         PUSH, __0_controlHandlerCount_Int32
-        PUSH, __167_intnl_SystemBoolean
+        PUSH, __166_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __167_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006270
+        PUSH, __166_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000062B0
         
          #  newControlHandlers[j - 1] = _registeredControlHandlers[j];
         PUSH, __0_j_Int32
@@ -5945,7 +5952,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __0_j_Int32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x000061B8
+        JUMP, 0x000061F8
         
          #  _registeredControlHandlers = newControlHandlers;
         PUSH, __1_newControlHandlers_VideoControlHandlerArray
@@ -5960,7 +5967,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __1_i_Int32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00006020
+        JUMP, 0x00006060
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -5978,10 +5985,10 @@
          #  if (statusText == _lastStatusText)
         PUSH, __0_mp_statusText_String
         PUSH, _lastStatusText
-        PUSH, __168_intnl_SystemBoolean
+        PUSH, __167_intnl_SystemBoolean
         EXTERN, "SystemString.__op_Equality__SystemString_SystemString__SystemBoolean"
-        PUSH, __168_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006320
+        PUSH, __167_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006360
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -6002,10 +6009,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __40_intnl_SystemInt32
         PUSH, __41_intnl_SystemInt32
-        PUSH, __169_intnl_SystemBoolean
+        PUSH, __168_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __169_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006424
+        PUSH, __168_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006464
         PUSH, _registeredControlHandlers
         PUSH, __40_intnl_SystemInt32
         PUSH, __3_intnl_UdonSharpVideoVideoControlHandler
@@ -6016,17 +6023,17 @@
         
          #  handler.SetStatusText(statusText);
         PUSH, __1_handler_VideoControlHandler
-        PUSH, __101_const_intnl_SystemString
+        PUSH, __102_const_intnl_SystemString
         PUSH, __0_mp_statusText_String
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, __1_handler_VideoControlHandler
-        PUSH, __102_const_intnl_SystemString
+        PUSH, __103_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __40_intnl_SystemInt32
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __40_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00006360
+        JUMP, 0x000063A0
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -6048,10 +6055,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __42_intnl_SystemInt32
         PUSH, __43_intnl_SystemInt32
-        PUSH, __170_intnl_SystemBoolean
+        PUSH, __169_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __170_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006530
+        PUSH, __169_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006570
         PUSH, _registeredControlHandlers
         PUSH, __42_intnl_SystemInt32
         PUSH, __4_intnl_UdonSharpVideoVideoControlHandler
@@ -6062,17 +6069,17 @@
         
          #  handler.SetPaused(paused);
         PUSH, __2_handler_VideoControlHandler
-        PUSH, __99_const_intnl_SystemString
+        PUSH, __100_const_intnl_SystemString
         PUSH, __2_mp_paused_Boolean
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, __2_handler_VideoControlHandler
-        PUSH, __100_const_intnl_SystemString
+        PUSH, __101_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __42_intnl_SystemInt32
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __42_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x0000646C
+        JUMP, 0x000064AC
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -6094,10 +6101,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __44_intnl_SystemInt32
         PUSH, __45_intnl_SystemInt32
-        PUSH, __171_intnl_SystemBoolean
+        PUSH, __170_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __171_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x0000663C
+        PUSH, __170_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000667C
         PUSH, _registeredControlHandlers
         PUSH, __44_intnl_SystemInt32
         PUSH, __5_intnl_UdonSharpVideoVideoControlHandler
@@ -6108,17 +6115,17 @@
         
          #  handler.SetLocked(locked);
         PUSH, __3_handler_VideoControlHandler
-        PUSH, __96_const_intnl_SystemString
+        PUSH, __97_const_intnl_SystemString
         PUSH, __2_mp_locked_Boolean
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, __3_handler_VideoControlHandler
-        PUSH, __97_const_intnl_SystemString
+        PUSH, __98_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __44_intnl_SystemInt32
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __44_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00006578
+        JUMP, 0x000065B8
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -6140,10 +6147,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __46_intnl_SystemInt32
         PUSH, __47_intnl_SystemInt32
-        PUSH, __172_intnl_SystemBoolean
+        PUSH, __171_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __172_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006748
+        PUSH, __171_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006788
         PUSH, _registeredControlHandlers
         PUSH, __46_intnl_SystemInt32
         PUSH, __6_intnl_UdonSharpVideoVideoControlHandler
@@ -6158,13 +6165,13 @@
         PUSH, __3_mp_url_VRCUrl
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, __4_handler_VideoControlHandler
-        PUSH, __103_const_intnl_SystemString
+        PUSH, __104_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __46_intnl_SystemInt32
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __46_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00006684
+        JUMP, 0x000066C4
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -6186,10 +6193,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __48_intnl_SystemInt32
         PUSH, __49_intnl_SystemInt32
-        PUSH, __173_intnl_SystemBoolean
+        PUSH, __172_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __173_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006834
+        PUSH, __172_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006874
         PUSH, _registeredControlHandlers
         PUSH, __48_intnl_SystemInt32
         PUSH, __7_intnl_UdonSharpVideoVideoControlHandler
@@ -6200,13 +6207,13 @@
         
          #  handler.SetToVideoPlayerMode();
         PUSH, __5_handler_VideoControlHandler
-        PUSH, __73_const_intnl_SystemString
+        PUSH, __74_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __48_intnl_SystemInt32
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __48_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00006790
+        JUMP, 0x000067D0
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -6228,10 +6235,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __50_intnl_SystemInt32
         PUSH, __51_intnl_SystemInt32
-        PUSH, __174_intnl_SystemBoolean
+        PUSH, __173_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __174_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006920
+        PUSH, __173_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006960
         PUSH, _registeredControlHandlers
         PUSH, __50_intnl_SystemInt32
         PUSH, __8_intnl_UdonSharpVideoVideoControlHandler
@@ -6242,13 +6249,13 @@
         
          #  handler.SetToStreamPlayerMode();
         PUSH, __6_handler_VideoControlHandler
-        PUSH, __74_const_intnl_SystemString
+        PUSH, __75_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __50_intnl_SystemInt32
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __50_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x0000687C
+        JUMP, 0x000068BC
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -6270,10 +6277,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __52_intnl_SystemInt32
         PUSH, __53_intnl_SystemInt32
-        PUSH, __175_intnl_SystemBoolean
+        PUSH, __174_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __175_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006A0C
+        PUSH, __174_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006A4C
         PUSH, _registeredControlHandlers
         PUSH, __52_intnl_SystemInt32
         PUSH, __9_intnl_UdonSharpVideoVideoControlHandler
@@ -6284,13 +6291,13 @@
         
          #  handler.OnVideoPlayerOwnerTransferred();
         PUSH, __7_handler_VideoControlHandler
-        PUSH, __104_const_intnl_SystemString
+        PUSH, __105_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __52_intnl_SystemInt32
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __52_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00006968
+        JUMP, 0x000069A8
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -6312,10 +6319,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __54_intnl_SystemInt32
         PUSH, __55_intnl_SystemInt32
-        PUSH, __176_intnl_SystemBoolean
+        PUSH, __175_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __176_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006B18
+        PUSH, __175_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006B58
         PUSH, _registeredControlHandlers
         PUSH, __54_intnl_SystemInt32
         PUSH, __10_intnl_UdonSharpVideoVideoControlHandler
@@ -6326,17 +6333,17 @@
         
          #  handler.SetLooping(looping);
         PUSH, __8_handler_VideoControlHandler
-        PUSH, __98_const_intnl_SystemString
+        PUSH, __99_const_intnl_SystemString
         PUSH, __0_mp_looping_Boolean
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, __8_handler_VideoControlHandler
-        PUSH, __58_const_intnl_SystemString
+        PUSH, __59_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __54_intnl_SystemInt32
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __54_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00006A54
+        JUMP, 0x00006A94
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -6358,10 +6365,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __56_intnl_SystemInt32
         PUSH, __57_intnl_SystemInt32
-        PUSH, __177_intnl_SystemBoolean
+        PUSH, __176_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __177_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006C24
+        PUSH, __176_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006C64
         PUSH, _registeredControlHandlers
         PUSH, __56_intnl_SystemInt32
         PUSH, __11_intnl_UdonSharpVideoVideoControlHandler
@@ -6372,17 +6379,17 @@
         
          #  handler.SetVolume(volume);
         PUSH, __9_handler_VideoControlHandler
-        PUSH, __61_const_intnl_SystemString
+        PUSH, __62_const_intnl_SystemString
         PUSH, __1_mp_volume_Single
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, __9_handler_VideoControlHandler
-        PUSH, __62_const_intnl_SystemString
+        PUSH, __63_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __56_intnl_SystemInt32
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __56_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00006B60
+        JUMP, 0x00006BA0
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -6404,10 +6411,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __58_intnl_SystemInt32
         PUSH, __59_intnl_SystemInt32
-        PUSH, __178_intnl_SystemBoolean
+        PUSH, __177_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __178_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006D30
+        PUSH, __177_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006D70
         PUSH, _registeredControlHandlers
         PUSH, __58_intnl_SystemInt32
         PUSH, __12_intnl_UdonSharpVideoVideoControlHandler
@@ -6418,17 +6425,17 @@
         
          #  handler.SetMuted(muted);
         PUSH, __10_handler_VideoControlHandler
-        PUSH, __65_const_intnl_SystemString
+        PUSH, __66_const_intnl_SystemString
         PUSH, __1_mp_muted_Boolean
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, __10_handler_VideoControlHandler
-        PUSH, __66_const_intnl_SystemString
+        PUSH, __67_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __58_intnl_SystemInt32
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __58_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00006C6C
+        JUMP, 0x00006CAC
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -6446,10 +6453,10 @@
          #  if (_registeredScreenHandlers == null)
         PUSH, _registeredScreenHandlers
         PUSH, __0_const_intnl_UnityEngineComponentArray
-        PUSH, __179_intnl_SystemBoolean
+        PUSH, __178_intnl_SystemBoolean
         EXTERN, "SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean"
-        PUSH, __179_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006D94
+        PUSH, __178_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006DD4
         
          #  _registeredScreenHandlers = new VideoScreenHandler[0];
         PUSH, __0_const_intnl_SystemInt32
@@ -6465,10 +6472,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __60_intnl_SystemInt32
         PUSH, __61_intnl_SystemInt32
-        PUSH, __180_intnl_SystemBoolean
+        PUSH, __179_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __180_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006E90
+        PUSH, __179_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006ED0
         PUSH, _registeredScreenHandlers
         PUSH, __60_intnl_SystemInt32
         PUSH, __0_intnl_UdonSharpVideoVideoScreenHandler
@@ -6482,10 +6489,10 @@
          #  if (newScreenHandler == controlHandler)
         PUSH, __0_mp_newScreenHandler_VideoScreenHandler
         PUSH, __0_controlHandler_VideoScreenHandler
-        PUSH, __181_intnl_SystemBoolean
+        PUSH, __180_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
-        PUSH, __181_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006E68
+        PUSH, __180_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00006EA8
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -6495,7 +6502,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __60_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00006DC0
+        JUMP, 0x00006E00
         
          #  VideoScreenHandler[] newControlHandlers = new VideoScreenHandler[_registeredScreenHandlers.Length + 1];
         PUSH, _registeredScreenHandlers
@@ -6549,10 +6556,10 @@
          #  if (_registeredScreenHandlers == null)
         PUSH, _registeredScreenHandlers
         PUSH, __0_const_intnl_UnityEngineComponentArray
-        PUSH, __182_intnl_SystemBoolean
+        PUSH, __181_intnl_SystemBoolean
         EXTERN, "SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean"
-        PUSH, __182_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00006FD0
+        PUSH, __181_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00007010
         
          #  _registeredScreenHandlers = new VideoScreenHandler[0];
         PUSH, __0_const_intnl_SystemInt32
@@ -6570,10 +6577,10 @@
         COPY
         PUSH, __2_i_Int32
         PUSH, __1_controlHandlerCount_Int32
-        PUSH, __183_intnl_SystemBoolean
+        PUSH, __182_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __183_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x0000729C
+        PUSH, __182_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000072DC
         
          #  {
         
@@ -6589,10 +6596,10 @@
          #  if (screenHandler == handler)
         PUSH, __0_mp_screenHandler_VideoScreenHandler
         PUSH, __0_handler_VideoScreenHandler
-        PUSH, __184_intnl_SystemBoolean
+        PUSH, __183_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
-        PUSH, __184_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00007274
+        PUSH, __183_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000072B4
         
          #  {
         
@@ -6611,10 +6618,10 @@
         COPY
         PUSH, __1_j_Int32
         PUSH, __2_i_Int32
-        PUSH, __185_intnl_SystemBoolean
+        PUSH, __184_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __185_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00007174
+        PUSH, __184_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000071B4
         
          #  newControlHandlers[j] = _registeredScreenHandlers[j];
         PUSH, _registeredScreenHandlers
@@ -6629,7 +6636,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __1_j_Int32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x000070DC
+        JUMP, 0x0000711C
         
          #  for (int j = i + 1; j < controlHandlerCount; ++j)
         PUSH, __2_i_Int32
@@ -6638,10 +6645,10 @@
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
         PUSH, __1_j_Int32
         PUSH, __1_controlHandlerCount_Int32
-        PUSH, __185_intnl_SystemBoolean
+        PUSH, __184_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __185_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x0000724C
+        PUSH, __184_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000728C
         
          #  newControlHandlers[j - 1] = _registeredScreenHandlers[j];
         PUSH, __1_j_Int32
@@ -6660,7 +6667,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __1_j_Int32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00007194
+        JUMP, 0x000071D4
         
          #  _registeredScreenHandlers = newControlHandlers;
         PUSH, __1_newControlHandlers_VideoScreenHandlerArray
@@ -6675,7 +6682,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __2_i_Int32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00006FFC
+        JUMP, 0x0000703C
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -6693,10 +6700,10 @@
          #  if (_registeredScreenHandlers == null)
         PUSH, _registeredScreenHandlers
         PUSH, __0_const_intnl_UnityEngineComponentArray
-        PUSH, __186_intnl_SystemBoolean
+        PUSH, __185_intnl_SystemBoolean
         EXTERN, "SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean"
-        PUSH, __186_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000072FC
+        PUSH, __185_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000733C
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -6705,10 +6712,10 @@
         
          #  Texture renderTexture = _videoPlayerManager.GetVideoTexture();
         PUSH, _videoPlayerManager
-        PUSH, __105_const_intnl_SystemString
+        PUSH, __106_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, _videoPlayerManager
-        PUSH, __106_const_intnl_SystemString
+        PUSH, __107_const_intnl_SystemString
         PUSH, __17_intnl_SystemObject
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__GetProgramVariable__SystemString__SystemObject"
         PUSH, __17_intnl_SystemObject
@@ -6721,10 +6728,10 @@
          #  if (_lastAssignedRenderTexture == renderTexture)
         PUSH, _lastAssignedRenderTexture
         PUSH, __0_renderTexture_Texture
-        PUSH, __187_intnl_SystemBoolean
+        PUSH, __186_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
-        PUSH, __187_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000073A0
+        PUSH, __186_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000073E0
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -6740,10 +6747,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __66_intnl_SystemInt32
         PUSH, __67_intnl_SystemInt32
-        PUSH, __188_intnl_SystemBoolean
+        PUSH, __187_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __188_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000074FC
+        PUSH, __187_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000753C
         PUSH, _registeredScreenHandlers
         PUSH, __66_intnl_SystemInt32
         PUSH, __3_intnl_UdonSharpVideoVideoScreenHandler
@@ -6756,33 +6763,33 @@
         
          #  if (Utilities.IsValid(handler))
         PUSH, __1_handler_VideoScreenHandler
-        PUSH, __189_intnl_SystemBoolean
+        PUSH, __188_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseUtilities.__IsValid__SystemObject__SystemBoolean"
-        PUSH, __189_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000074D4
+        PUSH, __188_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00007514
         
          #  handler.UpdateVideoTexture(renderTexture, IsUsingAVProPlayer());
         PUSH, __140_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00004870
+        JUMP, 0x000048B0
         PUSH, __1_handler_VideoScreenHandler
-        PUSH, __107_const_intnl_SystemString
+        PUSH, __108_const_intnl_SystemString
         PUSH, __0_renderTexture_Texture
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, __1_handler_VideoScreenHandler
-        PUSH, __108_const_intnl_SystemString
+        PUSH, __109_const_intnl_SystemString
         PUSH, __11_intnl_returnValSymbol_Boolean
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SetProgramVariable__SystemString_SystemObject__SystemVoid"
         PUSH, __11_intnl_returnValSymbol_Boolean
-        PUSH, __190_intnl_SystemBoolean
+        PUSH, __189_intnl_SystemBoolean
         COPY #  Copy-on-write symbol value dirtied
         PUSH, __1_handler_VideoScreenHandler
-        PUSH, __109_const_intnl_SystemString
+        PUSH, __110_const_intnl_SystemString
         EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomEvent__SystemString__SystemVoid"
         PUSH, __66_intnl_SystemInt32
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __66_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x000073CC
+        JUMP, 0x0000740C
         
          #  _lastAssignedRenderTexture = renderTexture;
         PUSH, __0_renderTexture_Texture
@@ -6790,11 +6797,11 @@
         COPY
         
          #  SendCallback("OnUSharpVideoRenderTextureChange");
-        PUSH, __110_const_intnl_SystemString
+        PUSH, __111_const_intnl_SystemString
         PUSH, __0_mp_callbackName_String
         COPY
         PUSH, __141_const_intnl_exitJumpLoc_UInt32
-        JUMP, 0x00007B64
+        JUMP, 0x00007BA4
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -6813,13 +6820,13 @@
         
          #  if (!Utilities.IsValid(callbackReceiver))
         PUSH, __0_mp_callbackReceiver_UdonSharpBehaviour
-        PUSH, __191_intnl_SystemBoolean
+        PUSH, __190_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseUtilities.__IsValid__SystemObject__SystemBoolean"
+        PUSH, __190_intnl_SystemBoolean
         PUSH, __191_intnl_SystemBoolean
-        PUSH, __192_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __192_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000075A4
+        PUSH, __191_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000075E4
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -6829,10 +6836,10 @@
          #  if (_registeredCallbackReceivers == null)
         PUSH, _registeredCallbackReceivers
         PUSH, __0_const_intnl_UnityEngineComponentArray
-        PUSH, __193_intnl_SystemBoolean
+        PUSH, __192_intnl_SystemBoolean
         EXTERN, "SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean"
-        PUSH, __193_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000075EC
+        PUSH, __192_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x0000762C
         
          #  _registeredCallbackReceivers = new UdonSharpBehaviour[0];
         PUSH, __0_const_intnl_SystemInt32
@@ -6848,10 +6855,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __68_intnl_SystemInt32
         PUSH, __69_intnl_SystemInt32
-        PUSH, __194_intnl_SystemBoolean
+        PUSH, __193_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __194_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000076E8
+        PUSH, __193_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00007728
         PUSH, _registeredCallbackReceivers
         PUSH, __68_intnl_SystemInt32
         PUSH, __0_intnl_UdonSharpUdonSharpBehaviour
@@ -6865,10 +6872,10 @@
          #  if (callbackReceiver == currReceiver)
         PUSH, __0_mp_callbackReceiver_UdonSharpBehaviour
         PUSH, __0_currReceiver_UdonSharpBehaviour
-        PUSH, __195_intnl_SystemBoolean
+        PUSH, __194_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
-        PUSH, __195_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x000076C0
+        PUSH, __194_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00007700
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -6878,7 +6885,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __68_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00007618
+        JUMP, 0x00007658
         
          #  UdonSharpBehaviour[] newControlHandlers = new UdonSharpBehaviour[_registeredCallbackReceivers.Length + 1];
         PUSH, _registeredCallbackReceivers
@@ -6933,13 +6940,13 @@
         
          #  if (!Utilities.IsValid(callbackReceiver))
         PUSH, __1_mp_callbackReceiver_UdonSharpBehaviour
-        PUSH, __196_intnl_SystemBoolean
+        PUSH, __195_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseUtilities.__IsValid__SystemObject__SystemBoolean"
+        PUSH, __195_intnl_SystemBoolean
         PUSH, __196_intnl_SystemBoolean
-        PUSH, __197_intnl_SystemBoolean
         EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
-        PUSH, __197_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00007834
+        PUSH, __196_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00007874
         
          #  return;
         PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
@@ -6949,10 +6956,10 @@
          #  if (_registeredCallbackReceivers == null)
         PUSH, _registeredCallbackReceivers
         PUSH, __0_const_intnl_UnityEngineComponentArray
-        PUSH, __198_intnl_SystemBoolean
+        PUSH, __197_intnl_SystemBoolean
         EXTERN, "SystemObject.__op_Equality__SystemObject_SystemObject__SystemBoolean"
-        PUSH, __198_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x0000787C
+        PUSH, __197_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000078BC
         
          #  _registeredCallbackReceivers = new UdonSharpBehaviour[0];
         PUSH, __0_const_intnl_SystemInt32
@@ -6970,10 +6977,10 @@
         COPY
         PUSH, __3_i_Int32
         PUSH, __0_callbackReceiverCount_Int32
-        PUSH, __199_intnl_SystemBoolean
+        PUSH, __198_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __199_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00007B48
+        PUSH, __198_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00007B88
         
          #  {
         
@@ -6989,10 +6996,10 @@
          #  if (callbackReceiver == currHandler)
         PUSH, __1_mp_callbackReceiver_UdonSharpBehaviour
         PUSH, __0_currHandler_UdonSharpBehaviour
-        PUSH, __200_intnl_SystemBoolean
+        PUSH, __199_intnl_SystemBoolean
         EXTERN, "UnityEngineObject.__op_Equality__UnityEngineObject_UnityEngineObject__SystemBoolean"
-        PUSH, __200_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00007B20
+        PUSH, __199_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00007B60
         
          #  {
         
@@ -7011,10 +7018,10 @@
         COPY
         PUSH, __2_j_Int32
         PUSH, __3_i_Int32
-        PUSH, __201_intnl_SystemBoolean
+        PUSH, __200_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __201_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00007A20
+        PUSH, __200_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00007A60
         
          #  newCallbackReceivers[j] = _registeredCallbackReceivers[j];
         PUSH, _registeredCallbackReceivers
@@ -7029,7 +7036,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __2_j_Int32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00007988
+        JUMP, 0x000079C8
         
          #  for (int j = i + 1; j < callbackReceiverCount; ++j)
         PUSH, __3_i_Int32
@@ -7038,10 +7045,10 @@
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
         PUSH, __2_j_Int32
         PUSH, __0_callbackReceiverCount_Int32
-        PUSH, __201_intnl_SystemBoolean
+        PUSH, __200_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __201_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00007AF8
+        PUSH, __200_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00007B38
         
          #  newCallbackReceivers[j - 1] = _registeredCallbackReceivers[j];
         PUSH, __2_j_Int32
@@ -7060,7 +7067,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __2_j_Int32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00007A40
+        JUMP, 0x00007A80
         
          #  _registeredCallbackReceivers = newCallbackReceivers;
         PUSH, __0_newCallbackReceivers_UdonSharpBehaviourArray
@@ -7075,7 +7082,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __3_i_Int32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x000078A8
+        JUMP, 0x000078E8
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
@@ -7097,10 +7104,10 @@
         EXTERN, "UnityEngineComponentArray.__get_Length__SystemInt32"
         PUSH, __74_intnl_SystemInt32
         PUSH, __75_intnl_SystemInt32
-        PUSH, __202_intnl_SystemBoolean
+        PUSH, __201_intnl_SystemBoolean
         EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
-        PUSH, __202_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00007C5C
+        PUSH, __201_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00007C9C
         PUSH, _registeredCallbackReceivers
         PUSH, __74_intnl_SystemInt32
         PUSH, __3_intnl_UdonSharpUdonSharpBehaviour
@@ -7113,10 +7120,10 @@
         
          #  if (Utilities.IsValid(callbackReceiver))
         PUSH, __0_callbackReceiver_UdonSharpBehaviour
-        PUSH, __203_intnl_SystemBoolean
+        PUSH, __202_intnl_SystemBoolean
         EXTERN, "VRCSDKBaseUtilities.__IsValid__SystemObject__SystemBoolean"
-        PUSH, __203_intnl_SystemBoolean
-        JUMP_IF_FALSE, 0x00007C34
+        PUSH, __202_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00007C74
         
          #  {
         
@@ -7128,7 +7135,7 @@
         PUSH, __2_const_intnl_SystemInt32
         PUSH, __74_intnl_SystemInt32
         EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
-        JUMP, 0x00007B90
+        JUMP, 0x00007BD0
         PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
         COPY
         JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
