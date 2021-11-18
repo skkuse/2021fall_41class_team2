@@ -1,0 +1,168 @@
+.data_start
+
+    .export toggleObject
+    .sync isObjectEnabled, none
+
+    __refl_const_intnl_udonTypeID: %SystemInt64, null
+    __refl_const_intnl_udonTypeName: %SystemString, null
+    toggleObject: %UnityEngineGameObject, null
+    isObjectEnabled: %SystemBoolean, null
+    __returnValue: %SystemObject, null
+    onOwnershipRequestNewOwner: %VRCSDKBaseVRCPlayerApi, null
+    onOwnershipRequestRequester: %VRCSDKBaseVRCPlayerApi, null
+    __0_this_intnl_UnityEngineGameObject: %UnityEngineGameObject, this
+    __0_this_intnl_UdonSharpExamplesUtilitiesMasterToggleObject: %VRCUdonUdonBehaviour, this
+    __0_mp_requestedOwner_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
+    __0_mp_requestingPlayer_VRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
+    __0_const_intnl_SystemUInt32: %SystemUInt32, null
+    __3_intnl_SystemBoolean: %SystemBoolean, null
+    __2_intnl_SystemBoolean: %SystemBoolean, null
+    __1_intnl_SystemBoolean: %SystemBoolean, null
+    __0_intnl_SystemBoolean: %SystemBoolean, null
+    __0_intnl_returnValSymbol_Boolean: %SystemBoolean, null
+    __0_intnl_returnTarget_UInt32: %SystemUInt32, null
+    __0_intnl_VRCSDKBaseVRCPlayerApi: %VRCSDKBaseVRCPlayerApi, null
+
+.data_end
+
+        
+         #  using UnityEngine;
+        
+         #  using VRC.SDKBase;
+        
+         #  namespace UdonSharp.Examples.Utilities
+        
+         #  [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
+        
+         #  public class MasterToggleObject : UdonSharpBehaviour
+.code_start
+        
+         #  public GameObject toggleObject;
+        
+         #  [UdonSynced]
+        
+         #  private void Start()
+    .export _start
+        
+    _start:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  isObjectEnabled = toggleObject.activeSelf;
+        PUSH, toggleObject
+        PUSH, isObjectEnabled
+        EXTERN, "UnityEngineGameObject.__get_activeSelf__SystemBoolean"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public override bool OnOwnershipRequest(VRCPlayerApi requestingPlayer, VRCPlayerApi requestedOwner)
+    .export _onOwnershipRequest
+        
+    _onOwnershipRequest:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        PUSH, onOwnershipRequestRequester
+        PUSH, __0_mp_requestingPlayer_VRCPlayerApi
+        COPY
+        PUSH, onOwnershipRequestNewOwner
+        PUSH, __0_mp_requestedOwner_VRCPlayerApi
+        COPY
+        
+         #  {
+        
+         #  return requestedOwner.isMaster;
+        PUSH, __0_mp_requestedOwner_VRCPlayerApi
+        PUSH, __0_intnl_returnValSymbol_Boolean
+        EXTERN, "VRCSDKBaseVRCPlayerApi.__get_isMaster__SystemBoolean"
+        PUSH, __0_intnl_returnValSymbol_Boolean
+        PUSH, __returnValue
+        COPY
+        PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public override void OnDeserialization()
+    .export _onDeserialization
+        
+    _onDeserialization:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  toggleObject.SetActive(isObjectEnabled);
+        PUSH, toggleObject
+        PUSH, isObjectEnabled
+        EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+        
+         #  public override void Interact()
+    .export _interact
+        
+    _interact:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  if (!Networking.IsMaster)
+        PUSH, __0_intnl_SystemBoolean
+        EXTERN, "VRCSDKBaseNetworking.__get_IsMaster__SystemBoolean"
+        PUSH, __0_intnl_SystemBoolean
+        PUSH, __1_intnl_SystemBoolean
+        EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
+        PUSH, __1_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x00000148
+        
+         #  return;
+        PUSH, __0_intnl_returnTarget_UInt32 # Explicit return sequence
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        JUMP, 0x000001B0
+        
+         #  else if (!Networking.IsOwner(gameObject)) // The object may have transfer ownership on collision checked which would allow people to take ownership by accident
+        PUSH, __0_this_intnl_UnityEngineGameObject
+        PUSH, __2_intnl_SystemBoolean
+        EXTERN, "VRCSDKBaseNetworking.__IsOwner__UnityEngineGameObject__SystemBoolean"
+        PUSH, __2_intnl_SystemBoolean
+        PUSH, __3_intnl_SystemBoolean
+        EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
+        PUSH, __3_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000001B0
+        
+         #  Networking.SetOwner(Networking.LocalPlayer, gameObject);
+        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi
+        EXTERN, "VRCSDKBaseNetworking.__get_LocalPlayer__VRCSDKBaseVRCPlayerApi"
+        PUSH, __0_intnl_VRCSDKBaseVRCPlayerApi
+        PUSH, __0_this_intnl_UnityEngineGameObject
+        EXTERN, "VRCSDKBaseNetworking.__SetOwner__VRCSDKBaseVRCPlayerApi_UnityEngineGameObject__SystemVoid"
+        
+         #  isObjectEnabled = !isObjectEnabled;
+        PUSH, isObjectEnabled
+        PUSH, isObjectEnabled
+        EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
+        
+         #  toggleObject.SetActive(isObjectEnabled);
+        PUSH, toggleObject
+        PUSH, isObjectEnabled
+        EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
+        
+         #  RequestSerialization();
+        PUSH, __0_this_intnl_UdonSharpExamplesUtilitiesMasterToggleObject
+        EXTERN, "VRCUdonCommonInterfacesIUdonEventReceiver.__RequestSerialization__SystemVoid"
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+.code_end

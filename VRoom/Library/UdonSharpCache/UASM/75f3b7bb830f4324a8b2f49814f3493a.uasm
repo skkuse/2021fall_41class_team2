@@ -1,0 +1,87 @@
+.data_start
+
+    .export toggleObjects
+
+    __refl_const_intnl_udonTypeID: %SystemInt64, null
+    __refl_const_intnl_udonTypeName: %SystemString, null
+    toggleObjects: %UnityEngineGameObjectArray, null
+    __0_toggleObject_GameObject: %UnityEngineGameObject, null
+    __1_const_intnl_SystemInt32: %SystemInt32, null
+    __0_const_intnl_SystemInt32: %SystemInt32, null
+    __1_const_intnl_SystemString: %SystemString, null
+    __0_const_intnl_SystemString: %SystemString, null
+    __0_const_intnl_SystemUInt32: %SystemUInt32, null
+    __2_intnl_SystemBoolean: %SystemBoolean, null
+    __1_intnl_SystemBoolean: %SystemBoolean, null
+    __0_intnl_SystemBoolean: %SystemBoolean, null
+    __1_intnl_SystemInt32: %SystemInt32, null
+    __0_intnl_SystemInt32: %SystemInt32, null
+    __0_intnl_returnTarget_UInt32: %SystemUInt32, null
+
+.data_end
+
+        
+         #  using UnityEngine;
+        
+         #  using VRC.SDK3.Components;
+        
+         #  namespace UdonSharp.Examples.Utilities
+        
+         #  [AddComponentMenu("Udon Sharp/Utilities/Interact Toggle")]
+        
+         #  [UdonBehaviourSyncMode(BehaviourSyncMode.NoVariableSync)]
+        
+         #  public class InteractToggle : UdonSharpBehaviour
+.code_start
+        
+         #  [Tooltip("List of objects to toggle on and off")]
+        
+         #  public override void Interact()
+    .export _interact
+        
+    _interact:
+        
+        PUSH, __0_const_intnl_SystemUInt32
+        
+         #  {
+        
+         #  foreach (GameObject toggleObject in toggleObjects)
+        PUSH, __0_const_intnl_SystemInt32
+        PUSH, __0_intnl_SystemInt32
+        COPY
+        PUSH, toggleObjects
+        PUSH, __1_intnl_SystemInt32
+        EXTERN, "UnityEngineGameObjectArray.__get_Length__SystemInt32"
+        PUSH, __0_intnl_SystemInt32
+        PUSH, __1_intnl_SystemInt32
+        PUSH, __0_intnl_SystemBoolean
+        EXTERN, "SystemInt32.__op_LessThan__SystemInt32_SystemInt32__SystemBoolean"
+        PUSH, __0_intnl_SystemBoolean
+        JUMP_IF_FALSE, 0x000000F4
+        PUSH, toggleObjects
+        PUSH, __0_intnl_SystemInt32
+        PUSH, __0_toggleObject_GameObject
+        EXTERN, "SystemObjectArray.__Get__SystemInt32__SystemObject"
+        
+         #  {
+        
+         #  toggleObject.SetActive(!toggleObject.activeSelf);
+        PUSH, __0_toggleObject_GameObject
+        PUSH, __1_intnl_SystemBoolean
+        EXTERN, "UnityEngineGameObject.__get_activeSelf__SystemBoolean"
+        PUSH, __1_intnl_SystemBoolean
+        PUSH, __2_intnl_SystemBoolean
+        EXTERN, "SystemBoolean.__op_UnaryNegation__SystemBoolean__SystemBoolean"
+        PUSH, __0_toggleObject_GameObject
+        PUSH, __2_intnl_SystemBoolean
+        EXTERN, "UnityEngineGameObject.__SetActive__SystemBoolean__SystemVoid"
+        PUSH, __0_intnl_SystemInt32
+        PUSH, __1_const_intnl_SystemInt32
+        PUSH, __0_intnl_SystemInt32
+        EXTERN, "SystemInt32.__op_Addition__SystemInt32_SystemInt32__SystemInt32"
+        JUMP, 0x00000034
+        PUSH, __0_intnl_returnTarget_UInt32 # Function epilogue
+        COPY
+        JUMP_INDIRECT, __0_intnl_returnTarget_UInt32
+        
+.code_end
