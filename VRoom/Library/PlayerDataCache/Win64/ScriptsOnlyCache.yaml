@@ -29,6 +29,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
     VRC.Udon.Editor.dll:
+    - VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UI.GraphView.UdonGraphWindow
     - VRC.Udon.Editor.ProgramSources.UdonGraphProgram.UdonGraphProgramAsset
     VRC.Udon.dll:
     - VRC.Udon.ProgramSources.SerializedUdonProgramAsset
@@ -94,61 +95,61 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11672}
+      Script: {instanceID: 11674}
     - Class: 114
-      Script: {instanceID: 11678}
+      Script: {instanceID: 11808}
     - Class: 114
-      Script: {instanceID: 11692}
+      Script: {instanceID: 12270}
     - Class: 114
-      Script: {instanceID: 11726}
+      Script: {instanceID: 12378}
     - Class: 114
-      Script: {instanceID: 12188}
+      Script: {instanceID: 12394}
     - Class: 114
-      Script: {instanceID: 12296}
+      Script: {instanceID: 12864}
     - Class: 114
-      Script: {instanceID: 12312}
-    - Class: 114
-      Script: {instanceID: 12782}
-    - Class: 114
-      Script: {instanceID: 12844}
-    - Class: 114
-      Script: {instanceID: 12846}
+      Script: {instanceID: 12926}
     - Class: 114
       Script: {instanceID: 12928}
     - Class: 114
-      Script: {instanceID: 12930}
+      Script: {instanceID: 13012}
     - Class: 114
-      Script: {instanceID: 12932}
+      Script: {instanceID: 13014}
     - Class: 114
-      Script: {instanceID: 12940}
+      Script: {instanceID: 13016}
     - Class: 114
-      Script: {instanceID: 12946}
+      Script: {instanceID: 13024}
     - Class: 114
-      Script: {instanceID: 12948}
+      Script: {instanceID: 13032}
     - Class: 114
-      Script: {instanceID: 12950}
+      Script: {instanceID: 13034}
     - Class: 114
-      Script: {instanceID: 12952}
+      Script: {instanceID: 13036}
     - Class: 114
-      Script: {instanceID: 12954}
+      Script: {instanceID: 13038}
     - Class: 114
-      Script: {instanceID: 12956}
+      Script: {instanceID: 13040}
     - Class: 114
-      Script: {instanceID: 13616}
+      Script: {instanceID: 13042}
     - Class: 114
-      Script: {instanceID: 13704}
+      Script: {instanceID: 13702}
     - Class: 114
-      Script: {instanceID: 13978}
+      Script: {instanceID: 13790}
     - Class: 114
-      Script: {instanceID: 14950}
+      Script: {instanceID: 14064}
     - Class: 114
-      Script: {instanceID: 15692}
+      Script: {instanceID: 14472}
     - Class: 114
-      Script: {instanceID: 15848}
+      Script: {instanceID: 15036}
     - Class: 114
-      Script: {instanceID: 16006}
+      Script: {instanceID: 15218}
     - Class: 114
-      Script: {instanceID: 16074}
+      Script: {instanceID: 15780}
+    - Class: 114
+      Script: {instanceID: 15936}
+    - Class: 114
+      Script: {instanceID: 16094}
+    - Class: 114
+      Script: {instanceID: 16162}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -170,22 +171,10 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: f64fd37da5cb89243ec68b5026d70bb8
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: InputField
-  - hash:
-      serializedVersion: 2
       Hash: aeb62f729c52c814dec86c47dcac1471
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Text
-  - hash:
-      serializedVersion: 2
-      Hash: ae83e830e7a90c0aff918c4c2e520825
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: GraphicRaycaster
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -308,10 +297,22 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: f64fd37da5cb89243ec68b5026d70bb8
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: InputField
+  - hash:
+      serializedVersion: 2
       Hash: 207b8173f8decab204d4c537bf911a71
     assemblyName: Assembly-CSharp.dll
     namespaceName: UdonSharp.Video.UI
     className: UIStyle
+  - hash:
+      serializedVersion: 2
+      Hash: ae83e830e7a90c0aff918c4c2e520825
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: GraphicRaycaster
   - hash:
       serializedVersion: 2
       Hash: 3ab84ce1f84fa32d5eaf55487a741b4d
@@ -339,4 +340,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/user/AppData/Local/Temp/DefaultCompany/VRoom/scene-standalonewindows64-samplescene.vrcw
+  playerPath: C:/Users/N750J/AppData/Local/Temp/DefaultCompany/VRoom/scene-standalonewindows64-samplescene.vrcw
