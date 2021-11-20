@@ -3,7 +3,6 @@ ScriptsOnlyBuild:
     Assembly-CSharp-Editor.dll:
     - VRCSdkControlPanel
     Assembly-CSharp.dll:
-    - Clock
     - UdonSharp.Video.UI.UIStyle
     - UdonSharp.Video.UI.UIStyleMarkup
     - UdonSharp.Video.UI.UIStyler
@@ -50,10 +49,8 @@ ScriptsOnlyBuild:
     - VRC.SDK3.Video.Components.AVPro.VRCAVProVideoScreen
     - VRC.SDK3.Video.Components.AVPro.VRCAVProVideoSpeaker
     - VRC.SDK3.Video.Components.VRCUnityVideoPlayer
-    VRCSDK3A.dll:
-    - VRC.SDK3.Avatars.Components.VRCStation
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/MainRoom.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -71,8 +68,6 @@ ScriptsOnlyBuild:
     - Class: 43
       Script: {instanceID: 0}
     - Class: 48
-      Script: {instanceID: 0}
-    - Class: 64
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
@@ -95,61 +90,57 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11674}
-    - Class: 114
-      Script: {instanceID: 11808}
-    - Class: 114
-      Script: {instanceID: 12270}
-    - Class: 114
-      Script: {instanceID: 12378}
-    - Class: 114
-      Script: {instanceID: 12394}
-    - Class: 114
-      Script: {instanceID: 12864}
-    - Class: 114
-      Script: {instanceID: 12926}
-    - Class: 114
-      Script: {instanceID: 12928}
-    - Class: 114
-      Script: {instanceID: 13012}
-    - Class: 114
-      Script: {instanceID: 13014}
-    - Class: 114
-      Script: {instanceID: 13016}
-    - Class: 114
-      Script: {instanceID: 13024}
-    - Class: 114
-      Script: {instanceID: 13032}
-    - Class: 114
-      Script: {instanceID: 13034}
-    - Class: 114
-      Script: {instanceID: 13036}
-    - Class: 114
-      Script: {instanceID: 13038}
-    - Class: 114
-      Script: {instanceID: 13040}
-    - Class: 114
-      Script: {instanceID: 13042}
-    - Class: 114
-      Script: {instanceID: 13702}
-    - Class: 114
       Script: {instanceID: 13790}
     - Class: 114
-      Script: {instanceID: 14064}
+      Script: {instanceID: 14170}
     - Class: 114
-      Script: {instanceID: 14472}
+      Script: {instanceID: 14248}
     - Class: 114
-      Script: {instanceID: 15036}
+      Script: {instanceID: 14354}
     - Class: 114
-      Script: {instanceID: 15218}
+      Script: {instanceID: 14370}
     - Class: 114
-      Script: {instanceID: 15780}
+      Script: {instanceID: 14826}
     - Class: 114
-      Script: {instanceID: 15936}
+      Script: {instanceID: 14884}
     - Class: 114
-      Script: {instanceID: 16094}
+      Script: {instanceID: 14886}
     - Class: 114
-      Script: {instanceID: 16162}
+      Script: {instanceID: 14968}
+    - Class: 114
+      Script: {instanceID: 14970}
+    - Class: 114
+      Script: {instanceID: 14972}
+    - Class: 114
+      Script: {instanceID: 14980}
+    - Class: 114
+      Script: {instanceID: 14988}
+    - Class: 114
+      Script: {instanceID: 14990}
+    - Class: 114
+      Script: {instanceID: 14992}
+    - Class: 114
+      Script: {instanceID: 14994}
+    - Class: 114
+      Script: {instanceID: 14996}
+    - Class: 114
+      Script: {instanceID: 14998}
+    - Class: 114
+      Script: {instanceID: 15646}
+    - Class: 114
+      Script: {instanceID: 16000}
+    - Class: 114
+      Script: {instanceID: 16392}
+    - Class: 114
+      Script: {instanceID: 16946}
+    - Class: 114
+      Script: {instanceID: 17126}
+    - Class: 114
+      Script: {instanceID: 17832}
+    - Class: 114
+      Script: {instanceID: 17990}
+    - Class: 114
+      Script: {instanceID: 18056}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -159,6 +150,8 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 208
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -171,16 +164,16 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: aeb62f729c52c814dec86c47dcac1471
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Text
-  - hash:
-      serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: aeb62f729c52c814dec86c47dcac1471
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Text
   - hash:
       serializedVersion: 2
       Hash: 89f9a1b4c64db9559e39f4a2e3bfaadd
@@ -285,12 +278,6 @@ ScriptsOnlyBuild:
     className: UdonBehaviour
   - hash:
       serializedVersion: 2
-      Hash: 7f9fad37fadafd79f80625e7955b2849
-    assemblyName: VRCSDK3A.dll
-    namespaceName: VRC.SDK3.Avatars.Components
-    className: VRCStation
-  - hash:
-      serializedVersion: 2
       Hash: 5f1752ed2092162f016c19510c28a8b9
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -315,12 +302,6 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 3ab84ce1f84fa32d5eaf55487a741b4d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Clock
-  - hash:
-      serializedVersion: 2
       Hash: a63fc1a3b035e5a0b5839cd7f7b3086e
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -339,5 +320,5 @@ ScriptsOnlyBuild:
     className: PipelineManager
   platform: 19
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/N750J/AppData/Local/Temp/DefaultCompany/VRoom/scene-standalonewindows64-samplescene.vrcw
+  - Assets/MainRoom.unity
+  playerPath: C:/Users/user/AppData/Local/Temp/DefaultCompany/VRoom/scene-standalonewindows64-mainroom.vrcw
