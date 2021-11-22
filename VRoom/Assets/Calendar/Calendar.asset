@@ -2344,8 +2344,8 @@ MonoBehaviour:
     updateOrder: 0
   graphElementData:
   - type: 5
-    uid: 22f8789e-20cc-4698-beae-9ba1696bfe55
-    jsonData: '{"visible":true,"layout":{"serializedVersion":"2","x":0.0,"y":280.0,"width":247.0,"height":153.0}}'
+    uid: 6617839b-f4d1-4564-8df3-657edd66e2ea
+    jsonData: '{"visible":true,"layout":{"serializedVersion":"2","x":0.0,"y":169.0,"width":214.0,"height":259.0}}'
   - type: 4
     uid: 418fc773-3e90-4d33-96a6-52db0087a54d
     jsonData: '{"visible":true,"layout":{"serializedVersion":"2","x":0.0,"y":71.0,"width":200.0,"height":100.0}}'
@@ -2523,7 +2523,7 @@ MonoBehaviour:
     jsonData: '{"uid":"a6745579-1266-467a-9446-9514e765754d","layout":{"serializedVersion":"2","x":3280.0,"y":670.0,"width":174.26116943359376,"height":40.0},"title":"Set
       Today","layer":0,"elementTypeColor":{"r":0.0,"g":0.0,"b":0.0,"a":0.0}}'
   viewTransform:
-    position: {x: -1166.4, y: -924.8}
-    scale: 0.65751624
+    position: {x: -1110.4, y: -128.8}
+    scale: 0.43232757
   version: 1.0.0
   showAssembly: 0
