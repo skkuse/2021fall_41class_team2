@@ -90,57 +90,57 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 13790}
+      Script: {instanceID: 13838}
     - Class: 114
-      Script: {instanceID: 14170}
+      Script: {instanceID: 14218}
     - Class: 114
-      Script: {instanceID: 14248}
+      Script: {instanceID: 14296}
     - Class: 114
-      Script: {instanceID: 14354}
+      Script: {instanceID: 14402}
     - Class: 114
-      Script: {instanceID: 14370}
+      Script: {instanceID: 14418}
     - Class: 114
-      Script: {instanceID: 14826}
+      Script: {instanceID: 14874}
     - Class: 114
-      Script: {instanceID: 14884}
+      Script: {instanceID: 14934}
     - Class: 114
-      Script: {instanceID: 14886}
+      Script: {instanceID: 14936}
     - Class: 114
-      Script: {instanceID: 14968}
+      Script: {instanceID: 15018}
     - Class: 114
-      Script: {instanceID: 14970}
+      Script: {instanceID: 15020}
     - Class: 114
-      Script: {instanceID: 14972}
+      Script: {instanceID: 15022}
     - Class: 114
-      Script: {instanceID: 14980}
+      Script: {instanceID: 15030}
     - Class: 114
-      Script: {instanceID: 14988}
+      Script: {instanceID: 15038}
     - Class: 114
-      Script: {instanceID: 14990}
+      Script: {instanceID: 15040}
     - Class: 114
-      Script: {instanceID: 14992}
+      Script: {instanceID: 15042}
     - Class: 114
-      Script: {instanceID: 14994}
+      Script: {instanceID: 15044}
     - Class: 114
-      Script: {instanceID: 14996}
+      Script: {instanceID: 15046}
     - Class: 114
-      Script: {instanceID: 14998}
+      Script: {instanceID: 15048}
     - Class: 114
-      Script: {instanceID: 15646}
+      Script: {instanceID: 15696}
     - Class: 114
-      Script: {instanceID: 16000}
+      Script: {instanceID: 16052}
     - Class: 114
-      Script: {instanceID: 16392}
+      Script: {instanceID: 16444}
     - Class: 114
-      Script: {instanceID: 16946}
+      Script: {instanceID: 16998}
     - Class: 114
-      Script: {instanceID: 17126}
+      Script: {instanceID: 17178}
     - Class: 114
-      Script: {instanceID: 17832}
+      Script: {instanceID: 17884}
     - Class: 114
-      Script: {instanceID: 17990}
+      Script: {instanceID: 18042}
     - Class: 114
-      Script: {instanceID: 18056}
+      Script: {instanceID: 18108}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -321,4 +321,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/MainRoom.unity
-  playerPath: C:/Users/user/AppData/Local/Temp/DefaultCompany/VRoom/scene-standalonewindows64-mainroom.vrcw
+  playerPath: C:/Users/N750J/AppData/Local/Temp/DefaultCompany/VRoom/scene-standalonewindows64-mainroom.vrcw
