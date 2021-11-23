@@ -141,7 +141,8 @@ namespace QvPen.UdonScript
         private RaycastHit tipRayCollider;
         private bool prevHit;
         private bool closeEnough = false;
-        private bool clickingToDraw = false;        
+        private bool clickingToDraw = false;
+        private bool validHit;
 
         [FieldChangeCallback(nameof(localPlayer))]
         private VRCPlayerApi _localPlayer;
@@ -234,15 +235,17 @@ namespace QvPen.UdonScript
             if (!isHeld || isPointerEnabled)
                 return;
             
-            Physics.Raycast(inkPosition.position, transform.forward, out tipRayCollider, Mathf.Infinity);
+            validHit = Physics.Raycast(
+                inkPosition.position, transform.forward, out tipRayCollider, Mathf.Infinity
+            );
             bool hit = tipRayCollider.distance <= 1.0f;
             if (!prevHit && hit) {
                 if (clickingToDraw && (currentState == StatePenIdle)) {   
                     var poses = new Vector3[100];
                     int len = trailRenderer.GetPositions(poses);
-                    for (int i = 0; i < len; i++)
-                        Debug.Log(poses[i]);
-                    Debug.Log("Activated Pen in Update");
+                    // for (int i = 0; i < len; i++)
+                    //     Debug.Log(poses[i]);
+                    // Debug.Log("Activated Pen in Update");
                     SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenUsing));
                 }
                 closeEnough = true;
@@ -260,15 +263,17 @@ namespace QvPen.UdonScript
                 return;
 
             if (isUser) {
-                // Vector3 objectNorm = tipRayCollider.collider.gameObject.transform.forward;
-                Vector3 delta = (tipRayCollider.collider != null) ? 
+                // Vector3 objectNorm = tipRayCollider.collider.gameObject.transform.forward;                
+                if (validHit) {
+                    Vector3 delta = (tipRayCollider.collider != null) ? 
                     tipRayCollider.collider.gameObject.transform.forward * 0.001f : new Vector3(0, 0, 0);
-                Vector3 tipPos = Vector3.Lerp(
-                    trailRenderer.transform.position, tipRayCollider.point + delta, Time.deltaTime * followSpeed
-                );
-                trailRenderer.transform.SetPositionAndRotation(tipPos, new Quaternion(0, 0, 0, 0));
+                    Vector3 tipPos = Vector3.Lerp(
+                        trailRenderer.transform.position, tipRayCollider.point + delta, Time.deltaTime * followSpeed
+                    );
+                    trailRenderer.transform.SetPositionAndRotation(tipPos, new Quaternion(0, 0, 0, 0));
+                }
             } else {
-                Debug.Log("############### Someone else is using the pen ###################");
+                // Debug.Log("############### Someone else is using the pen ###################");
                 trailRenderer.transform.SetPositionAndRotation(inkPosition.position, inkPosition.rotation);
             }
         }
@@ -423,7 +428,7 @@ namespace QvPen.UdonScript
                     case StatePenIdle:
                     {
                         if (closeEnough) {
-                            Debug.Log("Activate Pen in Down");
+                            // Debug.Log("Activate Pen in Down");
                             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenUsing));
                         }
                         clickingToDraw = true;
