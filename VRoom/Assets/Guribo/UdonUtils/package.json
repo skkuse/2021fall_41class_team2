@@ -1,0 +1,15 @@
+{
+  "name": "guribo.udonutils",
+  "displayName": "Guribo UdonUtils",
+  "version": "0.0.5",
+  "unity": "2019.4",
+  "keywords": [],
+  "description": "Prefabs and examples that speed up development of Udon based VRChat worlds. Includes script commonly used network scripts, math functions, editor utilities and test skeletons.",
+  "dependencies": {},
+  "relatedPackages": {},
+  "repository": {
+    "url": "https://github.com/Guribo/GuriboUdonUtils.git",
+    "type": "git"
+  },
+  "hideInEditor": false
+}
