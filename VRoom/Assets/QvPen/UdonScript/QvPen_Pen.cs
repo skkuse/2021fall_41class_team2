@@ -138,7 +138,7 @@ namespace QvPen.UdonScript
         private float inkWidth;
 
         // Collider that pen ray hits 
-        private RaycastHit tipRayCollider;
+        private RaycastHit tipRayHit;
         private bool prevHit;
         private bool closeEnough = false;
         private bool clickingToDraw = false;
@@ -236,9 +236,9 @@ namespace QvPen.UdonScript
                 return;
             
             validHit = Physics.Raycast(
-                inkPosition.position, transform.forward, out tipRayCollider, Mathf.Infinity
+                inkPosition.position, transform.forward, out tipRayHit, Mathf.Infinity
             );
-            bool hit = tipRayCollider.distance <= 1.0f;
+            bool hit = tipRayHit.distance <= 1.0f;
             if (!prevHit && hit) {
                 if (clickingToDraw && (currentState == StatePenIdle)) {   
                     var poses = new Vector3[100];
@@ -263,12 +263,12 @@ namespace QvPen.UdonScript
                 return;
 
             if (isUser) {
-                // Vector3 objectNorm = tipRayCollider.collider.gameObject.transform.forward;                
+                // Vector3 objectNorm = tipRayHit.collider.gameObject.transform.forward;                
                 if (validHit) {
-                    Vector3 delta = (tipRayCollider.collider != null) ? 
-                    tipRayCollider.collider.gameObject.transform.forward * 0.001f : new Vector3(0, 0, 0);
+                    Vector3 delta = (tipRayHit.collider != null) ? 
+                        tipRayHit.normal * 0.001f : new Vector3(0, 0, 0);
                     Vector3 tipPos = Vector3.Lerp(
-                        trailRenderer.transform.position, tipRayCollider.point + delta, Time.deltaTime * followSpeed
+                        trailRenderer.transform.position, tipRayHit.point + delta, Time.deltaTime * followSpeed
                     );
                     trailRenderer.transform.SetPositionAndRotation(tipPos, new Quaternion(0, 0, 0, 0));
                 }

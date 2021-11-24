@@ -3029,7 +3029,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: tipRayCollider
+      Data: tipRayHit
     - Name: $v
       Entry: 7
       Data: 181|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
@@ -3056,10 +3056,10 @@ MonoBehaviour:
       Data: UnityEngineRaycastHit
     - Name: symbolOriginalName
       Entry: 1
-      Data: tipRayCollider
+      Data: tipRayHit
     - Name: symbolUniqueName
       Entry: 1
-      Data: tipRayCollider
+      Data: tipRayHit
     - Name: symbolDefaultValue
       Entry: 6
       Data: 
