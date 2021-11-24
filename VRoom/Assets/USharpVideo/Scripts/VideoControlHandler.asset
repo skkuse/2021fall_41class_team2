@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: VideoControlHandler
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 54d3946f3ab4ad84dac8fba3e852dc6c,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 4e3c1a7a2a5052942aaecb05dc099446,
     type: 2}
   udonAssembly: 
   assemblyError: 
