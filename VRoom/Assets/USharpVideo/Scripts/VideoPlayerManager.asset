@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: VideoPlayerManager
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 936820ae91b192249a9b918f29ca5195,
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 34e2c8e837b63f44b990969a3bbba9fc,
     type: 2}
   udonAssembly: 
   assemblyError: 
