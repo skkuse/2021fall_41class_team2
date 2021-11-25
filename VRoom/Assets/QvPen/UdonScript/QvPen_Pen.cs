@@ -25,6 +25,8 @@ namespace QvPen.UdonScript
         private Transform inkPosition;
         [SerializeField]
         private Transform inkPoolRoot;
+        [SerializeField]
+        private GameObject cursor;
         [System.NonSerialized]
         public Transform inkPool;
         [System.NonSerialized]
@@ -96,7 +98,7 @@ namespace QvPen.UdonScript
 
         // Double click
         private bool useDoubleClick = true;
-        private const float clickTimeInterval = 0.2184f;
+        private const float clickTimeInterval = 0.3184f;
         private float prevClickTime;
         private readonly float clickPosInterval = (Vector3.one * 0.00552f).sqrMagnitude;
         private Vector3 prevClickPos;
@@ -142,7 +144,7 @@ namespace QvPen.UdonScript
         private bool prevHit;
         private bool closeEnough = false;
         private bool clickingToDraw = false;
-        private bool validHit;
+        private bool anyHit;
 
         [FieldChangeCallback(nameof(localPlayer))]
         private VRCPlayerApi _localPlayer;
@@ -232,29 +234,35 @@ namespace QvPen.UdonScript
 
         private void Update()
         {
-            if (!isHeld || isPointerEnabled)
+            if (!isHeld)
                 return;
             
-            validHit = Physics.Raycast(
+            anyHit = Physics.Raycast(
                 inkPosition.position, transform.forward, out tipRayHit, Mathf.Infinity
             );
-            bool hit = tipRayHit.distance <= 1.0f;
-            if (!prevHit && hit) {
+            bool closeHit = tipRayHit.distance <= 1.0f;
+
+            if (closeHit)
+                cursor.transform.position = tipRayHit.point;
+
+            if (isPointerEnabled)
+                return;
+                
+            if (!prevHit && closeHit) {
                 if (clickingToDraw && (currentState == StatePenIdle)) {   
                     var poses = new Vector3[100];
                     int len = trailRenderer.GetPositions(poses);
-                    // for (int i = 0; i < len; i++)
-                    //     Debug.Log(poses[i]);
-                    // Debug.Log("Activated Pen in Update");
                     SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenUsing));
                 }
+                cursor.SetActive(true);
                 closeEnough = true;
-            } else if (prevHit && !hit) {
+            } else if (prevHit && !closeHit) {
                 if (currentState == StatePenUsing)
                     SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
+                cursor.SetActive(false);
                 closeEnough = false;
             }
-            prevHit = hit;
+            prevHit = closeHit;
         }
 
         private void LateUpdate()
@@ -262,9 +270,8 @@ namespace QvPen.UdonScript
             if (!isHeld || isPointerEnabled)
                 return;
 
-            if (isUser) {
-                // Vector3 objectNorm = tipRayHit.collider.gameObject.transform.forward;                
-                if (validHit) {
+            if (isUser) {               
+                if (anyHit) {
                     Vector3 delta = (tipRayHit.collider != null) ? 
                         tipRayHit.normal * 0.001f : new Vector3(0, 0, 0);
                     Vector3 tipPos = Vector3.Lerp(
@@ -273,7 +280,6 @@ namespace QvPen.UdonScript
                     trailRenderer.transform.SetPositionAndRotation(tipPos, new Quaternion(0, 0, 0, 0));
                 }
             } else {
-                // Debug.Log("############### Someone else is using the pen ###################");
                 trailRenderer.transform.SetPositionAndRotation(inkPosition.position, inkPosition.rotation);
             }
         }
@@ -323,9 +329,12 @@ namespace QvPen.UdonScript
         public override void PostLateUpdate()
         {
             if (!isHeld || !isPointerEnabled || !isUser)
-                return;
+                return;            
 
-            var count = Physics.OverlapSphereNonAlloc(pointer.position, pointerRadius, results, 1 << inkColliderLayer, QueryTriggerInteraction.Ignore);
+            var count = Physics.OverlapSphereNonAlloc(
+                tipRayHit.point, pointerRadius, results, 
+                1 << inkColliderLayer, QueryTriggerInteraction.Ignore
+            );
             for (var i = 0; i < count; i++)
             {
                 var other = results[i];
