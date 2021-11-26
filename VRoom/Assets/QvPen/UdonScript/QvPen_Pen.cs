@@ -270,17 +270,24 @@ namespace QvPen.UdonScript
             if (!isHeld || isPointerEnabled)
                 return;
 
-            if (isUser) {               
-                if (anyHit) {
-                    Vector3 delta = (tipRayHit.collider != null) ? 
-                        tipRayHit.normal * 0.001f : new Vector3(0, 0, 0);
+            Vector3 delta = (tipRayHit.collider != null) ? 
+                tipRayHit.normal * 0.001f : new Vector3(0, 0, 0);
+            
+            if (isUser) {
+                if (anyHit) {                    
                     Vector3 tipPos = Vector3.Lerp(
-                        trailRenderer.transform.position, tipRayHit.point + delta, Time.deltaTime * followSpeed
+                        trailRenderer.transform.position, 
+                        tipRayHit.point + delta, 
+                        Time.deltaTime * followSpeed
                     );
-                    trailRenderer.transform.SetPositionAndRotation(tipPos, new Quaternion(0, 0, 0, 0));
+                    trailRenderer.transform.SetPositionAndRotation(
+                        tipPos, new Quaternion(0, 0, 0, 0)
+                    );
                 }
             } else {
-                trailRenderer.transform.SetPositionAndRotation(inkPosition.position, inkPosition.rotation);
+                trailRenderer.transform.SetPositionAndRotation(
+                    tipRayHit.point + delta, new Quaternion(0, 0, 0, 0)
+                );
             }
         }
 
