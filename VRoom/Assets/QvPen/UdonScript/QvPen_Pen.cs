@@ -244,22 +244,25 @@ namespace QvPen.UdonScript
 
             if (closeHit)
                 cursor.transform.position = tipRayHit.point;
-
-            if (isPointerEnabled)
-                return;
                 
             if (!prevHit && closeHit) {
+                cursor.SetActive(true);
+                if (isPointerEnabled)
+                    return;
+                
                 if (clickingToDraw && (currentState == StatePenIdle)) {   
                     var poses = new Vector3[100];
                     int len = trailRenderer.GetPositions(poses);
                     SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenUsing));
                 }
-                cursor.SetActive(true);
                 closeEnough = true;
+
             } else if (prevHit && !closeHit) {
+                cursor.SetActive(false);
+                if (isPointerEnabled)
+                    return;
                 if (currentState == StatePenUsing)
                     SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
-                cursor.SetActive(false);
                 closeEnough = false;
             }
             prevHit = closeHit;
@@ -271,8 +274,19 @@ namespace QvPen.UdonScript
                 return;
 
             Vector3 delta = (tipRayHit.collider != null) ? 
-                tipRayHit.normal * 0.001f : new Vector3(0, 0, 0);
+                tipRayHit.normal * 0.02f : new Vector3(0, 0, 0);
             
+            if (anyHit) {
+                Vector3 tipPos = Vector3.Lerp(
+                    trailRenderer.transform.position, 
+                    tipRayHit.point + delta, 
+                    Time.deltaTime * followSpeed
+                );
+                trailRenderer.transform.SetPositionAndRotation(
+                    tipPos, new Quaternion(0, 0, 0, 0)
+                );
+            }
+/*            
             if (isUser) {
                 if (anyHit) {                    
                     Vector3 tipPos = Vector3.Lerp(
@@ -289,6 +303,7 @@ namespace QvPen.UdonScript
                     tipRayHit.point + delta, new Quaternion(0, 0, 0, 0)
                 );
             }
+*/           
         }
 
         public bool _CheckId(Vector3 idVector) => idVector == penIdVector;
