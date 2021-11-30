@@ -632,7 +632,7 @@ MonoBehaviour:
         stringValue: 
       - unityObjectValue: {fileID: 0}
         stringValue: VRC.Udon.Common.Interfaces.NetworkEventTarget, VRC.Udon.Common,
-          Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|Owner
+          Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|All
       - unityObjectValue: {fileID: 0}
         stringValue: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|MonthDecrease
     - fullName: VRCUdonCommonInterfacesIUdonEventReceiver.__SendCustomNetworkEvent__VRCUdonCommonInterfacesNetworkEventTarget_SystemString__SystemVoid
@@ -648,7 +648,7 @@ MonoBehaviour:
         stringValue: 
       - unityObjectValue: {fileID: 0}
         stringValue: VRC.Udon.Common.Interfaces.NetworkEventTarget, VRC.Udon.Common,
-          Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|Owner
+          Version=1.0.0.0, Culture=neutral, PublicKeyToken=null|All
       - unityObjectValue: {fileID: 0}
         stringValue: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|MonthIncrease
     - fullName: Const_SystemInt32
@@ -2533,7 +2533,7 @@ MonoBehaviour:
     jsonData: '{"uid":"a6745579-1266-467a-9446-9514e765754d","layout":{"serializedVersion":"2","x":3280.0,"y":670.0,"width":174.26116943359376,"height":40.0},"title":"Set
       Today","layer":0,"elementTypeColor":{"r":0.0,"g":0.0,"b":0.0,"a":0.0}}'
   viewTransform:
-    position: {x: 118.4, y: 703.2}
-    scale: 1
+    position: {x: 272.8, y: 624.8}
+    scale: 0.2842624
   version: 1.0.0
   showAssembly: 0
