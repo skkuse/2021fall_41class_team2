@@ -50,6 +50,12 @@ PrefabInstance:
       propertyPath: publicVariablesUnityEngineObjects.Array.data[2]
       value: 
       objectReference: {fileID: 3277690005653271082}
+    - target: {fileID: 685397315190986680, guid: 14e5849604d73b544b29ed7ab85cc44b,
+        type: 3}
+      propertyPath: serializedProgramAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: f24feb25f8672482ab3705d7846d7bbf,
+        type: 2}
     - target: {fileID: 1879376347537824900, guid: 14e5849604d73b544b29ed7ab85cc44b,
         type: 3}
       propertyPath: serializationData.Prefab
@@ -421,8 +427,7 @@ PrefabInstance:
         type: 3}
       propertyPath: serializedProgramAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 38b8d3d02ad23bd468e0c49452e108cb,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6181499894661440422, guid: 14e5849604d73b544b29ed7ab85cc44b,
         type: 3}
       propertyPath: serializationData.Prefab
