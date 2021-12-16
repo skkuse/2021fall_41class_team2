@@ -240,15 +240,19 @@ namespace QvPen.UdonScript
             anyHit = Physics.Raycast(
                 inkPosition.position, transform.forward, out tipRayHit, Mathf.Infinity
             );
-            bool closeHit = tipRayHit.distance <= 1.0f;
+            bool closeHit = tipRayHit.distance <= 1.0f &&  tipRayHit.collider && 
+                (tipRayHit.collider.name.Contains("Wall") || tipRayHit.collider.name.Contains("Cal"));
 
             if (closeHit)
                 cursor.transform.position = tipRayHit.point;
                 
             if (!prevHit && closeHit) {
+                // Debug.Log("prevHit: " + prevHit + " closeHit: " + closeHit);
                 cursor.SetActive(true);
-                if (isPointerEnabled)
+                if (isPointerEnabled) {
+                    prevHit = closeHit;
                     return;
+                }
                 
                 if (clickingToDraw && (currentState == StatePenIdle)) {   
                     var poses = new Vector3[100];
@@ -259,8 +263,10 @@ namespace QvPen.UdonScript
 
             } else if (prevHit && !closeHit) {
                 cursor.SetActive(false);
-                if (isPointerEnabled)
+                if (isPointerEnabled) {
+                    prevHit = closeHit;
                     return;
+                }
                 if (currentState == StatePenUsing)
                     SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
                 closeEnough = false;
@@ -420,6 +426,8 @@ namespace QvPen.UdonScript
             SendCustomNetworkEvent(NetworkEventTarget.All, nameof(ChangeStateToPenIdle));
 
             manager._ClearSyncBuffer();
+
+            cursor.SetActive(false);
         }
 
         public override void OnPickupUseDown()
